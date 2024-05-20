@@ -3,7 +3,7 @@ const mongoose=require("mongoose")
 const likeModel=require("./models.like")
 
 const moviesSchema=mongoose.Schema({
-    movieId:{
+    _id:{
         type:Number,
         require:true
     },
@@ -12,9 +12,10 @@ const moviesSchema=mongoose.Schema({
     moviesPosterUrl:String,
     movieCast:[String],
     like:{
-        type:[likeModel]
-    }
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'likeModel'
+        }
 })
 
-const MovieModel=mongoose.model("Movie",moviesSchemaSchema)
+const MovieModel=mongoose.model("Movie",moviesSchema)
 module.exports=MovieModel

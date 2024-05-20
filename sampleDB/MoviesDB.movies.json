@@ -1,0 +1,14 @@
+[{
+  "_id": 2,
+  "movieName": "Interstellar",
+  "movieUrl": "https://example.com/interstellar",
+  "moviesPosterUrl": "https://example.com/interstellar-poster.jpg",
+  "movieCast": [
+    "Matthew McConaughey",
+    "Anne Hathaway",
+    "Jessica Chastain"
+  ],
+  "like": {
+    "$oid": "664b899e808c72e66492b236"
+  }
+}]

@@ -2,6 +2,7 @@ const RegisterModel=require("../models/models.UserModel")
 
 async function saveUser(req,res){
     try{
+        console.log(req.body)
         const {id,username,password,name,email,phone}=req.body
         const register =await RegisterModel.create({
             _id:id,
