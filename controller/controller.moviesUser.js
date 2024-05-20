@@ -2,9 +2,9 @@ const axios=require("axios")
 async function getAllMovies(req,res){
     try{
         //res.json({message:"Fetching all Movies"})
-        const movies=await fetch("https://freetestapi.com/api/v1/movies")
-        .then((response)=>response.json())
-        .then((data)=>res.send(data))
+        const movies=await fetch("http://freetestapi.com/api/v1/movies")
+        const data=await movies.json()
+        console.log(data)
     }
     catch(err){
         console.log(err)
