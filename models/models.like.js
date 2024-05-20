@@ -1,7 +1,7 @@
 const mongoose=require("mongoose")
 const userModel=require("../models/models.UserModel")
 
-const likeModel=mongoose.Schema({
+const likeSchema=mongoose.Schema({
     Id:{
         type:Number,
         require:true
@@ -11,3 +11,5 @@ const likeModel=mongoose.Schema({
         type:[userModel]
     }
 })
+const LikesModel=mongoose.model("Like",likeSchema)
+module.exports=LikesModel
