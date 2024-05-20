@@ -1,14 +1,24 @@
-const axios=require("axios")
+const MovieModel=require("../models/models.movies")
 async function getAllMovies(req,res){
     try{
-        //res.json({message:"Fetching all Movies"})
-        const movies=await fetch("http://freetestapi.com/api/v1/movies")
-        const data=await movies.json()
-        console.log(data)
+        const movies=await MovieModel.find({})
+        res.status(200).json(users)
     }
     catch(err){
-        console.log(err)
-        res.status(500).json({message:"Problem occured while Fetching movies"})
+        res.status(500).json({message:"Error in getting movie details"})
     }
 }
-module.exports={getAllMovies}
+async function getMovie(req,res){
+    try{
+        const {id}=req.params;
+        const movie=MovieModel.find(id);
+        if(!movie){
+            res.status(404).json({message:"Movie NOT found"})
+        }
+        else res.status(200).json(movie);
+    }
+    catch(err){
+        res.status(500).json({message:"Error in getting movie details"})
+    }
+}
+module.exports={getAllMovies,getMovie}
