@@ -1,10 +1,10 @@
-const {RegisterModel}=require("../models/models.UserModel")
+const {userModel}=require("../models/models.UserModel")
 
 async function saveUser(req,res){
     try{
         console.log(req.body)
         const {id,username,password,name,email,phone}=req.body
-        const register =await RegisterModel.create({
+        const register =await userModel.create({
             _id:id,
             username:username,
             password:password,
@@ -23,7 +23,7 @@ async function saveUser(req,res){
 
 async function checkUser(req,res){
     try{
-        const user=await RegisterModel.findOne({email:req.body.email})
+        const user=await userModel.findOne({email:req.body.email})
         if(user){
             const result=req.body.password==user.password;
             if(result){

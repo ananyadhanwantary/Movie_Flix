@@ -1,8 +1,8 @@
-const registerModel=require("../models/models.UserModel")
+const {userModel}=require("../models/models.UserModel")
 
 async function getAllUser(req,res){
     try{
-        const users=await registerModel.find({})
+        const users=await userModel.find({})
         res.status(200).json(users)
     }
     catch(err){
@@ -13,7 +13,7 @@ async function getAllUser(req,res){
 async function deleteUser(req,res){
     try{
         const {id}=req.params
-        const user=await registerModel.findByIdAndDelete(id)
+        const user=await userModel.findByIdAndDelete(id)
         if(!user){
             res.status(404).json({message:"User NOT found"})
         }
@@ -27,12 +27,12 @@ async function deleteUser(req,res){
 async function userEdit(req,res){
     try{
         const {id}=req.params
-        const user=await registerModel.findByIdAndUpdate(id,req.body)
+        const user=await userModel.findByIdAndUpdate(id,req.body)
         if(!user){
             res.status(404).json({message:"user DOES NOT exits"})
         }
         else{
-            const updatedUser=await registerModel.findById(user)
+            const updatedUser=await userModel.findById(user)
             res.status(200).json(updatedUser)
         }
 

@@ -1,8 +1,5 @@
 const MovieModel=require("../models/models.movies")
-const LikesModel = require("../models/models.like")
-const {RegisterModel:userModel} = require("../models/models.UserModel")
-const {checkUser}=require("../controller/controller.RegisterLogin")
-const mongoose = require("mongoose")
+const {userModel} = require("../models/models.UserModel")
 
 async function getAllMovies(req,res){
     try{
@@ -74,10 +71,23 @@ async function removeLike(req,res){
     }
     catch(err){
         console.log(err)
-        res.status(500).json({message:"Error in liking movie"})
+        res.status(500).json({message:"Error in disliking movie"})
     }
 }
 
+async function getLikeCount(req,res){
+    try{
+        const movieId=parseInt(req.params.id)
+        const movie = await MovieModel.findById(movieId);
+        if (!movie) {
+          console.log('Movie not found');
+        }
+        res.send(movie.like.noOfLikes)
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in getting like count"})
+    }
+}
 
-
-module.exports={getAllMovies,getMovie,addLike, removeLike}
+module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount}

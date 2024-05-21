@@ -1,5 +1,4 @@
 const MovieModel=require("../models/models.movies")
-const LikesModel = require("../models/models.like")
 
 async function addMovie(req,res){
     try{
