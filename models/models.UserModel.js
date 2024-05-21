@@ -19,5 +19,5 @@ const userSchema=mongoose.Schema({
     active:Boolean
 })
 
-const userModel=mongoose.model("Users",RegisterSchema)
+const userModel=mongoose.model("users",userSchema)
 module.exports={userModel,userSchema}
