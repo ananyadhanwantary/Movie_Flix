@@ -1,0 +1,10 @@
+[{
+  "_id": 20,
+  "email": "kodm@624gmail",
+  "password": "akhira@624",
+  "username": "akhira",
+  "phone": {
+    "$numberLong": "7894561230"
+  },
+  "__v": 0
+}]

@@ -2,6 +2,7 @@ const RegisterModel=require("../models/models.UserModel")
 
 async function saveUser(req,res){
     try{
+        console.log(req.body)
         const {id,username,password,name,email,phone}=req.body
         const register =await RegisterModel.create({
             _id:id,
@@ -40,5 +41,6 @@ async function checkUser(req,res){
     catch(err){
         res.status(500).json({message:"Error while logging in"})
     }
+    return user.id
 }
 module.exports={saveUser,checkUser}

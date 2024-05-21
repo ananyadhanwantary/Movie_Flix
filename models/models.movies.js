@@ -3,17 +3,18 @@ const mongoose=require("mongoose")
 const likeModel=require("./models.like")
 
 const moviesSchema=mongoose.Schema({
-    movieId:{
+    _id:{
         type:Number,
         require:true
     },
     movieName:String,
     movieUrl:String,
-    moviesPosterUrl:String,
+    moviePosterUrl:String,
     movieCast:[String],
     like:{
-        type: mongoose.Schema.Types.ObjectId, ref: 'likeModel'
-    }
+            type: mongoose.Schema.Types.Array,
+            ref: 'likeModel'
+        }
 })
 
 const MovieModel=mongoose.model("Movie",moviesSchema)
