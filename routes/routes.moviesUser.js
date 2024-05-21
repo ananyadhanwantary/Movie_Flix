@@ -6,6 +6,6 @@ const routes=express.Router()
 
 routes.get("/",getAllMovies)
 routes.get("/:id",getMovie)
-routes.post("/like/:id",addLike)
+routes.put("/like/:id",addLike)
 
 module.exports=routes

@@ -62,7 +62,7 @@ async function getMovie(req,res){
 //         // const userId = req.body.userId; // Assuming the user ID is passed in the request body
 
 //         // Find the movie by ID
-//         const movie = await MovieModel.findById(movieId).populate('like');
+//         const movie = await MovieModel.findById(movieId);
 //         if (!movie) {
 //             return res.status(404).json({ message: "Movie NOT found" });
 //         }
@@ -71,6 +71,7 @@ async function getMovie(req,res){
 //         let like;
 //         if (movie.like) {
 //             like = await LikesModel.findById(movie.like._id);
+//             console.log(like)
 //             like.noOfLikes += 1;
 //             // if (!like.likeduser.includes(userId)) {
 //             //     like.likeduser.push(userId);
@@ -97,9 +98,18 @@ async function getMovie(req,res){
 
 async function addLike(req,res){
     try{
-        const {id}=req.param
-        const movie=MovieModel.find({_id:1},{like:1})
-        console.log(movie)
+        const movieId=parseInt(req.params.id)
+        const movie = await MovieModel.findById(movieId);
+        console.log(movie.like[0].noOfLikes)
+        // res.json(movie)
+        if (!movie) {
+          console.log('Movie not found');
+        }
+        currentLikes=movie.like[0].noOfLikes+1
+        console.log(currentLikes)
+        const updatedLike = await MovieModel.findOneAndUpdate({_id:movieId},{"movie.like[0].noOfLikes": currentLikes},{new:true});
+        const update=await MovieModel.findById(movieId)
+        res.json(update)
     }
     catch(err){
         console.log(err)
