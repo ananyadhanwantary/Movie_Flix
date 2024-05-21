@@ -8,6 +8,9 @@ const likeModel=mongoose.Schema({
     },
     noOfLikes:Number,
     likeduser:{
-        type:[userModel]
+        type: mongoose.Schema.Types.ObjectId, ref: 'userModel'
     }
 })
+
+const Likesmodel=mongoose.model("Like",likeModel)
+module.exports=Likesmodel

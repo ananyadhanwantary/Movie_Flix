@@ -12,8 +12,9 @@ const moviesSchema=mongoose.Schema({
     moviesPosterUrl:String,
     movieCast:[String],
     like:{
-        type:[likeModel]
+        type: mongoose.Schema.Types.ObjectId, ref: 'likeModel'
     }
 })
 
-const movieModel=mongoose.model("Movie",moviesSchema)
+const MovieModel=mongoose.model("Movie",moviesSchema)
+module.exports=MovieModel
