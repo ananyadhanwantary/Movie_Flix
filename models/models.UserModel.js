@@ -20,4 +20,4 @@ const RegisterSchema=mongoose.Schema({
 })
 
 const RegisterModel=mongoose.model("register",RegisterSchema)
-module.exports=RegisterModel
+module.exports={RegisterModel,RegisterSchema}

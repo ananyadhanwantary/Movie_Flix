@@ -4,17 +4,18 @@ const LikesModel = require("../models/models.like")
 async function addMovie(req,res){
     try{
         const{movieId,movieName, movieUrl,moviePosterUrl,movieCast}=req.body
+
         const movie=await MovieModel.create({
             _id:movieId,
             movieName:movieName, 
             movieUrl:movieUrl,
             moviePosterUrl:moviePosterUrl,
             movieCast:movieCast,
-            like:[{
+            like:{
                 _id:movieId,
                 noOfLikes:0,
-                likesUser:[{}]
-            }]
+                likedUsers:[]
+            }
         })
         res.status(200).json(movie)
     }

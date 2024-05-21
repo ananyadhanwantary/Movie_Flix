@@ -1,4 +1,4 @@
-const RegisterModel=require("../models/models.UserModel")
+const {RegisterModel}=require("../models/models.UserModel")
 
 async function saveUser(req,res){
     try{
