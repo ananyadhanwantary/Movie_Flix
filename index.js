@@ -4,6 +4,7 @@ const RegisterRoutes=require("./routes/routes.RegisterLogin")
 const movieAdminRoutes=require("./routes/routes.movieAdmin")
 const adminUserRoutes=require("./routes/routes.adminUser")
 const movieUserRoutes=require("./routes/routes.moviesUser")
+const signup=require('./routes/routes.AuthRoute.js')
 const mongoose=require("mongoose")
 require("dotenv").config()
 
@@ -20,7 +21,7 @@ mongoose.connect(uri)
 app.use(bodyParser.json())
 app.use("/api/",RegisterRoutes)
 app.use("/api/movie/",movieUserRoutes)
-
+app.use("/api/signup/",signup)
 app.use("/api/admin/movie/",movieAdminRoutes)
 app.use("/api/admin/",adminUserRoutes)
 
