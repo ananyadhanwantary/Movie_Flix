@@ -58,7 +58,7 @@ async function removeLike(req,res){
         }
         movie.like.noOfLikes = movie.like.noOfLikes-1
         try{
-            var userId=parseInt(req.body.id)
+            var userId=req.userId;
             var user =await userModel.findById(userId)
             var ind = movie.like.likeduser.indexOf(user)
             if(ind)
@@ -93,8 +93,7 @@ async function getLikeCount(req,res){
 }
 
 const userVerification = (req, res,next) => {
-    console.log(req.cookie)
-    const token = req.cookie.token
+    const token = req.cookies.token
     if (!token) {
         return res.json({ status: false })
     }

@@ -39,10 +39,11 @@ const CheckUser = async (req, res) => {
       return res.json({message:'Incorrect password or email' }) 
     }
     const token = createSecretToken(user._id);
-    res.cookie("token", token, {
+    await res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
     });
+    console.log(res.cookie)
     res.status(201).json({ message: "User logged in successfully", success: true });
   } catch (error) {
     console.error(error);
