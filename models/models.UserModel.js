@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 
-const RegisterSchema=mongoose.Schema({
+const userSchema=mongoose.Schema({
     _id:{
         type:Number,
         required:true
@@ -19,5 +19,5 @@ const RegisterSchema=mongoose.Schema({
     active:Boolean
 })
 
-const RegisterModel=mongoose.model("register",RegisterSchema)
-module.exports=RegisterModel
+const userModel=mongoose.model("users",userSchema)
+module.exports={userModel,userSchema}

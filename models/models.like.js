@@ -1,15 +1,15 @@
 const mongoose=require("mongoose")
-const userModel=require("../models/models.UserModel")
+const {userSchema}=require("../models/models.UserModel")
 
 const likeSchema=mongoose.Schema({
-    Id:{
+    _id:{
         type:Number,
         require:true
     },
-    noOfLikes:Number,
-    likeduser:{
-        type:[userModel]
-    }
+    noOfLikes:{
+        type:Number,
+    },
+    likeduser: [userSchema]
 })
-const LikesModel=mongoose.model("Like",likeSchema)
-module.exports=LikesModel
+// const LikesModel=mongoose.model("Like",likeSchema)
+module.exports={likeSchema}
