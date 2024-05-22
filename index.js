@@ -7,7 +7,7 @@ require("dotenv").config()
 const port=process.env.PORT
 
 const RegisterRoutes=require("./routes/routes.RegisterLogin")
-const movieRoutes=require("./routes/routes.moviesUser")
+const movieRoutes=require("./routes/routes.MovieUser")
 const adminUserRoutes=require("./routes/routes.adminUser")
 
 const mongoose=require("mongoose")
