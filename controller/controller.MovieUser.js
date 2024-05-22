@@ -1,5 +1,7 @@
 const MovieModel=require("../models/models.movies")
 const {userModel} = require("../models/models.UserModel")
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 async function getAllMovies(req,res){
     try{
@@ -32,9 +34,9 @@ async function addLike(req,res){
         const movieId=parseInt(req.params.id)
         const movie = await MovieModel.findById(movieId);
         if (!movie) {
-          console.log('Movie not found');
+            console.log('Movie not found');
         }
-        var userId=parseInt(req.body.id)
+        var userId=req.userId
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
         movie.like.likeduser.push(user)
@@ -52,7 +54,7 @@ async function removeLike(req,res){
         const movieId=parseInt(req.params.id)
         const movie = await MovieModel.findById(movieId);
         if (!movie) {
-          console.log('Movie not found');
+            console.log('Movie not found');
         }
         movie.like.noOfLikes = movie.like.noOfLikes-1
         try{
@@ -80,7 +82,7 @@ async function getLikeCount(req,res){
         const movieId=parseInt(req.params.id)
         const movie = await MovieModel.findById(movieId);
         if (!movie) {
-          console.log('Movie not found');
+            console.log('Movie not found');
         }
         res.send(movie.like.noOfLikes)
     }
@@ -90,4 +92,24 @@ async function getLikeCount(req,res){
     }
 }
 
-module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount}
+const userVerification = (req, res,next) => {
+    console.log(req.cookie)
+    const token = req.cookie.token
+    if (!token) {
+        return res.json({ status: false })
+    }
+    jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
+        if (err) {
+        return res.json({ status: false })
+        } else {
+        const user = await userModel.findById(data.id)
+        if (user){ 
+             req.userId=user.id;
+             next();
+        }
+        else return res.json({ status: false })
+        }
+    })
+}
+
+module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount , userVerification}

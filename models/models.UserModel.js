@@ -1,13 +1,15 @@
 const mongoose=require("mongoose")
+const bcrypt=require("bcryptjs")
 
 const userSchema=mongoose.Schema({
-    _id:{
-        type:Number,
-        required:true
-    },
+    // _id:{
+    //     type:Number,
+    //     //required:true
+    // },
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     password:{
         type:String,

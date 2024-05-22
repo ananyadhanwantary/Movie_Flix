@@ -1,6 +1,5 @@
 const express=require("express")
 const bodyParser = require("body-parser")
-const RegisterRoutes=require("./routes/routes.RegisterLogin")
 const movieAdminRoutes=require("./routes/routes.movieAdmin")
 const adminUserRoutes=require("./routes/routes.adminUser")
 const movieUserRoutes=require("./routes/routes.moviesUser")
@@ -19,9 +18,8 @@ mongoose.connect(uri)
 .then(()=>console.log("connection successful"))
 
 app.use(bodyParser.json())
-app.use("/api/",RegisterRoutes)
 app.use("/api/movie/",movieUserRoutes)
-app.use("/api/signup/",signup)
+app.use("/api/users/",signup)
 app.use("/api/admin/movie/",movieAdminRoutes)
 app.use("/api/admin/",adminUserRoutes)
 
