@@ -2,8 +2,8 @@ const express=require("express")
 
 const routes=express.Router()
 
-const {getAllUser,deleteUser,userEdit,checkAdmin}=require("../controller/controller.adminUser")
-const {adminVerification}=require("../controller/controller.AdminMiddleware")
+const {getAllUser,deleteUser,userEdit,checkAdmin}=require("../controllers/controllers.adminUser")
+const {adminVerification}=require("../middlewares/middlewares.AdminMiddleware")
 
 routes.get("/login",checkAdmin)
 routes.get("/user",adminVerification,getAllUser)

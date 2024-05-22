@@ -1,8 +1,8 @@
 const express=require("express")
 
-const {addMovie,getAllMovies,getMovie,updateMovie,deleteMovie}=require("../controller/controller.movieAdmin")
-const { getLikeCount } = require("../controller/controller.MovieUser")
-const {adminVerification}=require("../controller/controller.AdminMiddleware")
+const {addMovie,getAllMovies,getMovie,updateMovie,deleteMovie}=require("../controllers/controllers.movieAdmin")
+const { getLikeCount } = require("../controllers/controllers.MovieUser")
+const {adminVerification}=require("../middlewares/middlewares.AdminMiddleware")
 
 const routes=express.Router()
 

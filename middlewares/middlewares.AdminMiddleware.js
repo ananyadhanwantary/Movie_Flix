@@ -15,8 +15,8 @@ const adminVerification = (req, res,next) => {
         else {
             console.log(data)
             if(data.id.password){
-                const email = await process.env.email
-                const auth = await bcrypt.compare(data.id.password,process.env.password)
+                const email =  process.env.email
+                const auth =  bcrypt.compare(data.id.password,process.env.password)
                 console.log(data.id.password,process.env.password)
                 if (data.id.email==email&& auth){ 
                     next();

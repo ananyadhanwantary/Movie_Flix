@@ -1,7 +1,5 @@
 const MovieModel=require("../models/models.movies")
 const {userModel} = require("../models/models.UserModel")
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
 
 async function getAllMovies(req,res){
     try{
@@ -92,23 +90,4 @@ async function getLikeCount(req,res){
     }
 }
 
-const userVerification = (req, res,next) => {
-    const token = req.cookies.token
-    if (!token) {
-        return res.json({ status: false })
-    }
-    jwt.verify(token, process.env.TOKEN_KEY, async (err, data) => {
-        if (err) {
-        return res.json({ status: false })
-        } else {
-        const user = await userModel.findById(data.id)
-        if (user){ 
-             req.userId=user.id;
-             next();
-        }
-        else return res.json({ status: false })
-        }
-    })
-}
-
-module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount , userVerification}
+module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount }

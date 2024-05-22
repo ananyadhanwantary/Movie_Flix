@@ -1,6 +1,7 @@
 const express=require("express")
 
-const {getAllMovies,getMovie,addLike, removeLike, getLikeCount,userVerification}=require("../controller/controller.MovieUser")
+const {getAllMovies,getMovie,addLike, removeLike, getLikeCount}=require("../controllers/controllers.MovieUser")
+const {userVerification}=require("../middlewares/middlewares.UserMiddleware")
 
 const routes=express.Router()
 
