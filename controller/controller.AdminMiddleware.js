@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config()
 const bcrypt=require("bcryptjs")
+
 const adminVerification = (req, res,next) => {
     try{
         const token = req.cookies.token
