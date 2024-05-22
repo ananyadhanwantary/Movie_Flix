@@ -1,13 +1,15 @@
 const mongoose=require("mongoose")
+const bcrypt=require("bcryptjs")
 
 const userSchema=mongoose.Schema({
-    _id:{
-        type:Number,
-        required:true
-    },
+    // _id:{
+    //     type:Number,
+    //     //required:true
+    // },
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     password:{
         type:String,
@@ -18,6 +20,8 @@ const userSchema=mongoose.Schema({
     role:String,
     active:Boolean
 })
-
+userSchema.pre("save", async function () {
+    this.password = await bcrypt.hash(this.password, 12);
+});
 const userModel=mongoose.model("users",userSchema)
 module.exports={userModel,userSchema}

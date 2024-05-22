@@ -1,4 +1,7 @@
 const {userModel}=require("../models/models.UserModel")
+require("dotenv").config()
+const bcrypt=require("bcryptjs")
+const {createSecretToken}=require("../util/SecretToken")
 
 async function getAllUser(req,res){
     try{
@@ -42,4 +45,29 @@ async function userEdit(req,res){
         res.status(500).json({message:"Problem in editing user details"})
     }
 }
-module.exports={getAllUser,deleteUser,userEdit}
+const checkAdmin = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if(!email || !password ){
+            return res.json({message:'All fields are required'})
+        }
+        const user = process.env.email
+        if(user!=email){
+            return res.json({message:"Incorrect Email"})
+        }
+        const auth = await bcrypt.compare(password,process.env.password)
+        if (!auth) {
+            return res.json({message:'Incorrect password or email' }) 
+        }
+        var data={email:process.env.email,password:process.env.password}
+        const token = createSecretToken(req.body);
+        res.cookie("token", token, {
+            withCredentials: true,
+            httpOnly: false,
+        });
+        res.status(201).json({ message: "User logged in successfully", success: true });
+    } catch (error) {
+        console.error(error);
+    }
+}
+module.exports={getAllUser,deleteUser,userEdit,checkAdmin}
