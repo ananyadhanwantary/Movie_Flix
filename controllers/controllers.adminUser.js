@@ -5,7 +5,7 @@ const {createSecretToken}=require("../util/SecretToken")
 
 async function getAllUser(req,res){
     try{
-        const users=await userModel.find({})
+        const users=await userModel.find({role:"user"})
         res.status(200).json(users)
     }
     catch(err){
@@ -14,7 +14,7 @@ async function getAllUser(req,res){
 }
 
 async function getUser(req,res){
-    var id = parseInt(req.params.id)
+    var id = (req.params.id)
     try{
         const user = await userModel.findById(id)
         res.status(200).json(user)
@@ -67,7 +67,7 @@ async function getOnlineUser(req,res){
     }
 }
 
-const checkAdmin = async (req, res) => {
+/*const checkAdmin = async (req, res) => {
     try {
         const { email, password } = req.body;
         if(!email || !password ){
@@ -91,5 +91,5 @@ const checkAdmin = async (req, res) => {
     } catch (error) {
         console.error(error);
     }
-}
-module.exports={getAllUser,getUser,deleteUser,userEdit,checkAdmin,getOnlineUser}
+}*/
+module.exports={getAllUser,getUser,deleteUser,userEdit,getOnlineUser}

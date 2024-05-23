@@ -10,19 +10,17 @@ const SaveUser = async (req, res) => {
     }
     else{
     const user = await userModel.create(req.body);
-    const token = createSecretToken(user._id);
+    /*const token = createSecretToken(user._id);
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
-    });
-    res
-      .status(201)
-      .json({ message: "User signed in successfully", success: true, user });
+    });*/
+    res.status(201).json({ message: "User signed in successfully", success: true, user });
   }
   } catch (error) {
     console.error(error);
   }
-};
+}
 
 const CheckUser = async (req, res) => {
   try {
@@ -39,12 +37,12 @@ const CheckUser = async (req, res) => {
       return res.json({message:'Incorrect password or email' }) 
     }
     const token = createSecretToken(user._id);
-    await res.cookie("token", token, {
+    /*await res.cookie("token", token, {
       withCredentials: true,
       httpOnly: false,
     });
-    console.log(res.cookie)
-    res.status(201).json({ message: "User logged in successfully", success: true });
+    res.status(201).json({ message: "User logged in successfully", success: true });*/
+    res.status(201).json({token:token ,login : true, role : user.role})
   } catch (error) {
     console.error(error);
   }

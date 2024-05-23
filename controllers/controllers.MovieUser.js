@@ -13,7 +13,7 @@ async function getAllMovies(req,res){
 
 async function getMovie(req,res){
     try{
-        const id=parseInt(req.params.id);
+        const id=(req.params.id);
         const movie= await MovieModel.find({_id:id});
         if(!movie){
             res.status(404).json({message:"Movie NOT found"})
@@ -29,7 +29,7 @@ async function getMovie(req,res){
 
 async function addLike(req,res){
     try{
-        const movieId=parseInt(req.params.id)
+        const movieId=(req.params.id)
         const movie = await MovieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
@@ -49,7 +49,7 @@ async function addLike(req,res){
 
 async function removeLike(req,res){
     try{
-        const movieId=parseInt(req.params.id)
+        const movieId=(req.params.id)
         const movie = await MovieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
@@ -77,7 +77,7 @@ async function removeLike(req,res){
 
 async function getLikeCount(req,res){
     try{
-        const movieId=parseInt(req.params.id)
+        const movieId=(req.params.id)
         const movie = await MovieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');

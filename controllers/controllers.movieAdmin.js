@@ -50,7 +50,7 @@ async function getMovie(req,res){
 
 async function updateMovie(req,res){
     try{
-        const id = parseInt(req.params.id);
+        const id = (req.params.id);
         movie = await MovieModel.findByIdAndUpdate(id,req.body)
         if(!movie){
             res.status(404).json({message:"Movie NOT found"})
