@@ -12,6 +12,8 @@ const moviesSchema=mongoose.Schema({
     moviePosterUrl:String,
     movieCast:[String],
     like:likeSchema
+    // comments: [commentSchema]
+
 })
 
 const MovieModel=mongoose.model("Movie",moviesSchema)
