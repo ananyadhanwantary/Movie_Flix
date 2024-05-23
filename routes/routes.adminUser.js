@@ -6,10 +6,10 @@ const {getAllUser,getUser,deleteUser,userEdit,getOnlineUser}=require("../control
 const {adminVerification}=require("../middlewares/middlewares.AdminMiddleware")
 
 //routes.get("/login",checkAdmin)
-routes.get("/user/:id",adminVerification,getUser);
-routes.get("/user",adminVerification,getAllUser)
-routes.delete("/user/:id",adminVerification,deleteUser)
-routes.put("/user/:id",adminVerification,userEdit)
-routes.get("/user/online",adminVerification,getOnlineUser)
+routes.get("/:id",adminVerification,getUser);
+routes.get("/",adminVerification,getAllUser)
+routes.delete("/delete/:id",adminVerification,deleteUser)
+routes.put("/userEdit/:id",adminVerification,userEdit)
+routes.get("/onlineUser",adminVerification,getOnlineUser)
 
 module.exports=routes

@@ -2,16 +2,14 @@ const MovieModel=require("../models/models.movies")
 
 async function addMovie(req,res){
     try{
-        const{movieId,movieName, movieUrl,moviePosterUrl,movieCast}=req.body
+        const{movieName, movieUrl,moviePosterUrl,movieCast}=req.body
 
         const movie=await MovieModel.create({
-            _id:movieId,
             movieName:movieName, 
             movieUrl:movieUrl,
             moviePosterUrl:moviePosterUrl,
             movieCast:movieCast,
             like:{
-                _id:movieId,
                 noOfLikes:0,
                 likedUsers:[]
             },
@@ -20,6 +18,7 @@ async function addMovie(req,res){
         res.status(200).json(movie)
     }
     catch(err){
+        console.log(err)
         res.status(500).json({message:"Error in adding movies"})
     }
 }

@@ -2,10 +2,10 @@ const mongoose=require("mongoose")
 const {userSchema}=require("../models/models.UserModel")
 
 const likeSchema=mongoose.Schema({
-    _id:{
-        type:Number,
-        require:true
-    },
+    // _id:{
+    //     type:Number,
+    //     require:true
+    // },
     noOfLikes:{
         type:Number,
     },
