@@ -16,7 +16,10 @@ function App() {
       <Route path="/signup" element={<RegisterComponent/>}></Route>
     </Routes>
     </BrowserRouter>
+<<<<<<< HEAD
     </>
+=======
+>>>>>>> b8a6350164bfc615493658c50f728e68f52bc535
   );
 }
 
