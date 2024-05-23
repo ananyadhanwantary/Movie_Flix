@@ -209,4 +209,4 @@ async function addComment(req,res){
     }
 }
 
-module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre}
+module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike}
