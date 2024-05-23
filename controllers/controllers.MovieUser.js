@@ -90,4 +90,26 @@ async function getLikeCount(req,res){
     }
 }
 
-module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount }
+async function addComment(req,res){
+    try{
+        const movieId=parseInt(req.params.id)
+        const movie=await MovieModel.findById(movieId)
+        if(!movie){
+            res.json({message:"Movie Not found"})
+        }
+        var userId=req.userId;
+        const user=await userModel.findById(userId)
+        data={comment:req.body.comment,commentedUser:user}
+        console.log(movie.comments)
+        movie.comments.push(data)
+        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
+        res.json(updatedMovie)
+    }
+    catch(err){
+        console.log(err)
+        res.json({message:"Error in commenting"})
+
+    }
+}
+
+module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount ,addComment }

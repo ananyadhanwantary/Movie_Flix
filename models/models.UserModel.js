@@ -17,8 +17,14 @@ const userSchema=mongoose.Schema({
     },
     username:String,
     phone:Number,
-    role:String,
-    active:Boolean
+    role:{
+        type:String,
+        default:"user"
+    },
+    active:{
+        type:Boolean,
+        default:true
+    }
 })
 userSchema.pre("save", async function () {
     this.password = await bcrypt.hash(this.password, 12);
