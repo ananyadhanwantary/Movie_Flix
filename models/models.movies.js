@@ -4,13 +4,10 @@ const {likeSchema}=require("./models.like")
 const commentSchema=require("./models.comments")
 
 const moviesSchema=mongoose.Schema({
-    // _id:{
-    //     type:Number,
-    //     require:true
-    // },
     movieName:String,
     movieUrl:String,
     moviePosterUrl:String,
+    genre: String,
     movieCast:[String],
     like:likeSchema,
     comments:[commentSchema]

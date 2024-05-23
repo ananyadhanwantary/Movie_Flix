@@ -9,7 +9,7 @@ const likeSchema=mongoose.Schema({
     noOfLikes:{
         type:Number,
     },
-    likeduser: [userSchema]
+    likedUsers: [userSchema]
 })
 // const LikesModel=mongoose.model("Like",likeSchema)
 module.exports={likeSchema}
