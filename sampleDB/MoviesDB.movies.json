@@ -1,14 +1,42 @@
 [{
-  "_id": 2,
-  "movieName": "Interstellar",
-  "movieUrl": "https://example.com/interstellar",
-  "moviesPosterUrl": "https://example.com/interstellar-poster.jpg",
+  "_id": {
+    "$oid": "664f174d9fd30e2c2864d216"
+  },
+  "movieName": "Harley",
+  "movieUrl": "ggffjgdjfdh",
+  "moviePosterUrl": "asdfghjkgjfgggjfjgf",
+  "genre": "romcom",
   "movieCast": [
-    "Matthew McConaughey",
-    "Anne Hathaway",
-    "Jessica Chastain"
+    "[qiuiiuyuyi,gfdfdfd]"
   ],
   "like": {
-    "$oid": "664b899e808c72e66492b236"
-  }
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "664f174d9fd30e2c2864d217"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664f17569fd30e2c2864d21a"
+  },
+  "movieName": "Joker",
+  "movieUrl": "qwertyu",
+  "moviePosterUrl": "asdfghj",
+  "genre": "horror",
+  "movieCast": [
+    "[fayhbd,qwji]"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "664f17569fd30e2c2864d21b"
+    }
+  },
+  "comments": [],
+  "__v": 0
 }]
