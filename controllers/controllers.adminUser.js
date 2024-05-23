@@ -13,6 +13,17 @@ async function getAllUser(req,res){
     }
 }
 
+async function getUser(req,res){
+    var id = parseInt(req.params.id)
+    try{
+        const user = await userModel.findById(id)
+        res.status(200).json(user)
+    }
+    catch(err){
+        res.status(404).json({msg:"user not found"})
+    }
+}
+
 async function deleteUser(req,res){
     try{
         const {id}=req.params
@@ -45,6 +56,17 @@ async function userEdit(req,res){
         res.status(500).json({message:"Problem in editing user details"})
     }
 }
+async function getOnlineUser(req,res){
+    try{
+        const users=await userModel.find({})
+        users=users.filter((user) => user.active)
+        res.status(200).json(users)
+    }
+    catch(err){
+        res.status(500).json({message:"Error in getting user details"})
+    }
+}
+
 const checkAdmin = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -70,4 +92,4 @@ const checkAdmin = async (req, res) => {
         console.error(error);
     }
 }
-module.exports={getAllUser,deleteUser,userEdit,checkAdmin}
+module.exports={getAllUser,getUser,deleteUser,userEdit,checkAdmin,getOnlineUser}
