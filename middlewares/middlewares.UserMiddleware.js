@@ -11,12 +11,12 @@ const userVerification = (req, res,next) => {
         if (err) {
         return res.json({ status: false })
         } else {
-        const user = await userModel.findById(data.id)
-        if (user){ 
-             req.userId=user.id;
-             next();
-        }
-        else return res.json({ status: false })
+        //const user = await userModel.findById(data.id)
+        //if (user){ 
+            req.userId=data.id;
+            next();
+        //}
+        //else return res.json({ status: false })
         }
     })
 }

@@ -21,7 +21,7 @@ mongoose.connect(uri)
 
 app.use(bodyParser.json())
 app.use("/api/movie",movieUserRoutes)
-app.use("/api/users",signup)
+app.use("/api",signup)
 app.use("/api/admin/movie",movieAdminRoutes)
 app.use("/api/admin",adminUserRoutes)
 
