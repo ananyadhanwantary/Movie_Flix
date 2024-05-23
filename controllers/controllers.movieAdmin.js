@@ -14,7 +14,8 @@ async function addMovie(req,res){
                 _id:movieId,
                 noOfLikes:0,
                 likedUsers:[]
-            }
+            },
+            comments:[]
         })
         res.status(200).json(movie)
     }
@@ -82,4 +83,21 @@ async function deleteMovie(req,res){
         res.status(500).json({message:"Error in deleting movie details"})
     }
 }
-module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie}
+
+async function getComments(req,res){
+    try{
+        const id=parseInt(req.params.id)
+        const movie=await MovieModel.findById(id)
+        if(!movie){
+            res.status(404).json({message:"Movie NOT found"})
+        }
+        else{
+            res.status(200).json(movie.comments)
+        }
+
+    }
+    catch(err){
+        res.status(500).json("Error in getting all comments")
+    }
+}
+module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments}
