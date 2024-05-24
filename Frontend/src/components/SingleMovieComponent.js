@@ -65,9 +65,9 @@ function SingleMovieComponent() {
                 <img src={movie.moviePosterUrl}></img>
                 <h1>{movie.movieName}</h1>
                 <p>{movie.movieCast}</p>
-                {/* <FontAwesomeIcon icon="fa-solid fa-heart"  onClick={handleLike}/>  */}
                 <AiFillLike onClick={handleLike} id="like_button" />
             </center>
+
         </>
     )
 }
