@@ -30,7 +30,7 @@ const CheckUser = async (req, res) => {
     }
     const user = await userModel.findOne({ email });
     if(!user){
-      return res.json({message:'User does not exist!! ' }) 
+      return res.status(404).json({message:'User does not exist!! '}) 
     }
     const auth = await bcrypt.compare(password,user.password)
     if (!auth) {
@@ -42,7 +42,7 @@ const CheckUser = async (req, res) => {
       httpOnly: false,
     });
     res.status(201).json({ message: "User logged in successfully", success: true });*/
-    res.status(201).json({token:token ,login : true, role : user.role})
+    res.status(200).json({token:token ,login : true, role : user.role})
   } catch (error) {
     console.error(error);
   }
