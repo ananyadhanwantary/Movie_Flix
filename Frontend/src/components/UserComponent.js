@@ -3,12 +3,27 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { FaPenSquare } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 function UserComponent() {
+    const navigate=useNavigate()
     const [users, setUsers] = useState([])
+    // const handleEdit=(id)=>{
+    //     navigate(`/editUser/${id}`)
+    // }
+    const handleDelete=async(id)=>{
+        const token = localStorage.getItem("token")
+        const res=await axios.delete(`http://localhost:3001/api/admin/delete/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
+            if (res.status === 200) {
+                alert(res.data.message)
+            } else {
+                alert(res.data.message)
+            }
+    }
     useEffect(() => {
         try {
             const token = localStorage.getItem("token")
+            // console.log(token)
             axios.get("http://localhost:3001/api/admin/",{ headers: {Authorization: `Bearer ${token}`}})
                 .then(response => {
                     setUsers(response.data)
@@ -17,7 +32,7 @@ function UserComponent() {
         catch (err) {
             console.log(err)
         }
-    },[])
+    },[users])
     return (
         <Table striped>
             <thead>
@@ -32,13 +47,13 @@ function UserComponent() {
             </thead>
             <tbody>
                 {users.map((user,index) => (
-                    <tr key={user._id}>
+                    <tr>
                         <td>{index+1}</td>
                         <td>{user.email}</td>
                         <td>{user.username}</td>
                         <td>{user.phone}</td>
                         <td>{user.active === true ? "Online" : "Offline"} </td>
-                        <td><FaPenSquare /><MdDelete /></td>
+                        <td><FaPenSquare /><MdDelete onClick={()=>handleDelete(user._id)}/></td>
                     </tr>
                 ))}
             </tbody>
