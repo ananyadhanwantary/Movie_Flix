@@ -1,7 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import { useState,useEffect } from 'react';
 
 function LoginComponent() {
+  const {loginDetails,setLoginDetails}=useState(" ")
+  useEffect(()=>{
+    fetch("http://localhost:3001/api/login")
+    .then((response)=>{response.json()})
+    .then((data)=>setLoginDetails(data))
+  },[])
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
