@@ -14,7 +14,6 @@ function HeaderComponent() {
         navigate('/signup')
     }
     function handleHome(e) {
-        
         e.preventDefault()
         navigate('/')
     }
