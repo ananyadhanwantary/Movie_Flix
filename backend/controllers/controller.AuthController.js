@@ -15,7 +15,7 @@ const SaveUser = async (req, res) => {
       withCredentials: true,
       httpOnly: false,
     });*/
-    res.status(201).json({ message: "User signed in successfully", success: true, user });
+    res.status(200).json({ message: "User signed in successfully", success: true, user });
   }
   } catch (error) {
     console.error(error);
@@ -42,7 +42,7 @@ const CheckUser = async (req, res) => {
       httpOnly: false,
     });
     res.status(201).json({ message: "User logged in successfully", success: true });*/
-    res.status(200).json({token:token ,login : true, role : user.role})
+    res.status(200).json({token:token ,login : true, role : user.role,message: "User logged in successfully"})
   } catch (error) {
     console.error(error);
   }
