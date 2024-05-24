@@ -61,7 +61,7 @@ function SingleMovieComponent() {
     }
     function addComment(id) {
         const token = localStorage.getItem("token")
-        axios.put(`http://localhost:3001/api/comment/${id}`, { comment: comment })
+        axios.put(`http://localhost:3001/api/movie/comment/${id}`,{comment: comment},{headers: {"Authorization" : `Bearer ${token}`} })
             .then(res => {
                 if (res.data.status)
                     navigate("/login")
@@ -79,7 +79,7 @@ function SingleMovieComponent() {
                 <h1>{movie.movieName}</h1>
                 <p>{movie.movieCast}</p>
                 <AiFillLike onClick={()=>handleLike(movie._id)} id="like_button" />
-                Comment:<input type="text"></input>
+                Comment:<input type="text" value={comment} onChange={(e)=> setComment(e.target.value)}></input>
                 <button type="submit" onClick={()=>addComment(movie._id)}>submit Comment</button>
             </center> 
 

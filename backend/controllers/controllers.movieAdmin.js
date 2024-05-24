@@ -210,14 +210,15 @@ async function addComment(req,res){
     try{
         const movieId=req.params.id
         const movie=await MovieModel.findById(movieId)
+        // console.log(req.body)
         if(!movie){
             res.json({message:"Movie Not found"})
         }
         var userId=req.userId;
         const user=await userModel.findById(userId)
         data={comment:req.body.comment,commentedUser:user}
-        console.log(movie.comments)
         movie.comments.push(data)
+        // console.log(movie.comments)
         const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
         res.json(updatedMovie)
     }
