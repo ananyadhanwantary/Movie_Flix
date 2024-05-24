@@ -2,6 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
 function LoginComponent() {
+  const handleLogin=()=>{
+    
+  }
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
