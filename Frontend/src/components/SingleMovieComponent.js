@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
+import { useParams,useNavigate } from 'react-router-dom';
 
 function SingleMovieComponent(){
     const params=useParams()
@@ -16,23 +17,40 @@ function SingleMovieComponent(){
         .catch(err => console.log(err))
     })
     function handleLike(id){
+        const navigate= useNavigate()
+        const token = localStorage.getItem("token")
+        axios.get(`http://localhost:3001/api/movie/like/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
+            .then(res => {
+                if(res.data.status)
+                    navigate("/login")
+                else
+                    setLike(res.data.liked)
+            })
+
         if(!like){
-            // setLike(! like)
-            axios.put(`http://localhost:3001/api/movie/like/${id}`)
-                .then( res => 
-                    setLike(true)
-                )
+            axios.put(`http://localhost:3001/api/movie/like/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
+                .then( res => {
+                    if(res.status===200)
+                        setLike(true)
+
+                })
                 .catch(err => console.log(err)) 
         }
         else{
-            axios.delete(`http://localhost:3001/api/movie/like/${id}`)
-                .then( res => 
-                    setLike(false)
-                )
+            axios.delete(`http://localhost:3001/api/movie/like/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
+                .then( res => {
+                    if(res.status===200)
+                        setLike(true)
+                })
                 .catch(err => console.log(err)) 
         }
     }
+    function addComment(id){
+        const navigate= useNavigate()
+        const token = localStorage.getItem("token")
+        axios.put(`http://localhost:3001/api/comment/${id}`,)
 
+    }
     return (
         <>
         <center>

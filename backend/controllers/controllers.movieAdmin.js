@@ -1,5 +1,5 @@
 const MovieModel=require("../models/models.movies")
-
+const {userModel} = require("../models/models.UserModel")
 async function addMovie(req,res){
     try{
         const{movieName, movieUrl,moviePosterUrl,genre,movieCast}=req.body
@@ -123,7 +123,26 @@ async function getComments(req,res){
         res.status(500).json("Error in getting all comments")
     }
 }
-
+async function getLike(req,res){
+    try{
+        const movieId=(req.params.id)
+        const movie = await MovieModel.findById(movieId);
+        if (!movie) {
+            console.log('Movie not found');
+        }
+        var userId=req.userId
+        var user =await userModel.findById(userId)
+        var found = movie.like.likedUsers.find((u) => u===user)
+        if(found)
+            res.json({liked : true})
+        else
+            res.json({liked : false})
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in liking movie"})
+    }
+}
 async function addLike(req,res){
     try{
         const movieId=(req.params.id)
@@ -189,7 +208,7 @@ async function getLikeCount(req,res){
 
 async function addComment(req,res){
     try{
-        const movieId=parseInt(req.params.id)
+        const movieId=req.params.id
         const movie=await MovieModel.findById(movieId)
         if(!movie){
             res.json({message:"Movie Not found"})
@@ -209,4 +228,4 @@ async function addComment(req,res){
     }
 }
 
-module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike}
+module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike}
