@@ -16,7 +16,7 @@ function App() {
           <Route path="/signup" element={<RegisterComponent/>}></Route>
         </Routes>
       </BrowserRouter>
-    <LoginComponent />
+    {/* <LoginComponent /> */}
     </>
   );
 }

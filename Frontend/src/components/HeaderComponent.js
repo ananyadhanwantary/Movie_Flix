@@ -5,8 +5,8 @@ import React from 'react';
 function HeaderComponent() {
     return (
         <>
-        <div className='d-flex container-fluid '>
-            <div className='col-2 p-2 d-flex align-items-center justify-content-center poetsen-one-regular h1'>
+        <div className='d-flex container-fluid bg-dark'>
+            <div className='col-2 p-2 d-flex align-items-center poetsen-one-regular h1 text-white '>
                 <i class="bi bi-camera-reels-fill"></i> <span>MovieFlix</span>
             </div>
             <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center '>
@@ -16,6 +16,7 @@ function HeaderComponent() {
                 </div>
             </div>
         </div>
+        <hr className="p-0 m-0"/>
         </>
     );
 }
