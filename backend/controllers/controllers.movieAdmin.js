@@ -153,7 +153,7 @@ async function addLike(req,res){
         var userId=req.userId
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
-        movie.like.likeduser.push(user)
+        movie.like.likedUsers.push(user)
         const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
         res.json(updatedMovie)
     }
@@ -174,9 +174,9 @@ async function removeLike(req,res){
         try{
             var userId=req.userId;
             var user =await userModel.findById(userId)
-            var ind = movie.like.likeduser.indexOf(user)
+            var ind = movie.like.likedUsers.indexOf(user)
             if(ind)
-                movie.like.likeduser.splice(ind,1)
+                movie.like.likedUsers.splice(ind,1)
         }
         catch(err){
             console.log(err)
