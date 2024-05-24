@@ -1,5 +1,5 @@
 require("dotenv").config()
-const {userModel}=require("../../models/models.UserModel")
+const {userModel}=require("../models/models.UserModel")
 const jwt=require("jsonwebtoken")
 
 const userVerification = (req, res,next) => {

@@ -1,4 +1,4 @@
-const MovieModel=require("../../models/models.movies")
+const MovieModel=require("../models/models.movies")
 
 async function addMovie(req,res){
     try{
