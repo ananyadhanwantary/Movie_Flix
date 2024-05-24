@@ -16,6 +16,7 @@ function MovieComponent() {
         }
 
     }, [movies])
+
     async function handleSingleMovie(id) {
         //console.log(movie)
         try {
