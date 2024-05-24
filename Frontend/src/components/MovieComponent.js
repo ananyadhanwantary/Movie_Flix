@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios'
 function MovieComponent() {
-    const { movies, setMovies } = useState("")
+    const [movies, setMovies ] = useState([])
     // async function handleMovie(e) {
     //     e.preventDefault()
     //     try {
@@ -14,17 +14,25 @@ function MovieComponent() {
     //         console.log(err)
     //     }
     // }
-    useEffect(async () => {
-        try {
-            console.log("gjyg")
-            movies = await axios.get("http://localhost:3001/api/movie/")
-            console.log(movies.data)
-        }
-        catch (err) {
-            console.log(err)
-        }
+    // useEffect(() => {
+    //     try {
+    //         console.log("gjyg")
+    //         axios.get("http://localhost:3001/api/movie/")
+    //         .then(response=>setMovies(response.data))
+    //     }
+    //     catch (err) {
+    //         console.log(err)
+    //     }
 
-    }, [])
+    // }, [movies])
+    useEffect(()=>{
+        axios.get("http://localhost:3001/api/movie/")
+            .then(response=>setMovies(response.data))
+    },[])
+
+   const  readMovies=()=>{
+        
+    }
     return (
         <>
             {movies.map((movie) =>
@@ -39,6 +47,7 @@ function MovieComponent() {
                     </Card.Body>
                 </Card>
             )}
+            <button onClick={readMovies}>Read</button>
         </>
     )
 
