@@ -28,6 +28,7 @@ const Login = () => {
             }
         }).catch(err => {
             setLoading(false);
+            alert("User does not exist please Register")
             navigate("/signup")
             setError('Error in login');
         });

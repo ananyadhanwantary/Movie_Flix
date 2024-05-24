@@ -31,8 +31,8 @@ function HeaderComponent() {
             </div>
             <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center '>
                 <div className='float-right px-2'>
-                    <button className='btn btn-primary me-2'>Login</button>
-                    <button className='btn btn-primary'>Sign-up</button> 
+                    <button className='btn btn-primary me-2' onClick={handleLogin}>Login</button>
+                    <button className='btn btn-primary' onClick={handleSignup}>Sign-up</button> 
                 </div>
             </div>
         </div>
