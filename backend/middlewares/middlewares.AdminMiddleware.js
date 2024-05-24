@@ -6,6 +6,7 @@ const bcrypt=require("bcryptjs")
 const adminVerification = (req, res,next) => {
     try{
         //const token = req.cookies.token
+        console.log(req.headers)
         const token=req.headers['authorization'].split(' ')[1]
         if (!token) {
             return res.json({ status: false })

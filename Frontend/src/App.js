@@ -18,6 +18,7 @@ function App() {
           <Route path="/signup" element={<RegisterComponent/>}></Route>
           <Route path="/getMovie" element={<MovieComponent/>}></Route>
           <Route path="/getUsers" element={<UserComponent/>}></Route>
+          <Route path="/getMovie/:id" element={<MovieComponent/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

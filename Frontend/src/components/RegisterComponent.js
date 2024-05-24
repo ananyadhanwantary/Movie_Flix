@@ -29,12 +29,12 @@ function RegisterComponent() {
       })
   }
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 vh-100">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <div className="card">
+          <div className="card shadow ">
             <div className="card-header bg-primary text-white">
-              <h3 className="text-center">Register</h3>
+              <h3 className="text-center card-title ">Register</h3>
             </div>
             <div className="card-body">
               <form onSubmit={(e) => handleSignup(e)}>
