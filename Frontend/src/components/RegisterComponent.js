@@ -1,30 +1,25 @@
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterComponent() {
   const [user,setUser]=useState({
     email:"",password:"",username:"",phone:""
   })
+  const navigate=useNavigate()
   async function handleSignup(e){
     e.preventDefault()
-    // setUser(()=>{
-    //   email:document.getElementById("email")
-    //   password:document.getElementById("password")
-    //   username:document.getElementById("username")
-    //   phone:document.getElementById("phone")
-    // })
     try{
-      console.log(user)
-      await axios.post("http://localhost:3001/api/signup",user)
-      alert("You have sign up successfully")
+      const response=await axios.post("http://localhost:3001/api/signup",user)
+      console.log(response)
+      alert("You have signed up successfully")
+      navigate('/login')
     }
     catch(err){
       console.log(err)
     }
-    // useEffect(()=>alert(}){),[user])
   }
- // useEffect(()=>alert("You have signedup successfully"),[user])
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
@@ -64,7 +59,6 @@ function RegisterComponent() {
                   <input type="text" value={user.username} className="form-control" placeholder="Enter username" id="username" required 
                   onChange={(e)=>{
                     setUser((user)=>{
-                      //console.log(user)
                       return {
                         ...user,
                         username:e.target.value

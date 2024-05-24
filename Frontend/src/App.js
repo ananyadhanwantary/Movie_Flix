@@ -9,8 +9,8 @@ import MovieComponent from "./components/MovieComponent"
 function App() {
   return (
     <>
-    <HeaderComponent />
       <BrowserRouter>
+      <HeaderComponent />
         <Routes>
           <Route path='/' exact element={<HomeComponent/>}></Route>
           <Route path="/login" element={<LoginComponent/>}></Route>
