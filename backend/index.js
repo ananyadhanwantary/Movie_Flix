@@ -6,6 +6,7 @@ const movieUserRoutes=require("./routes/routes.MovieUser")
 const signup=require('./routes/routes.AuthRoute.js')
 const mongoose=require("mongoose")
 require("dotenv").config()
+const cors=require("cors")
 const cookieParser=require("cookie-parser")
 
 const app=express()
@@ -18,7 +19,7 @@ app.use(express.urlencoded({extended:true}))
 
 mongoose.connect(uri)
 .then(()=>console.log("connection successful"))
-
+app.use(cors())
 app.use(bodyParser.json())
 app.use("/api/movie",movieUserRoutes)
 app.use("/api",signup)
