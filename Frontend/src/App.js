@@ -7,6 +7,7 @@ import MovieComponent from "./components/MovieComponent";
 import RegisterComponent from './components/RegisterComponent';
 import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
+import EditComponent from './components/EditComponent'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signup" element={<RegisterComponent/>}></Route>
           <Route path="/getMovie" element={<MovieComponent/>}></Route>
           <Route path="/getUsers" element={<UserComponent/>}></Route>
+          <Route path='/editUser/:id' element={<EditComponent/>}></Route>
           <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
         </Routes>
       </BrowserRouter>
