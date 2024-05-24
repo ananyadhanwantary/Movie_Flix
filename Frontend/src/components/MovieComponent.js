@@ -1,19 +1,19 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import axios from 'axios'
 function MovieComponent() {
-    const [movies, setMovies ] = useState([])
+    const [movies, setMovies] = useState([])
     useEffect(() => {
         try {
             axios.get("http://localhost:3001/api/movie/")
-            .then(response=>setMovies(response.data))
+                .then(response => setMovies(response.data))
         }
         catch (err) {
             console.log(err)
         }
 
-     }, [movies])
+    }, [movies])
     return (
         <>
             {movies.map((movie) =>
