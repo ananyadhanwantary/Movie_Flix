@@ -36,7 +36,6 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         setError('');
-        // console.log(email,password)
         axios.post('http://localhost:3001/api/login', {
             email: email,
             password: password
@@ -54,7 +53,6 @@ const Login = () => {
             setLoading(false);
             navigate("/signup")
             setError('Error in login');
-            // console.log(err);
         });
     };
 
