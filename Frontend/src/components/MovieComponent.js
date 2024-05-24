@@ -16,13 +16,13 @@ function MovieComponent() {
             console.log(err)
         }
 
-     }, [movies])
-    async function handleSingleMovie(id){
+    }, [movies])
+    async function handleSingleMovie(id) {
         //console.log(movie)
-        try{
+        try {
             console.log(id)
             navigate(`/getMovie/${id}`)
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
@@ -36,8 +36,8 @@ function MovieComponent() {
                         <Card.Text>
                             {movie.movieCast}
                         </Card.Text>
-                        <Card.Link onClick={()=>handleSingleMovie(movie._id)} >See More</Card.Link>
-                        <br/><br/>                        
+                        <Card.Link onClick={() => handleSingleMovie(movie._id)} >See More</Card.Link>
+                        <br /><br />
                         <Button variant="primary">Play Movie</Button>
                     </Card.Body>
                 </Card>

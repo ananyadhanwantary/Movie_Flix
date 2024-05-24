@@ -1,13 +1,13 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
-import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-import { useParams,useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function SingleMovieComponent(){
     const params=useParams()
+    const navigate= useNavigate()
     var [movie,setMovie] = useState({})
     var [like,setLike] = useState(false)
     useEffect(()=>{
@@ -17,7 +17,6 @@ function SingleMovieComponent(){
         .catch(err => console.log(err))
     })
     function handleLike(id){
-        const navigate= useNavigate()
         const token = localStorage.getItem("token")
         axios.get(`http://localhost:3001/api/movie/like/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
             .then(res => {
@@ -46,7 +45,6 @@ function SingleMovieComponent(){
         }
     }
     function addComment(id){
-        const navigate= useNavigate()
         const token = localStorage.getItem("token")
         axios.put(`http://localhost:3001/api/comment/${id}`,)
 
