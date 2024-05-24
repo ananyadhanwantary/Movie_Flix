@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 
 function SingleMovieComponent(){
+    const params=useParams()
     var [movie,setMovie] = useState({})
     var [like,setLike] = useState(false)
-    useEffect(async ()=>{
-        const {id} = useParams()
-        const res =  await axios.get(`http://localhost:3001/api/movie/${id}`);
-        setMovie(res.data)
+    useEffect(()=>{
+        const {id} = params
+        axios.get(`http://localhost:3001/api/movie/${id}`)
+        .then(res=>setMovie(res.data))
+        .catch(err => console.log(err))
     })
     function handleLike(id){
         if(!like){
@@ -31,7 +35,13 @@ function SingleMovieComponent(){
 
     return (
         <>
-
+        <center>
+            <img src={movie.moviePosterUrl}></img>
+            <h1>{movie.movieName}</h1>
+            <p>{movie.movieCast}</p>
+             <FontAwesomeIcon icon="fa-solid fa-heart"  onClick={handleLike}/> 
+        </center>
         </>
     )
 }
+export default SingleMovieComponent
