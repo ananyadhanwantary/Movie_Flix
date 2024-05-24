@@ -6,8 +6,8 @@ function HeaderComponent() {
         <>
         <header className='container d-flex flex-wrap '>
             <div className='text-end'>
-                <button className='btn-btn-light text-dark me-2'>Login</button>
-                <button className='btn btn-primary'>Sign-up</button> 
+                <button className='btn-btn-light text-dark me-2' >Login</button>
+                <button className='btn btn-primary' >Sign-up</button> 
             </div>
         </header>
         </>
