@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { AiFillLike } from "react-icons/ai";
+import { Container, Row, Col, Image, Button, InputGroup, FormControl } from 'react-bootstrap';
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams, useNavigate } from 'react-router-dom';
@@ -65,8 +65,11 @@ function SingleMovieComponent() {
                 <img src={movie.moviePosterUrl}></img>
                 <h1>{movie.movieName}</h1>
                 <p>{movie.movieCast}</p>
-                <AiFillLike onClick={handleLike} id="like_button" />
-            </center>
+                <AiFillLike onClick={()=>handleLike(movie._id)} id="like_button" />
+                Comment:<input type="text"></input>
+                <button type="submit" onClick={()=>addComment(movie._id)}>submit Comment</button>
+            </center> 
+
 
         </>
     )
