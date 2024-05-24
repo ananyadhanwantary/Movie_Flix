@@ -7,7 +7,7 @@ function HeaderComponent() {
         <>
         <div className='d-flex container-fluid bg-dark'>
             <div className='col-2 p-2 d-flex align-items-center poetsen-one-regular h1 text-white '>
-                <i class="bi bi-camera-reels-fill"></i> <span>MovieFlix</span>
+                <i className="bi bi-camera-reels-fill"></i> <span>MovieFlix</span>
             </div>
             <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center '>
                 <div className='float-right px-2'>
