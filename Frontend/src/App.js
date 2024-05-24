@@ -16,6 +16,7 @@ function App() {
           <Route path="/login" element={<LoginComponent/>}></Route>
           <Route path="/signup" element={<RegisterComponent/>}></Route>
           <Route path="/getMovie" element={<MovieComponent/>}></Route>
+          <Route path="/getMovie/:id" element={<MovieComponent/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 function MovieComponent() {
+    const navigate=useNavigate()
     const [movies, setMovies ] = useState([])
     useEffect(() => {
         try {
@@ -14,6 +16,9 @@ function MovieComponent() {
         }
 
      }, [movies])
+    async function handleSingleMovie(id){
+        navigate(`/getMovie/${id}`)
+    }
     return (
         <>
             {movies.map((movie) =>
@@ -24,7 +29,7 @@ function MovieComponent() {
                         <Card.Text>
                             {movie.movieCast}
                         </Card.Text>
-                        <Button variant="primary">Play Movie</Button>
+                        <Button variant="primary" onClick={(id)=>handleSingleMovie(movie.id)}>Play Movie</Button>
                     </Card.Body>
                 </Card>
             )}
