@@ -50,7 +50,7 @@ async function userEdit(req,res){
         }
         else{
             const updatedUser=await userModel.findById(user)
-            res.status(200).json(updatedUser)
+            res.status(200).json({updatedUser,message:"user details updated successfully"})
         }
 
     }

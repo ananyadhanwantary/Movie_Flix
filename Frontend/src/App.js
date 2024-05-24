@@ -10,6 +10,7 @@ import UserComponent from './components/UserComponent';
 import AdminMovieComponent from './components/AdminMovieComponent';
 import MovieEditComponet from './components/MovieEditComponent';
 import MovieAddComponent from './components/MovieAddComponent';
+import EditComponent from './components/EditComponent'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signup" element={<RegisterComponent/>}></Route>
           <Route path="/getMovie" element={<MovieComponent/>}></Route>
           <Route path="/getUsers" element={<UserComponent/>}></Route>
+          <Route path='/editUser/:id' element={<EditComponent/>}></Route>
           <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
           <Route path="/admin/movie" element={<AdminMovieComponent/>}></Route>
           <Route path="/editMovie/:id" element={<MovieEditComponet/>}></Route>

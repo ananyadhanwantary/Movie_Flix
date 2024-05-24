@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 function UserComponent() {
     const navigate=useNavigate()
     const [users, setUsers] = useState([])
-    // const handleEdit=(id)=>{
-    //     navigate(`/editUser/${id}`)
-    // }
+    const handleEdit=(id)=>{
+        navigate(`/editUser/${id}`)
+    }
     const handleDelete=async(id)=>{
         const token = localStorage.getItem("token")
         const res=await axios.delete(`http://localhost:3001/api/admin/delete/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
@@ -53,7 +53,8 @@ function UserComponent() {
                         <td>{user.username}</td>
                         <td>{user.phone}</td>
                         <td>{user.active === true ? "Online" : "Offline"} </td>
-                        <td><FaPenSquare /><MdDelete onClick={()=>handleDelete(user._id)}/></td>
+                        <td><FaPenSquare onClick={()=>{handleEdit(user._id)}}/>
+                        <MdDelete onClick={()=>handleDelete(user._id)}/></td>
                     </tr>
                 ))}
             </tbody>
