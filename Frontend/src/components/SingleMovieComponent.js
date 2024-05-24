@@ -1,10 +1,9 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { AiFillLike } from "react-icons/ai";
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function SingleMovieComponent() {
     const navigate = useNavigate()
@@ -83,6 +82,7 @@ function SingleMovieComponent() {
                 {/* <FontAwesomeIcon icon="fa-solid fa-heart"  onClick={handleLike}/>  */}
                 <AiFillLike onClick={() => handleLike(movie._id)} id="like_button" />
             </center>
+
         </>
     )
 }
