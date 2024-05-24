@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 function MovieComponent() {
     const [movies, setMovies] = useState([])
     useEffect(() => {
@@ -15,7 +16,7 @@ function MovieComponent() {
 
     }, [movies])
     return (
-        <>
+        <><Container>
             {movies.map((movie) =>
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={movie.moviePosterUrl} />
@@ -27,7 +28,7 @@ function MovieComponent() {
                         <Button variant="primary">Play Movie</Button>
                     </Card.Body>
                 </Card>
-            )}
+            )}</Container>
         </>
     )
 
