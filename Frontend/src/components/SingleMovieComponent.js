@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 import { useParams,useNavigate } from 'react-router-dom';
 
 function SingleMovieComponent(){
+    const params=useParams()
     var [movie,setMovie] = useState({})
     var [like,setLike] = useState(false)
-    var [comment,setComment] = useState("")
-    useEffect(async ()=>{
-        const {id} = useParams()
-        const res =  await axios.get(`http://localhost:3001/api/movie/${id}`);
-        setMovie(res.data)
-        setLike
-
+    useEffect(()=>{
+        const {id} = params
+        axios.get(`http://localhost:3001/api/movie/${id}`)
+        .then(res=>setMovie(res.data))
+        .catch(err => console.log(err))
     })
     function handleLike(id){
         const navigate= useNavigate()
@@ -58,7 +61,13 @@ function SingleMovieComponent(){
     }
     return (
         <>
-
+        <center>
+            <img src={movie.moviePosterUrl}></img>
+            <h1>{movie.movieName}</h1>
+            <p>{movie.movieCast}</p>
+             <FontAwesomeIcon icon="fa-solid fa-heart"  onClick={handleLike}/> 
+        </center>
         </>
     )
 }
+export default SingleMovieComponent
