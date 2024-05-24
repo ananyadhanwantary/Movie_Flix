@@ -6,12 +6,15 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 function App() {
   return (
+    <>
     <BrowserRouter>
     <Routes>
       <Route path="/login" element={<LoginComponent/>}></Route>
       <Route path="/signup" element={<RegisterComponent/>}></Route>
     </Routes>
     </BrowserRouter>
+    <LoginComponent />
+    </>
   );
 }
 
