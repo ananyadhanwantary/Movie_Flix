@@ -98,7 +98,7 @@ async function deleteMovie(req,res){
             res.status(404).json({message:"Movie NOT found"})
         }
         else{
-            res.status(200).json({message:"Movie Deleted successfully"})
+            res.status(200).json({movie:movie,message:"Movie Deleted successfully"})
         }
     }
     catch(err){

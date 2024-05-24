@@ -7,6 +7,9 @@ import MovieComponent from "./components/MovieComponent";
 import RegisterComponent from './components/RegisterComponent';
 import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
+import AdminMovieComponent from './components/AdminMovieComponent';
+import MovieEditComponet from './components/MovieEditComponent';
+import MovieAddComponent from './components/MovieAddComponent';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/getMovie" element={<MovieComponent/>}></Route>
           <Route path="/getUsers" element={<UserComponent/>}></Route>
           <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
+          <Route path="/admin/movie" element={<AdminMovieComponent/>}></Route>
+          <Route path="/editMovie/:id" element={<MovieEditComponet/>}></Route>
+          <Route path="/addMovie/" element={<MovieAddComponent/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
