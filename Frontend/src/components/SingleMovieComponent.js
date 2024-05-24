@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
 import { AiFillLike } from "react-icons/ai";
 import { Container, Row, Col, Image, Button, InputGroup, FormControl } from 'react-bootstrap';
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -21,19 +20,18 @@ function SingleMovieComponent() {
     })
     async function handleLike(id) {
         const token = localStorage.getItem("token")
-        console.log(token)
+        // console.log(token)
         if (token) {
             var res = await axios.get(`http://localhost:3001/api/movie/like/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
             if (res.data.status)
                 navigate("/login")
             else {
-                console.log(like)
                 setLike(res.data.liked)
-                console.log(like)
             }
             if (!like) {
                 try{
-                    res = await axios.put(`http://localhost:3001/api/movie/like/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
+                    // console.log(token," from try in if")
+                    var res = await axios.put(`http://localhost:3001/api/movie/like/${id}`,null, { headers: {"Authorization" : `Bearer ${token}`} })
                     if (res.status === 200) {
                         setLike(true)
                         document.getElementById("like_button").style.color = "red"
@@ -47,9 +45,8 @@ function SingleMovieComponent() {
                 try{
                     res = await axios.delete(`http://localhost:3001/api/movie/like/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
                     if (res.status === 200) {
-                        setLike(true)
+                        setLike(false)
                         document.getElementById("like_button").style.color = "black"
-                        console.log('hello else')
                     }
                 }
                 catch(err){

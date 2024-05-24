@@ -3,7 +3,7 @@ const {userModel}=require("../models/models.UserModel")
 const jwt=require("jsonwebtoken")
 
 const userVerification = (req, res, next) => {
-    console.log(req.header('authorization'),"from middleware")
+    console.log(req.method, req.url, req.header('authorization'),"from middleware")
     const token=req.header("authorization").split(' ')[1]
     if (!token) {
         return res.json({ status: false })
