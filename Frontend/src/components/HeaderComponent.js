@@ -1,8 +1,28 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 function HeaderComponent() {
+    const navigate = useNavigate()
+    async function handleLogin(e) {
+        e.preventDefault()
+        try {
+            navigate('/login')
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    async function handleSignup(e) {
+        e.preventDefault()
+        try {
+            navigate('/signup')
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     return (
         <>
         <div className='d-flex container-fluid bg-dark'>
