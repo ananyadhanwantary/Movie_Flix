@@ -5,6 +5,7 @@ import { useParams,useNavigate } from 'react-router-dom';
 function SingleMovieComponent(){
     var [movie,setMovie] = useState({})
     var [like,setLike] = useState(false)
+    var [comment,setComment] = useState("")
     useEffect(async ()=>{
         const {id} = useParams()
         const res =  await axios.get(`http://localhost:3001/api/movie/${id}`);
@@ -44,8 +45,16 @@ function SingleMovieComponent(){
     function addComment(id){
         const navigate= useNavigate()
         const token = localStorage.getItem("token")
-        axios.put(`http://localhost:3001/api/comment/${id}`,)
-
+        axios.put(`http://localhost:3001/api/comment/${id}`,{comment: comment})
+            .then(res=>{
+                if(res.data.status)
+                    navigate("/login")
+                else{
+                    setMovie(res.data)
+                    setComment("")
+                }
+            })
+            .catch(err => console.log(err))
     }
     return (
         <>
