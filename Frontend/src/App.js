@@ -5,6 +5,7 @@ import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
 import MovieComponent from "./components/MovieComponent";
 import RegisterComponent from './components/RegisterComponent';
+import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/signup" element={<RegisterComponent/>}></Route>
           <Route path="/getMovie" element={<MovieComponent/>}></Route>
           <Route path="/getUsers" element={<UserComponent/>}></Route>
-          <Route path="/getMovie/:id" element={<MovieComponent/>}></Route>
+          <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -2,7 +2,7 @@ require("dotenv").config()
 const {userModel}=require("../models/models.UserModel")
 const jwt=require("jsonwebtoken")
 
-const userVerification = (req, res,next) => {
+const userVerification = (req, res, next) => {
     // const token = req.cookies.token
     const token=req.header('authorization').split(' ')[1]
     if (!token) {
