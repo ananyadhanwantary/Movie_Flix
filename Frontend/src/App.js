@@ -8,14 +8,15 @@ import RegisterComponent from './components/RegisterComponent';
 function App() {
   return (
     <>
-    <HeaderComponent/>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' exact element={<HomeComponent/>}></Route>
-      <Route path="/login" element={<LoginComponent/>}></Route>
-      <Route path="/signup" element={<RegisterComponent/>}></Route>
-    </Routes>
-    </BrowserRouter>
+    <HeaderComponent />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' exact element={<HomeComponent/>}></Route>
+          <Route path="/login" element={<LoginComponent/>}></Route>
+          <Route path="/signup" element={<RegisterComponent/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    <LoginComponent />
     </>
   );
 }
