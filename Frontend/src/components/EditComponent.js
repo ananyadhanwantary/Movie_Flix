@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 
 function EditComponent() {
   const { id } = useParams();
@@ -21,7 +21,7 @@ function EditComponent() {
     setError("");
     const token = localStorage.getItem("token");
     axios
-      .put(
+      .patch(
         `http://localhost:3001/api/admin/userEdit/${id}`,
         { username, phone },
         { headers: { Authorization: `Bearer ${token}` } }

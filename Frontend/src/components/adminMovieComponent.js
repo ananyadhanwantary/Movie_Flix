@@ -1,10 +1,10 @@
-import axios from 'axios'
-import {useState, useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaPenSquare } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 // import {}
 
 
@@ -57,8 +57,8 @@ function AdminMovieComponent(){
     async function handleMovieInsert(){
         navigate("/addMovie")
     }
-    async function handleMovieUpdate(id){
-        navigate(`/editMovie/${id}`)
+    async function handleMovieUpdate(movie){
+        navigate(`/editMovie/${movie._id}`)
         
     }
     async function handleUpdateAction(id){
@@ -87,7 +87,7 @@ function AdminMovieComponent(){
                                     {movie.movieCast}
                                 </Card.Text>
                                 <Button variant="primary">Play Movie</Button>
-                                <FaPenSquare className="size-70-px"onClick={()=>handleMovieUpdate(movie._id)}/><MdDelete onClick={()=>handleMovieDelete(movie._id)}/>
+                                <FaPenSquare className="size-70-px"onClick={()=>handleMovieUpdate(movie)}/><MdDelete onClick={()=>handleMovieDelete(movie._id)}/>
                             </Card.Body>
                         </Card>
                     </div>

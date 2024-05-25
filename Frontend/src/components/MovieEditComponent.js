@@ -1,17 +1,19 @@
 import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 
 function MovieEditComponet(){
     const navigate=useNavigate()
     const params=useParams()
-    const [movies, setMovies] = useState([])
+    const movie=params.movie
+    console.log(movie)
+    const [movies, setMovies] = useState([movie])
     const [newMovie,setNewMovie]= useState({
-        movieName:"",
-        movieUrl:"",
-        moviePosterUrl:"",
-        genre: "",
-        movieCast:[]
+        movieName:movie.movieName,
+        movieUrl:movie.movieUrl,
+        moviePosterUrl:movie.moviePosterUrl,
+        genre: movie.genre,
+        movieCast:movie.movieCast
     })
     async function handleEdit(e){
         e.preventDefault()
@@ -19,7 +21,7 @@ function MovieEditComponet(){
             const {id}=params
             console.log(id)
             const token = localStorage.getItem("token")
-            var res = await axios.put(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
+            var res = await axios.patch(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
             console.log(res.data)
             if(res.data.status===false){
                 if(res.data.login===false){
