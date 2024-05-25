@@ -9,7 +9,6 @@ function UserComponent() {
     const navigate=useNavigate()
     const [users, setUsers] = useState([])
     const handleEdit=(user)=>{
-        
         navigate(`/editUser/${user._id}`)
     }
     const handleDelete=async(id)=>{
@@ -27,13 +26,15 @@ function UserComponent() {
             // console.log(token)
             axios.get("http://localhost:3001/api/admin/",{ headers: {Authorization: `Bearer ${token}`}})
                 .then(response => {
+                    console.log(response.data)
                     setUsers(response.data)
+                    // console.log(users)
             })
         }
         catch (err) {
             console.log(err)
         }
-    },[users])
+    })
     return (
         <Table striped>
             <thead>
