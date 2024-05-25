@@ -1,6 +1,7 @@
-import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
-import { useState } from "react"
+import axios from "axios";
+import { useState } from "react";
+import { Button, Container, Form } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 function MovieAddComponent(){
     const navigate = useNavigate()
         const [movies, setMovies] = useState([])
@@ -11,7 +12,7 @@ function MovieAddComponent(){
             genre: "",
             movieCast: []
         })
-    async function handleaddMovie(e) {
+    async function handleAddMovie(e) {
         e.preventDefault()
         try{
             const token = localStorage.getItem("token")
@@ -43,59 +44,67 @@ function MovieAddComponent(){
     }
     return(
         <>
-        <form>
-        Movie Name:<input type="text" value={newMovie.movieName} onChange={(e)=>{
-            setNewMovie((previousMovie)=>{
-                return {
-                    ...previousMovie,
-                    movieName:e.target.value
-                }
-            })
-        }}/>
+        <br/><br/>
+        <Container className="border border-black">
+            <h1 className="text-center fw-bolder">ADD MOVIE</h1>
+        <Form className="center" style={{ maxWidth: "1000px", margin: "auto" }}>
+            <Form.Group controlId="movieName">
+                <Form.Label>Movie Name:</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie name"
+                    value={newMovie.movieName}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieName: e.target.value }))}
+                />
+            </Form.Group>
+
+            <Form.Group controlId="movieUrl">
+                <Form.Label>Movie Url:</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie URL"
+                    value={newMovie.movieUrl}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieUrl: e.target.value }))}
+                />
+            </Form.Group>
+
+            <Form.Group controlId="moviePosterUrl">
+                <Form.Label>Movie Poster Url:</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie poster URL"
+                    value={newMovie.moviePosterUrl}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, moviePosterUrl: e.target.value }))}
+                />
+            </Form.Group>
+
+            <Form.Group controlId="genre">
+                <Form.Label>Genre:</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter genre"
+                    value={newMovie.genre}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, genre: e.target.value }))}
+                />
+            </Form.Group>
+
+            <Form.Group controlId="movieCast">
+                <Form.Label>Movie Cast:</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie cast"
+                    value={newMovie.movieCast}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieCast: e.target.value }))}
+                />
+            </Form.Group>
+            <br/><br/>
+            <Button variant="primary" type="submit" onClick={handleAddMovie}>
+                Submit
+            </Button>
+        </Form>
         <br/>
-        <br/>
-        Movie Url:<input type="text" value={newMovie.movieUrl} onChange={(e)=>{
-            setNewMovie((previousMovie)=>{
-                return {
-                    ...previousMovie,
-                    movieUrl:e.target.value
-                }
-            })
-        }}/>
-        <br/>
-        <br/>
-        Movie Poster Url:<input type="text" value={newMovie.moviePosterUrl} onChange={(e)=>{
-            setNewMovie((previousMovie)=>{
-                return {
-                    ...previousMovie,
-                    moviePosterUrl:e.target.value
-                }
-            })
-        }}/>
-        <br/>
-        <br/>
-        Gener <input type="text" value={newMovie.genre} onChange={(e)=>{
-            setNewMovie((previousMovie)=>{
-                return {
-                    ...previousMovie,
-                    genre:e.target.value
-                }
-            })
-        }}/>
-        <br/>
-        <br/>
-        Movie Cast:<input type="text" value={newMovie.movieCast} onChange={(e)=>{
-            setNewMovie((previousMovie)=>{
-                return {
-                    ...previousMovie,
-                    movieCast:e.target.value
-                }
-            })
-        }}/>
-        <br/>
-        <br/>
-        <input type="submit" onClick={(e)=>handleaddMovie(e)}/>
-    </form>
+        </Container>
+        <br/><br/>
         </>
     )
 

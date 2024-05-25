@@ -26,6 +26,7 @@ const AuthProvider = ({children}) => {
                 else if(role==="user"){
                     navigate('/')
                 }
+                return 
             }
             throw new Error(response.data.message)
         }

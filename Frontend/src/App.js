@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AdminHomeComponent from './components/AdminHomeComponent';
 import AdminMovieComponent from './components/AdminMovieComponent';
 import EditComponent from './components/EditComponent';
 import FooterComponent from './components/FooterComponents';
@@ -33,6 +34,7 @@ function App() {
           </Route>
 
           <Route element={<AdminProtectedRoute/>}>
+            <Route path="/admin" element={<AdminHomeComponent/>}></Route>
             <Route path="/getUsers" element={<UserComponent/>}></Route>
             <Route path='/editUser/:id' element={<EditComponent/>}></Route>
             <Route path="/addMovie/" element={<MovieAddComponent/>}></Route>
