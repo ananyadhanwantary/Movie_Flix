@@ -5,18 +5,18 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function EditComponent() {
   const { id } = useParams();
-  const [username, setUsername] = useState("");
-  const [phone, setPhone] = useState("");
+  const [username, setUsername] = useState();
+  const [phone, setPhone] = useState();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleEdit = (e) => {
     e.preventDefault();
-    if (!username.trim() || !phone.trim()) {
-      setError("Username and phone cannot be empty.");
-      return;
-    }
+    // if (!username.trim() || !phone.trim()) {
+    //   setError("Username and phone cannot be empty.");
+    //   return;
+    // }
     setLoading(true);
     setError("");
     const token = localStorage.getItem("token");

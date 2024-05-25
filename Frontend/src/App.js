@@ -13,7 +13,8 @@ import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
-import FooterComponent from './components/FooterComponent';
+import AdminHomeComponent from './components/AdminHomeComponent';
+import FooterComponent from './components/FooterComponents';
 import AuthProvider from './providers/AuthProvider';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           </Route>
 
           <Route element={<AdminProtectedRoute/>}>
+            <Route path="/admin" element={<AdminHomeComponent/>}></Route>
             <Route path="/getUsers" element={<UserComponent/>}></Route>
             <Route path='/editUser/:id' element={<EditComponent/>}></Route>
             <Route path="/addMovie/" element={<MovieAddComponent/>}></Route>

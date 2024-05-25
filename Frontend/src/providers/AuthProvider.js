@@ -20,7 +20,7 @@ const AuthProvider = ({children}) => {
                 localStorage.setItem('token',JSON.stringify(response.data.token))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
                 if(role==="admin"){
-                    navigate('/adminDash')
+                    navigate('/admin')
                 }
                 else if(role==="user"){
                     navigate('/')
