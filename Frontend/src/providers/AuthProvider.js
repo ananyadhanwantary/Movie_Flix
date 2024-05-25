@@ -1,5 +1,6 @@
-import {useContext, createContext, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import { createContext, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext()
 
@@ -19,7 +20,7 @@ const AuthProvider = ({children}) => {
                 setRole(response.data.role)
                 localStorage.setItem('token',JSON.stringify(response.data.token))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
-                return 
+                return
             }
             throw new Error(response.message)
         }
