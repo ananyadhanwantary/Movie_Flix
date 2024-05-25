@@ -16,6 +16,7 @@ import UserComponent from './components/UserComponent';
 import AuthProvider from './providers/AuthProvider';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
+import GenreComponent from './components/GenreComponent';
 
 function App() {
   return (
