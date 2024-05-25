@@ -1,12 +1,13 @@
 const express=require("express")
 
-const {addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre}=require("../controllers/controllers.movieAdmin")
+const {addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,getAllGeneres}=require("../controllers/controllers.movieAdmin")
 const { getLikeCount } = require("../controllers/controllers.MovieUser")
 const {adminVerification}=require("../middlewares/middlewares.AdminMiddleware")
 
 const routes=express.Router()
 
-routes.get("/byGenre",getMoviesByGenre)
+routes.get("/byGenre/:genre",getMoviesByGenre)
+routes.get("/getAllGenres",getAllMovies)
 routes.get("/:id",adminVerification,getMovie)
 routes.patch("/:id",adminVerification,updateMovie)
 routes.post("/",adminVerification,addMovie)

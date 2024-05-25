@@ -27,24 +27,30 @@ async function addMovie(req,res){
 
 async function getMoviesByGenre(req,res){
     try{
-        const movies=await MovieModel.find({})
-        moviesByGenre = {}
-        var genres= new Set()
-        movies.forEach( (m) =>{} )
-        movies.forEach( (movie) => {
-            genres.add(movie.genre)
-        });
-        console.log(genres)
-        genres.forEach(genre => {
-            moviesByGenre[genre]=movies.filter(movie => movie.genre === genre)
-        })
-        console.log(moviesByGenre)
-        res.status(200).json(moviesByGenre)
+        const movies=await MovieModel.find({genre:req.body})
+        // moviesByGenre = {}
+        // var genres= new Set()
+        // movies.forEach( (movie) => {
+        //     genres.add(movie.genre)
+        // });
+        // console.log(genres)
+        // genres.forEach(genre => {
+        //     moviesByGenre[genre]=movies.filter(movie => movie.genre === genre)
+        // })
+        // console.log(moviesByGenre)
+        res.status(200).json(movies)
     }
     catch(err){
         console.log(err)
         res.status(500).json({message:"Error in getting movie details"})
     }
+}
+async function getAllGeneres(req,res){
+    const movies=await MovieModel.find({})
+    var genres= new Set()
+    movies.forEach( (movie) => {
+        genres.add(movie.genre)
+    });
 }
 
 async function getAllMovies(req,res){
@@ -229,4 +235,4 @@ async function addComment(req,res){
     }
 }
 
-module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike}
+module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike,getAllGeneres}
