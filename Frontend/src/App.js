@@ -14,7 +14,7 @@ import UserComponent from './components/UserComponent';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
 import AdminHomeComponent from './components/AdminHomeComponent';
-import FooterComponent from './components/FooterComponents';
+import FooterComponent from './components/FooterComponent';
 import AuthProvider from './providers/AuthProvider';
 
 function App() {

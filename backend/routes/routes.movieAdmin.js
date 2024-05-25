@@ -7,7 +7,7 @@ const {adminVerification}=require("../middlewares/middlewares.AdminMiddleware")
 const routes=express.Router()
 
 routes.get("/byGenre/:genre",getMoviesByGenre)
-routes.get("/getAllGenres",getAllMovies)
+routes.get("/getAllGenres",getAllGeneres)
 routes.get("/:id",adminVerification,getMovie)
 routes.patch("/:id",adminVerification,updateMovie)
 routes.post("/",adminVerification,addMovie)
