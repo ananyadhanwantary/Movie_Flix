@@ -5,8 +5,9 @@ import { useAuth } from '../providers/AuthProvider';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [error, setError] = useState('');
-    // const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    // console.log(useAuth())
     const {loginAction} = useAuth()
     // const navigate = useNavigate();
     const handleLogin=(e) => {
@@ -69,9 +70,9 @@ const Login = () => {
                         {/* {error && <div className="alert alert-danger">{error}</div>} */}
                         <div className="d-grid">
                             <button type="submit" className="btn btn-primary" 
-                            // disabled={loading}
+                            disabled={loading}
                             >
-                                {/* {loading ? 'Logging in...' : 'Login'} */}
+                                {loading ? 'Logging in...' : 'Login'}
                             </button>
                         </div>
                     </form>

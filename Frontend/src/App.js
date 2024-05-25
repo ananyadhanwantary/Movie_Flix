@@ -12,6 +12,7 @@ import MovieEditComponet from './components/MovieEditComponent';
 import RegisterComponent from './components/RegisterComponent';
 import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
+import AuthProvider from './providers/AuthProvider';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <AuthProvider>
       <HeaderComponent />
         <Routes>
           <Route path='/' exact element={<HomeComponent/>}></Route>
@@ -39,6 +41,7 @@ function App() {
           </Route>
 
         </Routes>
+      </AuthProvider>
       </BrowserRouter>
       <FooterComponent />
     </>

@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
         try{
             const response = await axios.post('http://localhost:3001/api/login',data)
             if(response.data){
+                alert(response.data.message)
                 setUser(response.data.user)
                 setToken(response.data.token)
                 setUserId(response.data.userId)
@@ -20,15 +21,16 @@ const AuthProvider = ({children}) => {
                 localStorage.setItem('token',JSON.stringify(response.data.token))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
                 if(role==="admin"){
-                    navigate('/adminDash')
+                    navigate('/admin')
                 }
                 else if(role==="user"){
                     navigate('/')
                 }
             }
-            throw new Error(response.message)
+            throw new Error(response.data.message)
         }
         catch(err){
+            alert(err)
             navigate("/signup")
             console.error(err)
         }
@@ -52,5 +54,6 @@ const AuthProvider = ({children}) => {
 export default AuthProvider;
 
 export const useAuth = () => {
+    console.log("akhiranandha", useContext(AuthContext))
     return useContext(AuthContext);
 }
