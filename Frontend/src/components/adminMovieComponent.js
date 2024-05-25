@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { FaPenSquare } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
@@ -74,7 +73,7 @@ function AdminMovieComponent(){
     
     return (
         <>
-        <div className="container d-flex justify-content-center align-content-center">
+        {/* <div className="container d-flex justify-content-center align-content-center">
             <div className="row justify-content-center">
                 <Button onClick={()=>handleMovieInsert()}>ADD MOVIE</Button>
                 {movies.map((movie) =>
@@ -93,7 +92,26 @@ function AdminMovieComponent(){
                     </div>
                 )}
             </div>
-        </div>
+        </div> */}
+        <Container className="d-flex justify-content-center align-items-center">
+            <Row className="justify-content-center">
+                <Button onClick={handleMovieInsert}>ADD MOVIE</Button>
+                {movies.map((movie) => (
+                    <Col lg={3} className="p-3" key={movie._id}>
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src={movie.moviePosterUrl} />
+                            <Card.Body>
+                                <Card.Title>{movie.movieName}</Card.Title>
+                                <Card.Text>{movie.movieCast}</Card.Text>
+                                <Button variant="primary">Play Movie</Button>
+                                <FaPenSquare className="size-70-px" onClick={() => handleMovieUpdate(movie)} />
+                                <MdDelete onClick={() => handleMovieDelete(movie._id)} />
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
         </>
     );
 }
