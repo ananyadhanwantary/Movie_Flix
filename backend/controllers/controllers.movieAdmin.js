@@ -47,10 +47,14 @@ async function getMoviesByGenre(req,res){
 }
 async function getAllGeneres(req,res){
     const movies=await MovieModel.find({})
+    // console.log(movies)
     var genres= new Set()
     movies.forEach( (movie) => {
         genres.add(movie.genre)
     });
+    const temp = [...genres]
+    // console.log(temp)
+    res.status(200).json(temp)
 }
 
 async function getAllMovies(req,res){
