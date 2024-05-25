@@ -1,6 +1,6 @@
 import {useContext, createContext, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-
+import axios from 'axios'
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
@@ -19,7 +19,12 @@ const AuthProvider = ({children}) => {
                 setRole(response.data.role)
                 localStorage.setItem('token',JSON.stringify(response.data.token))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
-                return 
+                if(role==="admin"){
+                    navigate('/adminDash')
+                }
+                else if(role==="user"){
+                    navigate('/')
+                }
             }
             throw new Error(response.message)
         }

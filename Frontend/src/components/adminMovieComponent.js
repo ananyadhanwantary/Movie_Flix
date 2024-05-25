@@ -11,13 +11,13 @@ import { useNavigate } from 'react-router-dom';
 function AdminMovieComponent(){
     const navigate = useNavigate()
     const [movies, setMovies] = useState([])
-    const [newMovie,setNewMovie]= useState({
-        movieName:"",
-        movieUrl:"",
-        moviePosterUrl:"",
-        genre: "",
-        movieCast:[]
-    })
+    // const [newMovie,setNewMovie]= useState({
+    //     movieName:"",
+    //     movieUrl:"",
+    //     moviePosterUrl:"",
+    //     genre: "",
+    //     movieCast:[]
+    // })
     useEffect(() => {
         try {
             axios.get("http://localhost:3001/api/movie/")
@@ -61,16 +61,16 @@ function AdminMovieComponent(){
         navigate(`/editMovie/${movie._id}`)
         
     }
-    async function handleUpdateAction(id){
-        try{
-            const token = localStorage.getItem("token")
-            var res = await axios.get(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
-            setNewMovie(res.data)
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
+    // async function handleUpdateAction(id){
+    //     try{
+    //         const token = localStorage.getItem("token")
+    //         var res = await axios.get(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
+    //         setNewMovie(res.data)
+    //     }
+    //     catch(err){
+    //         console.log(err)
+    //     }
+    // }
     
     return (
         <>

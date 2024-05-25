@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import AdminMovieComponent from './components/AdminMovieComponent';
+import AdminMovieComponent from './components/AdminMovieComponent'
 import EditComponent from './components/EditComponent';
 import HeaderComponent from './components/HeaderComponent';
 import HomeComponent from './components/HomeComponent';
@@ -13,6 +13,7 @@ import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
+import FooterComponent from './components/FooterComponents';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      <FooterComponent />
     </>
   );
 }
