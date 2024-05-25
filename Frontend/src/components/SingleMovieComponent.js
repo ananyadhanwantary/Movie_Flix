@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { AiFillLike } from "react-icons/ai";
-import { Container, Row, Col, Image, Button, InputGroup, FormControl } from 'react-bootstrap';
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import { useNavigate, useParams } from 'react-router-dom';
@@ -22,34 +22,34 @@ function SingleMovieComponent() {
         const token = localStorage.getItem("token")
         // console.log(token)
         if (token) {
-            var res = await axios.get(`http://localhost:3001/api/movie/like/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+            var res = await axios.get(`http://localhost:3001/api/movie/like/${id}`, { headers: { "Authorization": `Bearer ${token}` } })
             if (res.data.status)
                 navigate("/login")
             else {
                 setLike(res.data.liked)
             }
             if (!like) {
-                try{
+                try {
                     // console.log(token," from try in if")
-                    var res = await axios.put(`http://localhost:3001/api/movie/like/${id}`,null, { headers: {"Authorization" : `Bearer ${token}`} })
+                    var res = await axios.put(`http://localhost:3001/api/movie/like/${id}`, null, { headers: { "Authorization": `Bearer ${token}` } })
                     if (res.status === 200) {
                         setLike(true)
                         document.getElementById("like_button").style.color = "red"
                     }
                 }
-                catch(err){
+                catch (err) {
                     console.log(err)
                 }
             }
             else {
-                try{
-                    res = await axios.delete(`http://localhost:3001/api/movie/like/${id}`, { headers: {"Authorization" : `Bearer ${token}`} })
+                try {
+                    res = await axios.delete(`http://localhost:3001/api/movie/like/${id}`, { headers: { "Authorization": `Bearer ${token}` } })
                     if (res.status === 200) {
                         setLike(false)
                         document.getElementById("like_button").style.color = "black"
                     }
                 }
-                catch(err){
+                catch (err) {
                     console.log(err)
                 }
             }
@@ -61,7 +61,7 @@ function SingleMovieComponent() {
     }
     function addComment(id) {
         const token = localStorage.getItem("token")
-        axios.put(`http://localhost:3001/api/movie/comment/${id}`,{comment: comment},{headers: {"Authorization" : `Bearer ${token}`} })
+        axios.put(`http://localhost:3001/api/movie/comment/${id}`, { comment: comment }, { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 if (res.data.status)
                     navigate("/login")
@@ -74,14 +74,31 @@ function SingleMovieComponent() {
     }
     return (
         <>
-            <center>
+            {/* <center>
                 <img src={movie.moviePosterUrl}></img>
                 <h1>{movie.movieName}</h1>
                 <p>{movie.movieCast}</p>
-                <AiFillLike onClick={()=>handleLike(movie._id)} id="like_button" />
-                Comment:<input type="text" value={comment} onChange={(e)=> setComment(e.target.value)}></input>
-                <button type="submit" onClick={()=>addComment(movie._id)}>submit Comment</button>
-            </center> 
+                <AiFillLike onClick={() => handleLike(movie._id)} id="like_button" />
+                Comment:<input type="text" value={comment} onChange={(e) => setComment(e.target.value)}></input>
+                <button type="submit" onClick={() => addComment(movie._id)}>submit Comment</button>
+            </center> */}
+            <Container>
+                <Row className="justify-content-center">
+                    <Col xs={12} md={6}>
+                        <img src={movie.moviePosterUrl} alt="Movie Poster" className="img-fluid" />
+                        <h1>{movie.movieName}</h1>
+                        <p>{movie.movieCast}</p>
+                        <AiFillLike onClick={() => handleLike(movie._id)} id="like_button" />
+                        <Form.Group controlId="comment">
+                            <Form.Label>Comment:</Form.Label>
+                            <Form.Control type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
+                        </Form.Group>
+                        <Button variant="primary" onClick={() => addComment(movie._id)}>Submit Comment</Button>
+                    </Col>
+                </Row>
+            </Container>
+
+
 
 
         </>
