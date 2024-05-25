@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import {useContext, createContext, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+=======
+import axios from 'axios'
+import { createContext, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+>>>>>>> b67f4391d110fffd550960fd98803671a6e42d46
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
