@@ -57,20 +57,11 @@ function AdminMovieComponent(){
     async function handleMovieInsert(){
         navigate("/addMovie")
     }
-    async function handleMovieUpdate(id){
-        navigate(`/editMovie/${id}`)
+    async function handleMovieUpdate(movie){
+        navigate(`/editMovie/${movie._id}`)
         
     }
-    async function handleUpdateAction(id){
-        try{
-            const token = localStorage.getItem("token")
-            var res = await axios.get(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
-            setNewMovie(res.data)
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
+
     
     return (
         <>
@@ -87,7 +78,7 @@ function AdminMovieComponent(){
                                     {movie.movieCast}
                                 </Card.Text>
                                 <Button variant="primary">Play Movie</Button>
-                                <FaPenSquare className="size-70-px"onClick={()=>handleMovieUpdate(movie._id)}/><MdDelete onClick={()=>handleMovieDelete(movie._id)}/>
+                                <FaPenSquare className="size-70-px"onClick={()=>handleMovieUpdate(movie)}/><MdDelete onClick={()=>handleMovieDelete(movie._id)}/>
                             </Card.Body>
                         </Card>
                     </div>
