@@ -1,6 +1,6 @@
+import {useContext, createContext, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import { createContext, useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
@@ -52,5 +52,6 @@ const AuthProvider = ({children}) => {
 export default AuthProvider;
 
 export const useAuth = () => {
+    console.log("akhiranandha", useContext(AuthContext))
     return useContext(AuthContext);
 }

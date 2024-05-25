@@ -26,6 +26,7 @@ function MovieComponent() {
             console.log(err)
         }
     }
+    async function handle
     return (
         <div className="container d-flex justify-content-center align-content-center">
             <div className="row justify-content-center">

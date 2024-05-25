@@ -15,11 +15,13 @@ import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
 import AdminHomeComponent from './components/AdminHomeComponent';
 import FooterComponent from './components/FooterComponents';
+import AuthProvider from './providers/AuthProvider';
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <AuthProvider>
       <HeaderComponent />
         <Routes>
           <Route path='/' exact element={<HomeComponent/>}></Route>
@@ -41,6 +43,7 @@ function App() {
           </Route>
 
         </Routes>
+      </AuthProvider>
       </BrowserRouter>
       <FooterComponent />
     </>
