@@ -1,9 +1,13 @@
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import axios from "axios"
+import { useState } from 'react';
 function GenreComponent(){
     const [movies,setMovies]=useState({})
     async function handleByGenre(genre){
         try{
             axios.get(`http://localhost:3001/api/admin/movie/bygenre/${genre}`)
-            .then((response)=>setGenre(response.data))
+            .then((response)=>setMovies(response.data))
         }
         catch(err){
             console.log(err)
@@ -23,8 +27,6 @@ function GenreComponent(){
                                 <Card.Text>
                                     {movie.movieCast}
                                 </Card.Text>
-                                <Card.Link onClick={() => handleSingleMovie(movie._id)}>See More</Card.Link>
-                                <br /><br />
                                 <Button variant="primary">Play Movie</Button>
                             </Card.Body>
                         </Card>
@@ -36,3 +38,4 @@ function GenreComponent(){
 
     )
 }
+export default GenreComponent

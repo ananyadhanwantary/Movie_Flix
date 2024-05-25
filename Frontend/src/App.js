@@ -16,6 +16,7 @@ import UserComponent from './components/UserComponent';
 import AuthProvider from './providers/AuthProvider';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
+import GenreComponent from './components/GenreComponent';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route path='/' exact element={<HomeComponent/>}></Route>
           <Route path="/login" element={<LoginComponent/>}></Route>
           <Route path="/signup" element={<RegisterComponent/>}></Route>
+
+          <Route path="/byGenre/:genre" element={<GenreComponent/>}></Route>
 
           <Route element={<UserProtectedRoute/>}>
             <Route path="/getMovie" element={<MovieComponent/>}></Route>

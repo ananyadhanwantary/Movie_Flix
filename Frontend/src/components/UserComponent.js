@@ -8,19 +8,17 @@ import { useNavigate } from 'react-router-dom';
 function UserComponent() {
     const navigate=useNavigate()
     const [users, setUsers] = useState([])
-<<<<<<< HEAD
-    const handleEdit=(user)=>{
-        navigate(`/editUser/${user._id}`)
-=======
     const handleEdit=(id)=>{
         navigate(`/editUser/${id}`)
->>>>>>> 3e819266f1dc447694dc7c7b2c08ce38ba3584fa
     }
     const handleDelete=async(id)=>{
         const token = localStorage.getItem("token")
         const res=await axios.delete(`http://localhost:3001/api/admin/delete/${id}`,{ headers: {Authorization: `Bearer ${token}`}})
             if (res.status === 200) {
-                alert(res.data.message)
+                // alert(res.data)
+                console.log(res.data)
+                var ind=users.indexOf(res.data)
+                setUsers(users.splice(ind,1))
             } else {
                 alert(res.data.message)
             }
@@ -28,18 +26,16 @@ function UserComponent() {
     useEffect(() => {
         try {
             const token = localStorage.getItem("token")
-            // console.log(token)
+            console.log("akhiranandha")
             axios.get("http://localhost:3001/api/admin/",{ headers: {Authorization: `Bearer ${token}`}})
                 .then(response => {
-                    console.log(response.data)
                     setUsers(response.data)
-                    // console.log(users)
             })
         }
         catch (err) {
             console.log(err)
         }
-    })
+    },[])
     return (
         <Table striped>
             <thead>
