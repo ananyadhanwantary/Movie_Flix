@@ -19,7 +19,7 @@ const AuthProvider = ({children}) => {
                 setRole(response.data.role)
                 localStorage.setItem('token',JSON.stringify(response.data.token))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
-                if(role==="admin"){
+                if(response.data.role==="admin"){
                     navigate('/admin')
                 }
                 else if(role==="user"){
