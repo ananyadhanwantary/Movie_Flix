@@ -5,7 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaPenSquare } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-// import {}
 
 
 function AdminMovieComponent(){
