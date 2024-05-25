@@ -8,8 +8,13 @@ import { useNavigate } from 'react-router-dom';
 function UserComponent() {
     const navigate=useNavigate()
     const [users, setUsers] = useState([])
+<<<<<<< HEAD
     const handleEdit=(user)=>{
         navigate(`/editUser/${user._id}`)
+=======
+    const handleEdit=(id)=>{
+        navigate(`/editUser/${id}`)
+>>>>>>> 3e819266f1dc447694dc7c7b2c08ce38ba3584fa
     }
     const handleDelete=async(id)=>{
         const token = localStorage.getItem("token")
@@ -55,7 +60,7 @@ function UserComponent() {
                         <td>{user.username}</td>
                         <td>{user.phone}</td>
                         <td>{user.active === true ? "Online" : "Offline"} </td>
-                        <td><FaPenSquare onClick={()=>{handleEdit(user)}}/>
+                        <td><FaPenSquare onClick={()=>{handleEdit(user._id)}}/>
                         <MdDelete onClick={()=>handleDelete(user._id)}/></td>
                     </tr>
                 ))}

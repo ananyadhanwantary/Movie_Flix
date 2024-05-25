@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import AdminMovieComponent from './components/AdminMovieComponent'
+import AdminHomeComponent from './components/AdminHomeComponent';
+import AdminMovieComponent from './components/AdminMovieComponent';
 import EditComponent from './components/EditComponent';
+import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
@@ -11,11 +13,9 @@ import MovieEditComponet from './components/MovieEditComponent';
 import RegisterComponent from './components/RegisterComponent';
 import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
+import AuthProvider from './providers/AuthProvider';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
-import AdminHomeComponent from './components/AdminHomeComponent';
-import FooterComponent from './components/FooterComponent';
-import AuthProvider from './providers/AuthProvider';
 
 function App() {
   return (

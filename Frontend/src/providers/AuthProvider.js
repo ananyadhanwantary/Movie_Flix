@@ -1,6 +1,6 @@
-import {useContext, createContext, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import { createContext, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
         try{
             const response = await axios.post('http://localhost:3001/api/login',data)
             if(response.data){
+                alert(response.data.message)
                 setUser(response.data.user)
                 setToken(response.data.token)
                 setUserId(response.data.userId)
@@ -22,14 +23,15 @@ const AuthProvider = ({children}) => {
                 if(response.data.role==="admin"){
                     navigate('/admin')
                 }
-                else if(role==="user"){
+                else if(response.data.role==="user"){
                     navigate('/')
                 }
                 return
             }
-            throw new Error(response.message)
+            throw new Error(response.data.message)
         }
         catch(err){
+            alert(err)
             navigate("/signup")
             console.error(err)
         }
@@ -53,6 +55,5 @@ const AuthProvider = ({children}) => {
 export default AuthProvider;
 
 export const useAuth = () => {
-    console.log("akhiranandha", useContext(AuthContext))
     return useContext(AuthContext);
 }
