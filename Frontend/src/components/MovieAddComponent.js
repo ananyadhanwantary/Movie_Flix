@@ -1,7 +1,7 @@
-import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
-import { useState } from "react"
-import { Form, Button } from 'react-bootstrap';
+import axios from "axios";
+import { useState } from "react";
+import { Button, Container, Form } from 'react-bootstrap';
+import { useNavigate } from "react-router-dom";
 function MovieAddComponent(){
     const navigate = useNavigate()
         const [movies, setMovies] = useState([])
@@ -12,7 +12,7 @@ function MovieAddComponent(){
             genre: "",
             movieCast: []
         })
-    async function handleaddMovie(e) {
+    async function handleAddMovie(e) {
         e.preventDefault()
         try{
             const token = localStorage.getItem("token")
@@ -44,60 +44,67 @@ function MovieAddComponent(){
     }
     return(
         <>
-        <Form>
+        <br/><br/>
+        <Container className="border border-black">
+            <h1 className="text-center fw-bolder">ADD MOVIE</h1>
+        <Form className="center" style={{ maxWidth: "1000px", margin: "auto" }}>
             <Form.Group controlId="movieName">
                 <Form.Label>Movie Name:</Form.Label>
-                <Form.Control type="text" placeholder="Enter movie name" value={newMovie.movieName} onChange={(e) => {
-                    setNewMovie((previousMovie) => ({
-                        ...previousMovie,
-                        movieName: e.target.value
-                    }));
-                }} />
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie name"
+                    value={newMovie.movieName}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieName: e.target.value }))}
+                />
             </Form.Group>
 
             <Form.Group controlId="movieUrl">
                 <Form.Label>Movie Url:</Form.Label>
-                <Form.Control type="text" placeholder="Enter movie URL" value={newMovie.movieUrl} onChange={(e) => {
-                    setNewMovie((previousMovie) => ({
-                        ...previousMovie,
-                        movieUrl: e.target.value
-                    }));
-                }} />
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie URL"
+                    value={newMovie.movieUrl}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieUrl: e.target.value }))}
+                />
             </Form.Group>
 
             <Form.Group controlId="moviePosterUrl">
                 <Form.Label>Movie Poster Url:</Form.Label>
-                <Form.Control type="text" placeholder="Enter movie poster URL" value={newMovie.moviePosterUrl} onChange={(e) => {
-                    setNewMovie((previousMovie) => ({
-                        ...previousMovie,
-                        moviePosterUrl: e.target.value
-                    }));
-                }} />
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie poster URL"
+                    value={newMovie.moviePosterUrl}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, moviePosterUrl: e.target.value }))}
+                />
             </Form.Group>
 
             <Form.Group controlId="genre">
                 <Form.Label>Genre:</Form.Label>
-                <Form.Control type="text" placeholder="Enter genre" value={newMovie.genre} onChange={(e) => {
-                    setNewMovie((previousMovie) => ({
-                        ...previousMovie,
-                        genre: e.target.value
-                    }));
-                }} />
+                <Form.Control
+                    type="text"
+                    placeholder="Enter genre"
+                    value={newMovie.genre}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, genre: e.target.value }))}
+                />
             </Form.Group>
 
             <Form.Group controlId="movieCast">
                 <Form.Label>Movie Cast:</Form.Label>
-                <Form.Control type="text" placeholder="Enter movie cast" value={newMovie.movieCast} onChange={(e) => {
-                    setNewMovie((previousMovie) => ({
-                        ...previousMovie,
-                        movieCast: e.target.value
-                    }));
-                }} />
+                <Form.Control
+                    type="text"
+                    placeholder="Enter movie cast"
+                    value={newMovie.movieCast}
+                    onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieCast: e.target.value }))}
+                />
             </Form.Group>
-
-            <Button variant="primary" type="submit" onClick={(e) => handleaddMovie(e)}>Submit</Button>
+            <br/><br/>
+            <Button variant="primary" type="submit" onClick={handleAddMovie}>
+                Submit
+            </Button>
         </Form>
-
+        <br/>
+        </Container>
+        <br/><br/>
         </>
     )
 

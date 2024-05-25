@@ -1,6 +1,7 @@
-import axios from "axios"
-import { useState } from "react"
-import { Form, Button } from 'react-bootstrap';
+import axios from "axios";
+import { useState } from "react";
+import { Button, Form } from 'react-bootstrap';
+import { useNavigate, useParams } from "react-router-dom";
 // import { Form, Button } from 'react-bootstrap';
 function MovieEditComponet(){
     const navigate=useNavigate()
