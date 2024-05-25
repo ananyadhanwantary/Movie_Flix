@@ -1,32 +1,16 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { useNavigate } from 'react-router-dom';
-function MovieComponent() {
-    const navigate = useNavigate()
-    const [movies, setMovies] = useState([])
-    useEffect(() => {
-        try {
-            axios.get("http://localhost:3001/api/movie/")
-                .then(response => setMovies(response.data))
+function GenreComponent(){
+    const [movies,setMovies]=useState({})
+    async function handleByGenre(genre){
+        try{
+            axios.get(`http://localhost:3001/api/admin/movie/bygenre/${genre}`)
+            .then((response)=>setGenre(response.data))
         }
-        catch (err) {
+        catch(err){
             console.log(err)
         }
-
-    }, [movies])
-
-    async function handleSingleMovie(id) {
-        //console.log(movie)
-        try {
-            console.log(id)
-            navigate(`/getMovie/${id}`)
-        } catch (err) {
-            console.log(err)
-        }
+        
     }
-    return (
+    return(
         <>
         <div className="container d-flex justify-content-center align-content-center">
             <div className="row justify-content-center">
@@ -49,7 +33,6 @@ function MovieComponent() {
             </div>
         </div>
         </>
-    )
 
+    )
 }
-export default MovieComponent
