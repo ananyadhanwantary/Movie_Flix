@@ -3,7 +3,7 @@ import './App.css';
 import AdminHomeComponent from './components/AdminHomeComponent';
 import AdminMovieComponent from './components/AdminMovieComponent';
 import EditComponent from './components/EditComponent';
-import FooterComponent from './components/FooterComponents';
+import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';

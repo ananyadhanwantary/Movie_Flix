@@ -8,9 +8,8 @@ import { useNavigate } from 'react-router-dom';
 function UserComponent() {
     const navigate=useNavigate()
     const [users, setUsers] = useState([])
-    const handleEdit=(user)=>{
-        
-        navigate(`/editUser/${user._id}`)
+    const handleEdit=(id)=>{
+        navigate(`/editUser/${id}`)
     }
     const handleDelete=async(id)=>{
         const token = localStorage.getItem("token")
@@ -33,7 +32,7 @@ function UserComponent() {
         catch (err) {
             console.log(err)
         }
-    },[users])
+    })
     return (
         <Table striped>
             <thead>
@@ -54,7 +53,7 @@ function UserComponent() {
                         <td>{user.username}</td>
                         <td>{user.phone}</td>
                         <td>{user.active === true ? "Online" : "Offline"} </td>
-                        <td><FaPenSquare onClick={()=>{handleEdit(user)}}/>
+                        <td><FaPenSquare onClick={()=>{handleEdit(user._id)}}/>
                         <MdDelete onClick={()=>handleDelete(user._id)}/></td>
                     </tr>
                 ))}
