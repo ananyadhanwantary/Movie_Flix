@@ -1,5 +1,4 @@
 import axios from "axios"
-import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
 import { Form, Button } from 'react-bootstrap';
 // import { Form, Button } from 'react-bootstrap';
@@ -23,7 +22,7 @@ function MovieEditComponet(){
             const {id}=params
             console.log(id)
             const token = localStorage.getItem("token")
-            var res = await axios.put(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
+            var res = await axios.patch(`http://localhost:3001/api/admin/movie/${id}`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
             console.log(res.data)
             if(res.data.status===false){
                 if(res.data.login===false){

@@ -8,7 +8,7 @@ const routes=express.Router()
 
 routes.get("/byGenre",getMoviesByGenre)
 routes.get("/:id",adminVerification,getMovie)
-routes.put("/:id",adminVerification,updateMovie)
+routes.patch("/:id",adminVerification,updateMovie)
 routes.post("/",adminVerification,addMovie)
 routes.get("/",adminVerification,getAllMovies)
 routes.delete("/:id",adminVerification,deleteMovie)

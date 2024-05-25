@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from 'react-router-dom';
-function userDashboardComponent(){
+function AdminHomeComponent(){
     navigate=useNavigate()
     handleGetMovie(e){
         e.preventDefault()
@@ -28,3 +28,4 @@ function userDashboardComponent(){
         </>
     )
 }
+export default AdminHomeComponent
