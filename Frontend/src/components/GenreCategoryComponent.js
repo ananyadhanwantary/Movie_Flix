@@ -15,6 +15,8 @@ function GenreCategoryComponent(){
         <>
         <div className="d-flex flex-column flex-shrink-0 p-3 text-white bd-dark" style={"widht:280px;"}>
         {genre.map((genre) =>
+        <link to="/byGenre/:genre">{genre.name}</link>
+        )}
         </div>
         </>
     )
