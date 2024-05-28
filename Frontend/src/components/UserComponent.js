@@ -26,7 +26,6 @@ function UserComponent() {
     useEffect(() => {
         try {
             const token = localStorage.getItem("token")
-            console.log("akhiranandha")
             axios.get("http://localhost:3001/api/admin/",{ headers: {Authorization: `Bearer ${token}`}})
                 .then(response => {
                     setUsers(response.data)
