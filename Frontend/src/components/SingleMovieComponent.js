@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { AiFillLike } from "react-icons/ai";
-import useAuth from "../providers/AuthProvider"
+import { useAuth } from "../providers/AuthProvider"
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import { useNavigate, useParams } from 'react-router-dom';

@@ -16,5 +16,4 @@ routes.get("/like/:id",getLikeCount)
 routes.get("/comments/:id",getComments)
 
 
-
 module.exports=routes
