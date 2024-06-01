@@ -1,0 +1,409 @@
+[
+    {
+      "movieName": "The Shawshank Redemption",
+      "genre": [
+        "Drama"
+      ],
+      "movieCast": [
+        "Tim Robbins",
+        "Morgan Freeman"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff0000",
+      "movieUrl": "https://example.com/shawshank_redemption_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Godfather",
+      "genre": [
+        "Crime",
+        "Drama"
+      ],
+      "movieCast": [
+        "Marlon Brando",
+        "Al Pacino",
+        "James Caan"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ffff00",
+      "movieUrl": "https://example.com/the_godfather_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Dark Knight",
+      "genre": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "movieCast": [
+        "Christian Bale",
+        "Heath Ledger",
+        "Gary Oldman"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff00ff",
+      "movieUrl": "https://example.com/the_dark_knight_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Pulp Fiction",
+      "genre": [
+        "Crime",
+        "Drama"
+      ],
+      "movieCast": [
+        "John Travolta",
+        "Uma Thurman",
+        "Samuel L. Jackson"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/0000ff",
+      "movieUrl": "https://example.com/pulp_fiction_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+      },
+    {
+      "movieName": "Forrest Gump",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "movieCast": [
+        "Tom Hanks",
+        "Robin Wright",
+        "Gary Sinise"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff00ff",
+      "movieUrl": "https://example.com/forrest_gump_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Inception",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "movieCast": [
+        "Leonardo DiCaprio",
+        "Joseph Gordon-Levitt",
+        "Ellen Page"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/f8f8f8",
+      "movieUrl": "https://example.com/inception_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Matrix",
+      "genre": [
+        "Action",
+        "Sci-Fi"
+      ],
+      "movieCast": [
+        "Keanu Reeves",
+        "Laurence Fishburne",
+        "Carrie-Anne Moss"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/f6f6f6",
+      "movieUrl": "https://example.com/the_matrix_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Lord of the Rings: The Return of the King",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "movieCast": [
+        "Elijah Wood",
+        "Viggo Mortensen",
+        "Ian McKellen"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff00ff",
+      "movieUrl": "https://example.com/lotr_return_of_the_king_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Dark Knight Rises",
+      "genre": [
+        "Action",
+        "Thriller"
+      ],
+      "movieCast": [
+        "Christian Bale",
+        "Tom Hardy"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/f6f6f6",
+      "movieUrl": "https://example.com/the_dark_knight_rises_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Interstellar",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "movieCast": [
+        "Matthew McConaughey",
+        "Anne Hathaway"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/0000ff",
+      "movieUrl": "https://example.com/interstellar_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Fight Club",
+      "genre": [
+        "Drama"
+      ],
+      "movieCast": [
+        "Brad Pitt",
+        "Edward Norton",
+        "Helena Bonham Carter"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff00ff",
+      "movieUrl": "https://example.com/fight_club_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Gladiator",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "movieCast": [
+        "Russell Crowe",
+        "Joaquin Phoenix",
+        "Connie Nielsen"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/f8f8f8",
+      "movieUrl": "https://example.com/gladiator_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Lord of the Rings: The Two Towers",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "movieCast": [
+        "Elijah Wood",
+        "Ian McKellen",
+        "Viggo Mortensen"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/f6f6f6",
+      "movieUrl": "https://example.com/lotr_two_towers_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Silence of the Lambs",
+      "genre": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "movieCast": [
+        "Jodie Foster",
+        "Anthony Hopkins",
+        "Lawrence A. Bonney"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/0000ff",
+      "movieUrl": "https://example.com/silence_of_the_lambs_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Departed",
+      "genre": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "movieCast": [
+        "Leonardo DiCaprio",
+        "Matt Damon",
+        "Jack Nicholson"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/00ff00",
+      "movieUrl": "https://example.com/the_departed_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Saving Private Ryan",
+      "genre": [
+        "Drama",
+        "War"
+      ],
+      "movieCast": [
+        "Tom Hanks",
+        "Matt Damon",
+        "Tom Sizemore"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff0000",
+      "movieUrl": "https://example.com/saving_private_ryan_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Prestige",
+      "genre": [
+        "Drama",
+        "Mystery",
+        "Sci-Fi"
+      ],
+      "movieCast": [
+        "Christian Bale",
+        "Hugh Jackman",
+        "Scarlett Johansson"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/0000ff",
+      "movieUrl": "https://example.com/the_prestige_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "Glory",
+      "genre": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "movieCast": [
+        "Matthew Broderick",
+        "Denzel Washington",
+        "Cary Elwes"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/00ff00",
+      "movieUrl": "https://example.com/glory_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Avengers",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Sci-Fi"
+      ],
+      "movieCast": [
+        "Robert Downey Jr.",
+        "Chris Evans",
+        "Mark Ruffalo"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/ff0000",
+      "movieUrl": "https://example.com/the_avengers_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    },
+    {
+      "movieName": "The Lion King",
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Drama"
+      ],
+      "movieCast": [
+        "Matthew Broderick",
+        "Jeremy Irons",
+        "James Earl Jones"
+      ],
+      "moviePosterUrl": "https://fakeimg.pl/220x310/0000ff",
+      "movieUrl": "https://example.com/the_lion_king_trailer.mp4",
+      "like": {
+        "noOfLikes": 0,
+        "likedUsers": []
+      },
+      "comments": [],
+      "__v": 0
+    }
+  ]
