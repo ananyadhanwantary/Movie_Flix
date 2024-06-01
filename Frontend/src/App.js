@@ -31,7 +31,7 @@ function App() {
             <Route path="/signup" element={<RegisterComponent/>}></Route>
             <Route path='/profile' element={<ProfileComponent/>}></Route>
 
-            <Route path="/byGenre/:genre" element={<GenreComponent/>}></Route>
+            <Route path="/byGenre/" element={<GenreComponent/>}></Route>
 
             <Route element={<UserProtectedRoute/>}>
               <Route path="/getMovie" element={<MovieComponent/>}></Route>

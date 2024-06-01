@@ -27,7 +27,13 @@ async function addMovie(req,res){
 
 async function getMoviesByGenre(req,res){
     try{
-        const movies=await MovieModel.find({genre:req.body})
+        const g=req.params.genre
+        
+        const movies=await MovieModel.find({})
+        movies.forEach((movie)=> {
+            if( movie.genre==g)
+            res.status(200).json(movie)
+    })
         // moviesByGenre = {}
         // var genres= new Set()
         // movies.forEach( (movie) => {
@@ -38,7 +44,6 @@ async function getMoviesByGenre(req,res){
         //     moviesByGenre[genre]=movies.filter(movie => movie.genre === genre)
         // })
         // console.log(moviesByGenre)
-        res.status(200).json(movies)
     }
     catch(err){
         console.log(err)
