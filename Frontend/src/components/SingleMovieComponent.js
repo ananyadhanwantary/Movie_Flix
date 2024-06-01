@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { AiFillLike } from "react-icons/ai";
+import {useAuth} from "../providers/AuthProvider"
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import { useNavigate, useParams } from 'react-router-dom';
@@ -9,6 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 function SingleMovieComponent() {
     const navigate = useNavigate()
     const params = useParams()
+    var {userId} = useAuth()
     var [movie, setMovie] = useState({})
     var [like, setLike] = useState(false)
     var [comment, setComment] = useState("")
@@ -22,7 +24,7 @@ function SingleMovieComponent() {
         const token = localStorage.getItem("token")
         // console.log(token)
         if (token) {
-            var res = await axios.get(`http://localhost:3001/api/movie/like/${id}`, { headers: { "Authorization": `Bearer ${token}` } })
+            var res = await axios.get(`http://localhost:3001/api/movie/like/${id}`,{userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
             if (res.data.status)
                 navigate("/login")
             else {
@@ -31,7 +33,7 @@ function SingleMovieComponent() {
             if (!like) {
                 try {
                     // console.log(token," from try in if")
-                    var res = await axios.put(`http://localhost:3001/api/movie/like/${id}`, null, { headers: { "Authorization": `Bearer ${token}` } })
+                    res = await axios.put(`http://localhost:3001/api/movie/like/${id}`, {userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
                     if (res.status === 200) {
                         setLike(true)
                         document.getElementById("like_button").style.color = "red"
@@ -43,7 +45,7 @@ function SingleMovieComponent() {
             }
             else {
                 try {
-                    res = await axios.delete(`http://localhost:3001/api/movie/like/${id}`, { headers: { "Authorization": `Bearer ${token}` } })
+                    res = await axios.delete(`http://localhost:3001/api/movie/like/${id}`,{userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
                     if (res.status === 200) {
                         setLike(false)
                         document.getElementById("like_button").style.color = "black"
@@ -61,7 +63,7 @@ function SingleMovieComponent() {
     }
     function addComment(id) {
         const token = localStorage.getItem("token")
-        axios.put(`http://localhost:3001/api/movie/comment/${id}`, { comment: comment }, { headers: { "Authorization": `Bearer ${token}` } })
+        axios.put(`http://localhost:3001/api/movie/comment/${id}`, { comment: comment , userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 if (res.data.status)
                     navigate("/login")

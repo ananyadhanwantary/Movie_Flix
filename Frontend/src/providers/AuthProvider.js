@@ -4,24 +4,37 @@ import { useNavigate } from 'react-router-dom'
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
-    const [user,setUser] = useState(() => {
-        const storedUser = localStorage.getItem('user')
-        return storedUser ? JSON.parse(storedUser) : null
+    console.log('AuthProvider children:', children);
+    // const [user,setUser] = useState(() => {
+    //     const storedUser = localStorage.getItem('user')
+    //     return storedUser ? JSON.parse(storedUser) : null
+    // })
+    const [token,setToken] = useState(() => {
+        const storedToken = localStorage.getItem('token')
+        return storedToken ? JSON.parse(storedToken) : null
     })
-    const [token,setToken] = useState(null)
-    const [userId,setUserId] = useState(null)
-    const [role,setRole] = useState(null)
+    const [userId,setUserId] = useState(() => {
+        const storedUserId = localStorage.getItem('userId')
+        return storedUserId ? JSON.parse(storedUserId) : null
+    })
+    const [role,setRole] = useState(() => {
+        const storedRole = localStorage.getItem('role')
+        return storedRole ? JSON.parse(storedRole) : null
+    })
     const navigate = useNavigate()
     const loginAction  = async (data) => {
         try{
             const response = await axios.post('http://localhost:3001/api/login',data)
             if(response.data){
+                console.log(response.data)
                 alert(response.data.message)
-                setUser(response.data.user)
+                // setUser(response.data.user)
                 setToken(response.data.token)
                 setUserId(response.data.userId)
                 setRole(response.data.role)
+                // console.log(user,token,userId,role)
                 localStorage.setItem('token',JSON.stringify(response.data.token))
+                localStorage.setItem('userId',JSON.stringify(response.data.userId))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
                 if(response.data.role==="admin"){
                     navigate('/admin')
@@ -40,16 +53,17 @@ const AuthProvider = ({children}) => {
         }
     }
     const logout = () =>{
-        setUser(null)
+        // setUser(null)
         setToken(null)
         setUserId(null)
         setRole(null)
         localStorage.removeItem('token')
         localStorage.removeItem('role')
+        localStorage.removeItem('userId')
     }
-
+    
     return (
-        <AuthContext.Provider value = {{user,token, role, userId, loginAction, logout}} >
+        <AuthContext.Provider value = {{token, role, userId, loginAction, logout}} >
             {children}
         </AuthContext.Provider>
     )
