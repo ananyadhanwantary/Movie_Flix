@@ -37,6 +37,7 @@ function UserComponent() {
     },[])
     return (
         <Table striped>
+            <br/><br/>
             <thead>
                 <tr>
                     <th>#</th>
@@ -60,6 +61,7 @@ function UserComponent() {
                     </tr>
                 ))}
             </tbody>
+            <br/><br/>
         </Table>
     );
 }
