@@ -1,0 +1,324 @@
+[
+  {
+      "movieName": "Inception",
+      "movieCast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+      "movieUrl": "https://www.example.com/inception",
+      "moviePosterUrl": "https://www.example.com/inception-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "The Dark Knight",
+      "movieCast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+      "movieUrl": "https://www.example.com/the-dark-knight",
+      "moviePosterUrl": "https://www.example.com/the-dark-knight-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Interstellar",
+      "movieCast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+      "movieUrl": "https://www.example.com/interstellar",
+      "moviePosterUrl": "https://www.example.com/interstellar-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "The Matrix",
+      "movieCast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"],
+      "movieUrl": "https://www.example.com/the-matrix",
+      "moviePosterUrl": "https://www.example.com/the-matrix-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "Pulp Fiction",
+      "movieCast": ["John Travolta", "Uma Thurman", "Samuel L. Jackson"],
+      "movieUrl": "https://www.example.com/pulp-fiction",
+      "moviePosterUrl": "https://www.example.com/pulp-fiction-poster.jpg",
+      "genre": "Crime"
+  },
+  {
+      "movieName": "The Shawshank Redemption",
+      "movieCast": ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+      "movieUrl": "https://www.example.com/the-shawshank-redemption",
+      "moviePosterUrl": "https://www.example.com/the-shawshank-redemption-poster.jpg",
+      "genre": "Drama"
+  },
+  {
+      "movieName": "Fight Club",
+      "movieCast": ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"],
+      "movieUrl": "https://www.example.com/fight-club",
+      "moviePosterUrl": "https://www.example.com/fight-club-poster.jpg",
+      "genre": "Drama"
+  },
+  {
+      "movieName": "Forrest Gump",
+      "movieCast": ["Tom Hanks", "Robin Wright", "Gary Sinise"],
+      "movieUrl": "https://www.example.com/forrest-gump",
+      "moviePosterUrl": "https://www.example.com/forrest-gump-poster.jpg",
+      "genre": "Drama"
+  },
+  {
+      "movieName": "Gladiator",
+      "movieCast": ["Russell Crowe", "Joaquin Phoenix", "Connie Nielsen"],
+      "movieUrl": "https://www.example.com/gladiator",
+      "moviePosterUrl": "https://www.example.com/gladiator-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Titanic",
+      "movieCast": ["Leonardo DiCaprio", "Kate Winslet", "Billy Zane"],
+      "movieUrl": "https://www.example.com/titanic",
+      "moviePosterUrl": "https://www.example.com/titanic-poster.jpg",
+      "genre": "Romance"
+  },
+  {
+      "movieName": "The Godfather",
+      "movieCast": ["Marlon Brando", "Al Pacino", "James Caan"],
+      "movieUrl": "https://www.example.com/the-godfather",
+      "moviePosterUrl": "https://www.example.com/the-godfather-poster.jpg",
+      "genre": "Crime"
+  },
+  {
+      "movieName": "The Lord of the Rings: The Fellowship of the Ring",
+      "movieCast": ["Elijah Wood", "Ian McKellen", "Orlando Bloom"],
+      "movieUrl": "https://www.example.com/the-lord-of-the-rings-the-fellowship-of-the-ring",
+      "moviePosterUrl": "https://www.example.com/the-lord-of-the-rings-the-fellowship-of-the-ring-poster.jpg",
+      "genre": "Fantasy"
+  },
+  {
+      "movieName": "The Lord of the Rings: The Two Towers",
+      "movieCast": ["Elijah Wood", "Ian McKellen", "Viggo Mortensen"],
+      "movieUrl": "https://www.example.com/the-lord-of-the-rings-the-two-towers",
+      "moviePosterUrl": "https://www.example.com/the-lord-of-the-rings-the-two-towers-poster.jpg",
+      "genre": "Fantasy"
+  },
+  {
+      "movieName": "The Lord of the Rings: The Return of the King",
+      "movieCast": ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"],
+      "movieUrl": "https://www.example.com/the-lord-of-the-rings-the-return-of-the-king",
+      "moviePosterUrl": "https://www.example.com/the-lord-of-the-rings-the-return-of-the-king-poster.jpg",
+      "genre": "Fantasy"
+  },
+  {
+      "movieName": "Star Wars: Episode IV - A New Hope",
+      "movieCast": ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
+      "movieUrl": "https://www.example.com/star-wars-episode-iv-a-new-hope",
+      "moviePosterUrl": "https://www.example.com/star-wars-episode-iv-a-new-hope-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "Star Wars: Episode V - The Empire Strikes Back",
+      "movieCast": ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
+      "movieUrl": "https://www.example.com/star-wars-episode-v-the-empire-strikes-back",
+      "moviePosterUrl": "https://www.example.com/star-wars-episode-v-the-empire-strikes-back-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "Star Wars: Episode VI - Return of the Jedi",
+      "movieCast": ["Mark Hamill", "Harrison Ford", "Carrie Fisher"],
+      "movieUrl": "https://www.example.com/star-wars-episode-vi-return-of-the-jedi",
+      "moviePosterUrl": "https://www.example.com/star-wars-episode-vi-return-of-the-jedi-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "Jurassic Park",
+      "movieCast": ["Sam Neill", "Laura Dern", "Jeff Goldblum"],
+      "movieUrl": "https://www.example.com/jurassic-park",
+      "moviePosterUrl": "https://www.example.com/jurassic-park-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "The Lion King",
+      "movieCast": ["Matthew Broderick", "Jeremy Irons", "James Earl Jones"],
+      "movieUrl": "https://www.example.com/the-lion-king",
+      "moviePosterUrl": "https://www.example.com/the-lion-king-poster.jpg",
+      "genre": "Animation"
+  },
+  {
+      "movieName": "The Avengers",
+      "movieCast": ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+      "movieUrl": "https://www.example.com/the-avengers",
+      "moviePosterUrl": "https://www.example.com/the-avengers-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Avengers: Endgame",
+      "movieCast": ["Robert Downey Jr.", "Chris Evans", "Mark Ruffalo"],
+      "movieUrl": "https://www.example.com/avengers-endgame",
+      "moviePosterUrl": "https://www.example.com/avengers-endgame-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Avatar",
+      "movieCast": ["Sam Worthington", "Zoe Saldana", "Sigourney Weaver"],
+      "movieUrl": "https://www.example.com/avatar",
+      "moviePosterUrl": "https://www.example.com/avatar-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "Guardians of the Galaxy",
+      "movieCast": ["Chris Pratt", "Zoe Saldana", "Dave Bautista"],
+      "movieUrl": "https://www.example.com/guardians-of-the-galaxy",
+      "moviePosterUrl": "https://www.example.com/guardians-of-the-galaxy-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "Spider-Man: Homecoming",
+      "movieCast": ["Tom Holland", "Michael Keaton", "Robert Downey Jr."],
+      "movieUrl": "https://www.example.com/spider-man-homecoming",
+      "moviePosterUrl": "https://www.example.com/spider-man-homecoming-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Black Panther",
+      "movieCast": ["Chadwick Boseman", "Michael B. Jordan", "Lupita Nyong'o"],
+      "movieUrl": "https://www.example.com/black-panther",
+      "moviePosterUrl": "https://www.example.com/black-panther-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Iron Man",
+      "movieCast": ["Robert Downey Jr.", "Gwyneth Paltrow", "Terrence Howard"],
+      "movieUrl": "https://www.example.com/iron-man",
+      "moviePosterUrl": "https://www.example.com/iron-man-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Captain America: The First Avenger",
+      "movieCast": ["Chris Evans", "Hayley Atwell", "Sebastian Stan"],
+      "movieUrl": "https://www.example.com/captain-america-the-first-avenger",
+      "moviePosterUrl": "https://www.example.com/captain-america-the-first-avenger-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Thor: Ragnarok",
+      "movieCast": ["Chris Hemsworth", "Tom Hiddleston", "Cate Blanchett"],
+      "movieUrl": "https://www.example.com/thor-ragnarok",
+      "moviePosterUrl": "https://www.example.com/thor-ragnarok-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Doctor Strange",
+      "movieCast": ["Benedict Cumberbatch", "Chiwetel Ejiofor", "Rachel McAdams"],
+      "movieUrl": "https://www.example.com/doctor-strange",
+      "moviePosterUrl": "https://www.example.com/doctor-strange-poster.jpg",
+      "genre": "Fantasy"
+  },
+  {
+      "movieName": "Wonder Woman",
+      "movieCast": ["Gal Gadot", "Chris Pine", "Robin Wright"],
+      "movieUrl": "https://www.example.com/wonder-woman",
+      "moviePosterUrl": "https://www.example.com/wonder-woman-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "Batman Begins",
+      "movieCast": ["Christian Bale", "Michael Caine", "Ken Watanabe"],
+      "movieUrl": "https://www.example.com/batman-begins",
+      "moviePosterUrl": "https://www.example.com/batman-begins-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "The Dark Knight Rises",
+      "movieCast": ["Christian Bale", "Tom Hardy", "Anne Hathaway"],
+      "movieUrl": "https://www.example.com/the-dark-knight-rises",
+      "moviePosterUrl": "https://www.example.com/the-dark-knight-rises-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "The Prestige",
+      "movieCast": ["Christian Bale", "Hugh Jackman", "Scarlett Johansson"],
+      "movieUrl": "https://www.example.com/the-prestige",
+      "moviePosterUrl": "https://www.example.com/the-prestige-poster.jpg",
+      "genre": "Drama"
+  },
+  {
+      "movieName": "Django Unchained",
+      "movieCast": ["Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio"],
+      "movieUrl": "https://www.example.com/django-unchained",
+      "moviePosterUrl": "https://www.example.com/django-unchained-poster.jpg",
+      "genre": "Western"
+  },
+  {
+      "movieName": "The Wolf of Wall Street",
+      "movieCast": ["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie"],
+      "movieUrl": "https://www.example.com/the-wolf-of-wall-street",
+      "moviePosterUrl": "https://www.example.com/the-wolf-of-wall-street-poster.jpg",
+      "genre": "Biography"
+  },
+  {
+      "movieName": "Mad Max: Fury Road",
+      "movieCast": ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"],
+      "movieUrl": "https://www.example.com/mad-max-fury-road",
+      "moviePosterUrl": "https://www.example.com/mad-max-fury-road-poster.jpg",
+      "genre": "Action"
+  },
+  {
+      "movieName": "The Social Network",
+      "movieCast": ["Jesse Eisenberg", "Andrew Garfield", "Justin Timberlake"],
+      "movieUrl": "https://www.example.com/the-social-network",
+      "moviePosterUrl": "https://www.example.com/the-social-network-poster.jpg",
+      "genre": "Biography"
+  },
+  {
+      "movieName": "La La Land",
+      "movieCast": ["Ryan Gosling", "Emma Stone", "John Legend"],
+      "movieUrl": "https://www.example.com/la-la-land",
+      "moviePosterUrl": "https://www.example.com/la-la-land-poster.jpg",
+      "genre": "Musical"
+  },
+  {
+      "movieName": "Whiplash",
+      "movieCast": ["Miles Teller", "J.K. Simmons", "Paul Reiser"],
+      "movieUrl": "https://www.example.com/whiplash",
+      "moviePosterUrl": "https://www.example.com/whiplash-poster.jpg",
+      "genre": "Drama"
+  },
+  {
+      "movieName": "Birdman",
+      "movieCast": ["Michael Keaton", "Edward Norton", "Emma Stone"],
+      "movieUrl": "https://www.example.com/birdman",
+      "moviePosterUrl": "https://www.example.com/birdman-poster.jpg",
+      "genre": "Comedy"
+  },
+  {
+      "movieName": "The Revenant",
+      "movieCast": ["Leonardo DiCaprio", "Tom Hardy", "Will Poulter"],
+      "movieUrl": "https://www.example.com/the-revenant",
+      "moviePosterUrl": "https://www.example.com/the-revenant-poster.jpg",
+      "genre": "Adventure"
+  },
+  {
+      "movieName": "Gravity",
+      "movieCast": ["Sandra Bullock", "George Clooney", "Ed Harris"],
+      "movieUrl": "https://www.example.com/gravity",
+      "moviePosterUrl": "https://www.example.com/gravity-poster.jpg",
+      "genre": "Sci-Fi"
+  },
+  {
+      "movieName": "The Departed",
+      "movieCast": ["Leonardo DiCaprio", "Matt Damon", "Jack Nicholson"],
+      "movieUrl": "https://www.example.com/the-departed",
+      "moviePosterUrl": "https://www.example.com/the-departed-poster.jpg",
+      "genre": "Crime"
+  },
+  {
+      "movieName": "The Pianist",
+      "movieCast": ["Adrien Brody", "Thomas Kretschmann", "Frank Finlay"],
+      "movieUrl": "https://www.example.com/the-pianist",
+      "moviePosterUrl": "https://www.example.com/the-pianist-poster.jpg",
+      "genre": "Biography"
+  },
+  {
+      "movieName": "Schindler's List",
+      "movieCast": ["Liam Neeson", "Ben Kingsley", "Ralph Fiennes"],
+      "movieUrl": "https://www.example.com/schindlers-list",
+      "moviePosterUrl": "https://www.example.com/schindlers-list-poster.jpg",
+      "genre": "Biography"
+  },
+  {
+      "movieName": "The Silence of the Lambs",
+      "movieCast": ["Jodie Foster", "Anthony Hopkins", "Lawrence A. Bonney"],
+      "movieUrl": "https://www.example.com/the-silence-of-the-lambs",
+      "moviePosterUrl": "https://www.example.com/the-silence-of-the-lambs-poster.jpg",
+      "genre": "Thriller"
+  }
+]
