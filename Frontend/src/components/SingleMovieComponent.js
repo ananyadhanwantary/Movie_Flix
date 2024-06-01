@@ -14,6 +14,7 @@ function SingleMovieComponent() {
     var [movie, setMovie] = useState({})
     var [like, setLike] = useState(false)
     var [comment, setComment] = useState("")
+    const [getComments,setgetComments]=useState([])
     useEffect(() => {
         const { id } = params
         axios.get(`http://localhost:3001/api/movie/${id}`)
@@ -74,6 +75,15 @@ function SingleMovieComponent() {
             })
             .catch(err => console.log(err))
     }
+    function getCom(id){
+        const token = localStorage.getItem("token")
+        axios.get(`http://localhost:3001/api/movie/comments/${id}`, {userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
+            .then(res => {
+                setgetComments(res.data)
+            })
+            .catch(err => console.log(err))
+
+    }
     return (
         <>
             {/* <center>
@@ -87,7 +97,7 @@ function SingleMovieComponent() {
             <Container>
                 <Row className="justify-content-center">
                     <Col xs={12} md={6}>
-                        <img src={movie.moviePosterUrl} alt="Movie Poster" className="img-fluid" />
+                        <img src={movie.moviePosterUrl} alt="Movie Poster" className="img-fluid w-25" />
                         <h1>{movie.movieName}</h1>
                         <p>{movie.movieCast}</p>
                         <AiFillLike onClick={() => handleLike(movie._id)} id="like_button" />
@@ -96,6 +106,14 @@ function SingleMovieComponent() {
                             <Form.Control type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
                         </Form.Group>
                         <Button variant="primary" onClick={() => addComment(movie._id)}>Submit Comment</Button>
+                        <Button onClick={()=> getCom(movie._id)} onChange={(e)=>{ setgetComments(e.target.value)}}>Get Comment</Button>
+                            {getComments.map((comment) => (
+                                <div>
+                                <div>{comment.commentedUser.username}</div>
+                                <div>{comment.comment}</div>
+                                </div>
+                            ))}
+
                     </Col>
                 </Row>
             </Container>
