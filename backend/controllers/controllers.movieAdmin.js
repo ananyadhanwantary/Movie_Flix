@@ -231,7 +231,7 @@ async function addComment(req,res){
         if(!movie){
             res.json({message:"Movie Not found"})
         }
-        var userId=req.userId;
+        var userId=req.body.userId;
         const user=await userModel.findById(userId)
         data={comment:req.body.comment,commentedUser:user}
         movie.comments.push(data)

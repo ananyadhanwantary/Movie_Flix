@@ -1,7 +1,4 @@
 const {userModel}=require("../models/models.UserModel")
-require("dotenv").config()
-const bcrypt=require("bcryptjs")
-const {createSecretToken}=require("../util/SecretToken")
 
 async function getAllUser(req,res){
     try{

@@ -33,7 +33,7 @@ function SingleMovieComponent() {
             if (!like) {
                 try {
                     // console.log(token," from try in if")
-                    var res = await axios.put(`http://localhost:3001/api/movie/like/${id}`, {userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
+                    res = await axios.put(`http://localhost:3001/api/movie/like/${id}`, {userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
                     if (res.status === 200) {
                         setLike(true)
                         document.getElementById("like_button").style.color = "red"
@@ -63,7 +63,7 @@ function SingleMovieComponent() {
     }
     function addComment(id) {
         const token = localStorage.getItem("token")
-        axios.put(`http://localhost:3001/api/movie/comment/${id}`, { comment: comment }, { headers: { "Authorization": `Bearer ${token}` } })
+        axios.put(`http://localhost:3001/api/movie/comment/${id}`, { comment: comment , userId : userId}, { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 if (res.data.status)
                     navigate("/login")
