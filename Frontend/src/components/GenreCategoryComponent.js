@@ -60,6 +60,7 @@ function GenreCategoryComponent() {
 
     return (
         <ListGroup className="mb-3">
+            <br/>
             <ListGroup.Item variant="dark" className="text-white fw-bold">Genres</ListGroup.Item>
             {genres.map((genre, index) => (
                 <ListGroup.Item
@@ -70,8 +71,47 @@ function GenreCategoryComponent() {
                     {genre}
                 </ListGroup.Item>
             ))}
+            <br/><br/><br/>
         </ListGroup>
     );
 }
 
 export default GenreCategoryComponent;
+
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import { Nav } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+
+// function GenreCategoryComponent() {
+//     const [genres, setGenres] = useState([]);
+
+//     useEffect(() => {
+//         async function fetchGenres() {
+//             try {
+//                 const response = await axios.get("http://localhost:3001/api/admin/movie/getAllGenres");
+//                 setGenres(response.data);
+//             } catch (err) {
+//                 console.log(err);
+//             }
+//         }
+//         fetchGenres();
+//     }, []);
+
+//     return (
+//         <Nav className="flex-column">
+//             {genres.map((genre, index) => (
+//                 <Nav.Item key={index}>
+//                     <Link to={{
+//                         pathname: "/byGenre",
+//                         state: { movieGenre: genre },
+//                     }} className="nav-link">
+//                         {genre}
+//                     </Link>
+//                 </Nav.Item>
+//             ))}
+//         </Nav>
+//     );
+// }
+
+// export default GenreCategoryComponent;

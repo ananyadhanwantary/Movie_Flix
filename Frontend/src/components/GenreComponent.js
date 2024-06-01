@@ -101,7 +101,7 @@ function GenreComponent() {
                     </Row>
                 </Col>
             </Row>
-            <br/><br/>
+            <br/><br/><br/>
         </Container>
     );
 }

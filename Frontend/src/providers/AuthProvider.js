@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
-    console.log('AuthProvider children:', children);
     // const [user,setUser] = useState(() => {
     //     const storedUser = localStorage.getItem('user')
     //     return storedUser ? JSON.parse(storedUser) : null
@@ -26,7 +25,7 @@ const AuthProvider = ({children}) => {
         try{
             const response = await axios.post('http://localhost:3001/api/login',data)
             if(response.data){
-                console.log(response.data)
+                //console.log(response.data)
                 alert(response.data.message)
                 // setUser(response.data.user)
                 setToken(response.data.token)
