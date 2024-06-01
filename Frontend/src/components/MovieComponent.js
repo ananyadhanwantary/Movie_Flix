@@ -112,6 +112,7 @@ function MovieComponent() {
                     </Row>
                 </Col>
             </Row>
+            <br/><br/>
         </Container>
     );
 }
