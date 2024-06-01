@@ -47,7 +47,7 @@ function MovieAddComponent(){
         <br/><br/>
         <Container className="border border-black">
             <h1 className="text-center fw-bolder">ADD MOVIE</h1>
-        <Form className="center" style={{ maxWidth: "1000px", margin: "auto" }}>
+        <Form className="center" style={{ maxWidth: "800px", margin: "auto" }}>
             <Form.Group controlId="movieName">
                 <Form.Label>Movie Name:</Form.Label>
                 <Form.Control

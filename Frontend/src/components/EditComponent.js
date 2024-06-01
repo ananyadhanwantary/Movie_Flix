@@ -21,7 +21,7 @@ function EditComponent() {
     setError("");
     const token = localStorage.getItem("token");
     axios
-      .patch(
+      .put(
         `http://localhost:3001/api/admin/userEdit/${id}`,
         { username, phone },
         { headers: { Authorization: `Bearer ${token}` } }
