@@ -31,7 +31,7 @@ function HeaderComponent() {
     }
     return (
         <>
-            <div className='d-flex container-fluid bg-dark fixed-top' style={{ height: "60px" }}>
+            <div className='d-flex container-fluid bg-dark fixed-top' style={{ height: "50px" }}>
                 <div className='col-2 p-2 d-flex align-items-center poetsen-one-regular h1 text-white '
                     onClick={(e) => { handleHome(e) }}>
                     <i className="bi bi-camera-reels-fill"></i> <span>MovieFlix</span>
