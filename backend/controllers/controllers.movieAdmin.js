@@ -140,7 +140,7 @@ async function getLike(req,res){
         if (!movie) {
             console.log('Movie not found');
         }
-        var userId=req.userId
+        var userId=req.body.userId
         var user =await userModel.findById(userId)
         var found = movie.like.likedUsers.find((u) => u===user)
         if(found)
@@ -160,7 +160,7 @@ async function addLike(req,res){
         if (!movie) {
             console.log('Movie not found');
         }
-        var userId=req.userId
+        var userId=req.body.userId
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
         movie.like.likedUsers.push(user)
@@ -182,7 +182,7 @@ async function removeLike(req,res){
         }
         movie.like.noOfLikes = movie.like.noOfLikes-1
         try{
-            var userId=req.userId;
+            var userId=req.body.userId;
             var user =await userModel.findById(userId)
             var ind = movie.like.likedUsers.indexOf(user)
             if(ind)
