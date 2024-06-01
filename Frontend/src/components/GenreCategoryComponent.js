@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import axios from "axios"
 function GenreCategoryComponent(){
     const {genre,setGenre}=useState()
     async function handleGenre(){
