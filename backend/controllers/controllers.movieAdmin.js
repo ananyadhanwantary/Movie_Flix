@@ -30,10 +30,12 @@ async function getMoviesByGenre(req,res){
         const g=req.params.genre
         
         const movies=await MovieModel.find({})
+        const moviearr=[]
         movies.forEach((movie)=> {
             if( movie.genre==g)
-            res.status(200).json(movie)
-    })
+            moviearr.push(movie)
+        })
+        res.status(200).json(moviearr)
         // moviesByGenre = {}
         // var genres= new Set()
         // movies.forEach( (movie) => {

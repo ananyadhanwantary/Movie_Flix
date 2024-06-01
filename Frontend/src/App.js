@@ -29,7 +29,7 @@ function App() {
             <Route path="/login" element={<LoginComponent/>}></Route>
             <Route path="/signup" element={<RegisterComponent/>}></Route>
 
-            <Route path="/byGenre/" element={<GenreComponent/>}></Route>
+            <Route path="/byGenre" element={<GenreComponent/>}></Route>
 
             <Route element={<UserProtectedRoute/>}>
               <Route path="/getMovie" element={<MovieComponent/>}></Route>

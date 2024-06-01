@@ -2,20 +2,31 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from "axios"
 import { useEffect, useState } from 'react';
-function GenreComponent(props){
-    const [movies,setMovies]=useState({})
-    const genre=props.g
+import { useLocation } from 'react-router-dom';
+function GenreComponent(){
+    const location=useLocation()
+    //console.log(location)
+    const { state } = location;   
+    //console.log(state)
+    const [movies,setMovies]=useState([])
+    const g=state.movieGenre
+    //console.log(g)
     useEffect(()=>{
-        console.log("ged")
+        //console.log("ged")
         try{
-            axios.get(`http://localhost:3001/api/admin/movie/bygenre/${genre}`)
-            .then((response)=>setMovies(response.data))
+            //console.log("try block")
+            axios.get(`http://localhost:3001/api/admin/movie/bygenre/${g}`)
+            .then((response)=>{
+                //console.log("then block")
+                //console.log(response.data)
+                setMovies(response.data)
+        })
         }
         catch(err){
             console.log(err)
         }
         
-    })
+    },[])
     return(
         <>
         <div className="container d-flex justify-content-center align-content-center">
