@@ -1,10 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from "axios"
-import { useState } from 'react';
-function GenreComponent(){
+import { useEffect, useState } from 'react';
+function GenreComponent(props){
     const [movies,setMovies]=useState({})
-    async function handleByGenre(genre){
+    const genre=props.g
+    useEffect(()=>{
+        console.log("ged")
         try{
             axios.get(`http://localhost:3001/api/admin/movie/bygenre/${genre}`)
             .then((response)=>setMovies(response.data))
@@ -13,7 +15,7 @@ function GenreComponent(){
             console.log(err)
         }
         
-    }
+    })
     return(
         <>
         <div className="container d-flex justify-content-center align-content-center">

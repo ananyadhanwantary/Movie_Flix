@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
+import GenreCategoryComponent from './GenreCategoryComponent'
 function MovieComponent() {
     const navigate = useNavigate()
     const [movies, setMovies] = useState([])
@@ -28,6 +29,7 @@ function MovieComponent() {
     }
     return (
         <>
+        <GenreCategoryComponent></GenreCategoryComponent>
         <div className="container d-flex justify-content-center align-content-center">
             <div className="row justify-content-center">
                 {movies.map((movie) =>

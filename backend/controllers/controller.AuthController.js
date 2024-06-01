@@ -42,7 +42,7 @@ const CheckUser = async (req, res) => {
       httpOnly: false,
     });
     res.status(201).json({ message: "User logged in successfully", success: true });*/
-    res.status(200).json({token:token ,login : true, role : user.role,message: "User logged in successfully"})
+    res.status(200).json({token:token ,login : true, role : user.role ,userId : user._id, user:user,message: "User logged in successfully"})
   } catch (error) {
     console.error(error);
   }
