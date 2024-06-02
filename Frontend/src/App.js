@@ -20,8 +20,66 @@ import GenreComponent from './components/GenreComponent';
 import ProfileComponent from './components/ProfileComponent';
 
 function App() {
+// const styles = {
+//   header: {
+//     position: 'relative',
+//     zIndex: 0,
+//   },
+//   backgroundImageContainer: {
+//     position: 'absolute',
+//     top: 0,
+//     left: 0,
+//     width: '100%',
+//     height: '100%',
+//     backgroundImage: `url('https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg')`,
+//     backgroundPosition: 'center',
+//     backgroundRepeat: 'no-repeat',
+//     backgroundSize: 'cover',
+//     filter: 'brightness(50%)', 
+//     zIndex: -1,
+//   },
+//   content: {
+//     height: '100%',
+//     width: '100%',
+//     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+//     position: 'relative',
+//     zIndex: 1,
+//     padding: '20px', 
+//   }
+// }
+const styles = {
+  header: {
+    position: 'relative',
+    zIndex: 0,
+  },
+  backgroundImageContainer: {
+     position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundImage: `url('https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg')`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'repeat',
+    backgroundSize: 'cover',
+    filter: 'brightness(50%)', // Adjust brightness value as needed
+    zIndex: -1,
+  },
+  content: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    color: '#ffffff', // Set text color to white
+      position: 'relative',
+    zIndex: 1,
+    padding: '20px', // Add padding for better readability
+  }
+}
+
   return (
-    <>
+    <div style={styles.header}>
+    <div style={styles.backgroundImageContainer}></div>
+      <div style={styles.content}>
       <BrowserRouter>
         <AuthProvider>
           <HeaderComponent />
@@ -50,7 +108,8 @@ function App() {
         </AuthProvider>
       </BrowserRouter>
       <FooterComponent />
-    </>
+    </div>
+    </div>
   );
 }
 

@@ -12,7 +12,7 @@ function AdminHomeComponent(){
     return(
         <>
         <br/><br/>
-        <div className="container-fluid bg-dark text-light py-5">
+        <div className="py-5">
         <div className="row">
             <div className="col text-center">
             <h1 className="display-3">Movie-Flix</h1>

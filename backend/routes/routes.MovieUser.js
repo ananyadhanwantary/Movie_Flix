@@ -1,6 +1,6 @@
 const express=require("express")
 
-const {getAllMovies,getMovie,addLike, removeLike, getLikeCount,addComment,getLike}=require("../controllers/controllers.movieAdmin")
+const {getAllMovies,getMovie,addLike, removeLike, getLikeCount,addComment,getLike,getComments}=require("../controllers/controllers.movieAdmin")
 
 const routes=express.Router()
 
@@ -11,5 +11,6 @@ routes.put("/like/:id",addLike)
 routes.delete("/like/:id",removeLike)
 routes.get("/like/:id",getLikeCount)
 routes.put("/comment/:id",addComment)
+routes.get("/comments/:id",getComments)
 
 module.exports=routes

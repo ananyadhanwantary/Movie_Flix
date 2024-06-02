@@ -6,7 +6,7 @@
 // function GenreComponent(){
 //     const location=useLocation()
 //     //console.log(location)
-//     const { state } = location;   
+//     const { state } = location;
 //     //console.log(state)
 //     const [movies,setMovies]=useState([])
 //     const g=state.movieGenre
@@ -25,7 +25,7 @@
 //         catch(err){
 //             console.log(err)
 //         }
-        
+
 //     },[])
 //     return(
 //         <>
@@ -58,52 +58,79 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import GenreCategoryComponent from "./GenreCategoryComponent";
+import { useNavigate } from "react-router-dom";
 
 function GenreComponent() {
-    const location = useLocation();
-    const { state } = location;
-    const [movies, setMovies] = useState([]);
-    const g = state.movieGenre;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { state } = location;
+  const [movies, setMovies] = useState([]);
+  const g = state.movieGenre;
 
-    useEffect(() => {
-        async function fetchMoviesByGenre() {
-            try {
-                const response = await axios.get(`http://localhost:3001/api/admin/movie/bygenre/${g}`);
-                setMovies(response.data);
-            } catch (err) {
-                console.log(err);
-            }
-        }
-        fetchMoviesByGenre();
-    }, [g]);
+  useEffect(() => {
+    async function fetchMoviesByGenre() {
+      try {
+        const response = await axios.get(
+          `http://localhost:3001/api/admin/movie/bygenre/${g}`
+        );
+        setMovies(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchMoviesByGenre();
+  }, [g]);
+  function handleSingleMovie(id) {
+    try {
+      console.log(id);
+      navigate(`/getMovie/${id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-    return (
-        <Container className="mt-4">
-            <br/><br/>
-            <Row>
-                <Col md={2} className="mb-3">
-                    <GenreCategoryComponent />
-                </Col>
-                <Col md={10}>
-                    <Row xs={1} md={2} lg={3} className="justify-content-center">
-                        {movies.map((movie) => (
-                            <Col key={movie._id} className="mb-3">
-                                <Card style={{ width: "18rem" }}>
-                                    <Card.Img variant="top" src={movie.moviePosterUrl} />
-                                    <Card.Body>
-                                        <Card.Title>{movie.movieName}</Card.Title>
-                                        <Card.Text>{movie.movieCast}</Card.Text>
-                                        <Button variant="primary">Play Movie</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
-                </Col>
-            </Row>
-            <br/><br/><br/>
-        </Container>
-    );
+  return (
+    <Container className="mt-4">
+      <br />
+      <br />
+      <Row>
+        <Col md={2} className="mb-3">
+          <GenreCategoryComponent />
+        </Col>
+        <Col md={10}>
+          <Row xs={1} md={2} lg={3} className="justify-content-center">
+            {movies.map((movie) => (
+              <Col key={movie._id} className="mb-3">
+                <Card style={{ width: "18rem" }}>
+                  <Card.Img variant="top" src={movie.moviePosterUrl} />
+                  <Card.Body>
+                    <Card.Title>{movie.movieName}</Card.Title>
+                    <Card.Text>{movie.movieCast}</Card.Text>
+                    <Button
+                      onClick={() => handleSingleMovie(movie._id)}
+                      variant="primary"
+                    >
+                      See More
+                    </Button>
+                    <Button
+                      className="ms-2"
+                      variant="secondary"
+                      href={movie.movieUrl}
+                    >
+                      Play Movie
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+      <br />
+      <br />
+      <br />
+    </Container>
+  );
 }
 
 export default GenreComponent;

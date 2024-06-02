@@ -45,20 +45,20 @@ function HomeComponent() {
   return (
     <>
     <br/><br/><br/>
-      <div className="container-fluid bg-dark text-light py-5">
+      <div className="container-fluid  py-5">
         <div className="row">
-          <Carousel>
-            <Carousel.Item>
+          <Carousel >
+            <Carousel.Item >
               {/* <ExampleCarouselImage text="First slide" /> */}
               <img
                 className="d-block w-25 center"
                 src="https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg"
                 alt="Third slide"
               />
-              <Carousel.Caption>
+              <Carousel.Caption >
                 <h3>Extensive content</h3>
                 <p>
-                  range of content, including blockbuster hits, classic films,
+                  range of content, including blockbuster hits,<br/> classic films,
                   indie gems, and popular TV series.
                 </p>
               </Carousel.Caption>
@@ -80,26 +80,7 @@ function HomeComponent() {
             </Carousel.Item>
             <Carousel.Item>
               {/* <ExampleCarouselImage text="Third slide" /> */}
-              <Carousel.Caption>
-                <div
-                  // style={{
-                  //   backgroundImage:
-                  //     "url(https://media.istockphoto.com/id/1542598409/photo/movie-podium-background-with-movie-objects-3d-rendering.webp?b=1&s=170667a&w=0&k=20&c=VUwlXnJCjj7A811-dxcwhb9gZ-yp48ymZ2Jmm4lOlto=)",
-                  //   backgroundSize: "cover",
-                  //   backgroundPosition: "center",
-                  //   width: "100%",
-                  //   height: "500px",
-                  // }}
-                >
-                <img className="d-block w-100" src="https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg" alt="Card"></img>
-                <h3>Poplarity Indicators</h3>
-                <p>
-                  showcases movie popularity and highlights what is currently
-                  favored by the community.
-                </p>
-                </div>
-              </Carousel.Caption>
-              {/* <img
+              <img
                 className="d-block w-25"
                 src="https://media.istockphoto.com/id/1542598409/photo/movie-podium-background-with-movie-objects-3d-rendering.webp?b=1&s=170667a&w=0&k=20&c=VUwlXnJCjj7A811-dxcwhb9gZ-yp48ymZ2Jmm4lOlto="
                 alt="Third slide"
@@ -110,7 +91,7 @@ function HomeComponent() {
                   showcases movie popularity and highlights what is currently
                   favored by the community.
                 </p>
-              </Carousel.Caption> */}
+              </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
           <div className="col text-center">

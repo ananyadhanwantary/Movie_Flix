@@ -126,7 +126,7 @@ async function deleteMovie(req,res){
 
 async function getComments(req,res){
     try{
-        const id=parseInt(req.params.id)
+        const id=(req.params.id)
         const movie=await MovieModel.findById(id)
         if(!movie){
             res.status(404).json({message:"Movie NOT found"})
@@ -137,6 +137,7 @@ async function getComments(req,res){
 
     }
     catch(err){
+        console.log(err)
         res.status(500).json("Error in getting all comments")
     }
 }

@@ -2,13 +2,11 @@
   "_id": {
     "$oid": "664f174d9fd30e2c2864d216"
   },
-  "movieName": "Harley",
-  "movieUrl": "ggffjgdjfdh",
-  "moviePosterUrl": "asdfghjkgjfgggjfjgf",
-  "genre": "romcom",
-  "movieCast": [
-    "[qiuiiuyuyi,gfdfdfd]"
-  ],
+  "movieName": "Inception",
+  "movieUrl": "https://www.imdb.com/title/tt1375666/",
+  "moviePosterUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7825626_p_v8_ae.jpg",
+  "genre": "Sci-Fi",
+  "movieCast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
   "like": {
     "noOfLikes": 0,
     "likedUsers": [],
@@ -23,13 +21,11 @@
   "_id": {
     "$oid": "664f17569fd30e2c2864d21a"
   },
-  "movieName": "Joker",
-  "movieUrl": "qwertyu",
-  "moviePosterUrl": "asdfghj",
-  "genre": "horror",
-  "movieCast": [
-    "[fayhbd,qwji]"
-  ],
+  "movieName": "The Dark Knight",
+  "movieUrl": "https://www.imdb.com/title/tt0468569/",
+  "moviePosterUrl": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg",
+  "genre": "Action",
+  "movieCast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
   "like": {
     "noOfLikes": 0,
     "likedUsers": [],
