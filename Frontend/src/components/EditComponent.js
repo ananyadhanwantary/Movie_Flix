@@ -54,6 +54,7 @@ function EditComponent() {
   }, [id]);
   return (
     <>
+    <br/><br/>
       <h1>Edit User</h1>
       <Form
         className="center"
@@ -93,6 +94,7 @@ function EditComponent() {
           {loading ? "Editing..." : "Edit Changes"}
         </Button>
       </Form>
+      <br/><br/><br/>
     </>
   );
 }

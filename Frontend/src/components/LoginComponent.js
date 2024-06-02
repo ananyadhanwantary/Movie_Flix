@@ -41,6 +41,7 @@ const Login = () => {
 
     return (
         <div className="vh-100">
+            <br/><br/>
             <div className="container-fluid d-flex align-items-center justify-content-center h-75">
                 <div className="card p-4 shadow" style={{ width: '20rem' }}>
                     <h3 className="card-title text-center">Login</h3>
@@ -78,6 +79,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            <br/><br/><br/>
         </div>
     );
 };

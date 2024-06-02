@@ -11,6 +11,7 @@ function AdminHomeComponent(){
     }
     return(
         <>
+        <br/><br/>
         <div className="container-fluid bg-dark text-light py-5">
         <div className="row">
             <div className="col text-center">
@@ -21,6 +22,7 @@ function AdminHomeComponent(){
             </div>
         </div>
         </div>
+        <br/><br/><br/>
         </>
     )
 }

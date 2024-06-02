@@ -29,33 +29,107 @@
 
 // export default HomeComponent;
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
+import Carousel from "react-bootstrap/Carousel";
 function HomeComponent() {
-    const navigate=useNavigate()
-    async function handleGetMovie(e){
-        e.preventDefault()
-        try{
-          navigate("/getMovie")
-        }
-        catch(err){
-          console.log(err)
-        }
-      }
-    return (
-        <div className="container-fluid bg-dark text-light py-5">
+  const navigate = useNavigate();
+  async function handleGetMovie(e) {
+    e.preventDefault();
+    try {
+      navigate("/getMovie");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  return (
+    <>
+    <br/><br/><br/>
+      <div className="container-fluid bg-dark text-light py-5">
         <div className="row">
-            <div className="col text-center">
+          <Carousel>
+            <Carousel.Item>
+              {/* <ExampleCarouselImage text="First slide" /> */}
+              <img
+                className="d-block w-25 center"
+                src="https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg"
+                alt="Third slide"
+              />
+              <Carousel.Caption>
+                <h3>Extensive content</h3>
+                <p>
+                  range of content, including blockbuster hits, classic films,
+                  indie gems, and popular TV series.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              {/* <ExampleCarouselImage text="Second slide" /> */}
+              <img
+                className="d-block w-25 center"
+                src="https://s.studiobinder.com/wp-content/uploads/2022/11/Movie-Genres-Types-of-Movies-List-of-Genres-and-Categories-Featured.jpg"
+                alt="Third slide"
+              />
+              <Carousel.Caption>
+                <h3>Genre Browsing</h3>
+                <p>
+                  navigate through a list of genres such as <br></br>Action,
+                  Comedy, Drama, Horror, Romance, Sci-Fi, Documentary, and more
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              {/* <ExampleCarouselImage text="Third slide" /> */}
+              <Carousel.Caption>
+                <div
+                  // style={{
+                  //   backgroundImage:
+                  //     "url(https://media.istockphoto.com/id/1542598409/photo/movie-podium-background-with-movie-objects-3d-rendering.webp?b=1&s=170667a&w=0&k=20&c=VUwlXnJCjj7A811-dxcwhb9gZ-yp48ymZ2Jmm4lOlto=)",
+                  //   backgroundSize: "cover",
+                  //   backgroundPosition: "center",
+                  //   width: "100%",
+                  //   height: "500px",
+                  // }}
+                >
+                <img className="d-block w-100" src="https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg" alt="Card"></img>
+                <h3>Poplarity Indicators</h3>
+                <p>
+                  showcases movie popularity and highlights what is currently
+                  favored by the community.
+                </p>
+                </div>
+              </Carousel.Caption>
+              {/* <img
+                className="d-block w-25"
+                src="https://media.istockphoto.com/id/1542598409/photo/movie-podium-background-with-movie-objects-3d-rendering.webp?b=1&s=170667a&w=0&k=20&c=VUwlXnJCjj7A811-dxcwhb9gZ-yp48ymZ2Jmm4lOlto="
+                alt="Third slide"
+              />
+              <Carousel.Caption>
+                <h3>Poplarity Indicators</h3>
+                <p>
+                  showcases movie popularity and highlights what is currently
+                  favored by the community.
+                </p>
+              </Carousel.Caption> */}
+            </Carousel.Item>
+          </Carousel>
+          <div className="col text-center">
             <h1 className="display-3">Movie-Flix</h1>
             <p className="lead">Your Ultimate Movie Streaming Solution</p>
-            <button className="btn btn-primary btn-lg" onClick={(e)=>handleGetMovie(e)}>Explore Now</button>
-            </div>
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={(e) => handleGetMovie(e)}
+            >
+              Explore Now
+            </button>
+            <br></br>
+            <br></br>
+          </div>
         </div>
-        </div>
-    );
+      </div>
+      <br/><br/><br/>
+    </>
+  );
 }
 
 export default HomeComponent;
-

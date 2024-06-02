@@ -93,6 +93,7 @@ function AdminMovieComponent(){
                 )}
             </div>
         </div> */}
+        <br/><br/>
         <Container className="d-flex justify-content-center align-items-center">
             <Row className="justify-content-center">
                 <Button onClick={handleMovieInsert}>ADD MOVIE</Button>
@@ -112,6 +113,7 @@ function AdminMovieComponent(){
                 ))}
             </Row>
         </Container>
+        <br/><br/><br/>
         </>
     );
 }

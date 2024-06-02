@@ -12,11 +12,13 @@ function ProfileComponent(){
     },[userId])
     return(
         <>
+        <br/><br/>
            <Container>
                 <h1>{user.username}</h1>
                 <h1>Email:{user.email}</h1>
                 <h1>Phone Number:{user.phone}</h1>                
            </Container>
+           <br/><br/><br/>
         </>
     )
 }
