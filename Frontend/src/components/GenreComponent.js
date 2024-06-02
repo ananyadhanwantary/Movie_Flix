@@ -52,12 +52,12 @@
 //     )
 // }
 // export default GenreComponent
-
+import DropDown from "./DropDown";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import GenreCategoryComponent from "./GenreCategoryComponent";
+// import GenreCategoryComponent from "./GenreCategoryComponent";
 import { useNavigate } from "react-router-dom";
 
 function GenreComponent() {
@@ -70,10 +70,16 @@ function GenreComponent() {
   useEffect(() => {
     async function fetchMoviesByGenre() {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/api/admin/movie/bygenre/${g}`
-        );
-        setMovies(response.data);
+        if(g==="All"){
+          const response = await axios.get("http://localhost:3001/api/admin/movie");
+          setMovies(response.data);
+        }
+        else{
+          const response = await axios.get(
+            `http://localhost:3001/api/admin/movie/bygenre/${g}`
+          );
+          setMovies(response.data);
+      }
       } catch (err) {
         console.log(err);
       }
@@ -90,13 +96,15 @@ function GenreComponent() {
   }
 
   return (
-    <Container className="mt-4">
-      <br />
-      <br />
+    <>
+    <div className="mt-5 ms-5">
+      <DropDown />
+    </div>
+    <Container className="mt-5">
       <Row>
-        <Col md={2} className="mb-3">
+        {/* <Col md={2} className="mb-3">
           <GenreCategoryComponent />
-        </Col>
+        </Col> */}
         <Col md={10}>
           <Row xs={1} md={2} lg={3} className="justify-content-center">
             {movies.map((movie) => (
@@ -130,6 +138,7 @@ function GenreComponent() {
       <br />
       <br />
     </Container>
+    </>
   );
 }
 

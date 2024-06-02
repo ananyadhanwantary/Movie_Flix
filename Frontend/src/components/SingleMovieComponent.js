@@ -190,8 +190,7 @@ function SingleMovieComponent() {
     if (token) {
       var res = await axios.get(
         `http://localhost:3001/api/movie/like/${id}`,
-        { userId: userId },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { userId: userId }
       );
       if (res.data.status) navigate("/login");
       else {
@@ -201,8 +200,7 @@ function SingleMovieComponent() {
         try {
           res = await axios.put(
             `http://localhost:3001/api/movie/like/${id}`,
-            { userId: userId },
-            { headers: { Authorization: `Bearer ${token}` } }
+            { userId: userId }
           );
           if (res.status === 200) {
             setLike(true);
@@ -215,12 +213,11 @@ function SingleMovieComponent() {
         try {
           res = await axios.delete(
             `http://localhost:3001/api/movie/like/${id}`,
-            { userId: userId },
-            { headers: { Authorization: `Bearer ${token}` } }
+            { userId: userId }
           );
           if (res.status === 200) {
             setLike(false);
-            document.getElementById("like_button").style.color = "black";
+            document.getElementById("like_button").style.color = "white";
           }
         } catch (err) {
           console.log(err);
@@ -237,8 +234,7 @@ function SingleMovieComponent() {
     axios
       .put(
         `http://localhost:3001/api/movie/comment/${id}`,
-        { comment: comment, userId: userId },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { comment: comment, userId: userId }
       )
       .then((res) => {
         if (res.data.status) navigate("/login");
@@ -255,8 +251,7 @@ function SingleMovieComponent() {
     axios
       .get(
         `http://localhost:3001/api/movie/comments/${id}`,
-        { userId: userId },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { userId: userId }
       )
       .then((res) => {
         setgetComments(res.data);

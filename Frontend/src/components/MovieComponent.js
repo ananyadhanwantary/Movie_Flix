@@ -55,7 +55,7 @@
 
 // }
 // export default MovieComponent
-
+import DropDown from "./DropDown";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
@@ -87,13 +87,17 @@ function MovieComponent() {
   }
 
   return (
+    <>
+    <div className="mt-5 ms-5">
+      <DropDown />
+    </div>
     <Container className="mt-4">
       <br />
       <br />
       <Row>
-        <Col sm={2}>
+        {/* <Col sm={2} className="float-left">
           <GenreCategoryComponent />
-        </Col>
+        </Col> */}
         <Col sm={10}>
           <Row xs={1} md={2} lg={3} className="justify-content-center">
             {movies.map((movie) => (
@@ -123,6 +127,7 @@ function MovieComponent() {
       <br />
       <br />
     </Container>
+    </>
   );
 }
 

@@ -7,12 +7,12 @@ async function getUser(req,res){
         if(!user){
             res.status(404).json({message:"User NOT found"})
         }
-        res.status(200).json(user)
+        else
+            res.status(200).json(user)
     }
     catch(err){
         res.status(404).json({msg:"user not found"})
     }
 }
-
 
 module.exports={getUser}

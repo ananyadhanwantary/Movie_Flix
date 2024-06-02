@@ -12,7 +12,9 @@ const Login = () => {
     // const navigate = useNavigate();
     const handleLogin=(e) => {
         e.preventDefault();
+        setLoading(true);
         loginAction({email,password})
+        setLoading(false)
     }
     // const handleLogin = (e) => {
     //     e.preventDefault();

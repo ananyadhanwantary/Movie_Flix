@@ -89,9 +89,8 @@ const styles = {
             <Route path="/signup" element={<RegisterComponent/>}></Route>
             <Route path='/profile' element={<ProfileComponent/>}></Route>
 
-            <Route path="/byGenre" element={<GenreComponent/>}></Route>
-
             <Route element={<UserProtectedRoute/>}>
+              <Route path="/byGenre" element={<GenreComponent/>}></Route>
               <Route path="/getMovie" element={<MovieComponent/>}></Route>
               <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
             </Route>

@@ -29,23 +29,20 @@ function RegisterComponent() {
       })
   }
   return (
-    <div className="container mt-5 vh-100">
-      <br/><br/>
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card shadow ">
-            <div className="card-header bg-primary text-white">
-              <h3 className="text-center card-title ">Register</h3>
-            </div>
+    <div className="vh-100">
+    <br/><br/>
+      <div className="container-fluid d-flex align-items-center justify-content-center h-75">
+        <div className="card p-4 shadow" style={{ width: '30rem' }}>
+            <h3 className="card-title text-center">Register</h3>
             <div className="card-body">
               <form onSubmit={(e) => handleSignup(e)}>
-                <div className="form-group">
+                <div className="form-group form-label">
                   <label>Email</label>
                   <input
                     type="email"
                     value={user.email}
                     className="form-control"
-                    placeholder="Enter email"
+                    // placeholder="Enter email"
                     required
                     onChange={(e) => {
                       setUser((user) => {
@@ -56,13 +53,13 @@ function RegisterComponent() {
                       })
                     }} />
                 </div>
-                <div className="form-group">
+                <div className="form-group form-label">
                   <label>Password</label>
                   <input
                     type="password"
                     value={user.password}
                     className="form-control"
-                    placeholder="Password"
+                    // placeholder="Password"
                     required
                     onChange={(e) => {
                       setUser((user) => {
@@ -73,13 +70,13 @@ function RegisterComponent() {
                       })
                     }} />
                 </div>
-                <div className="form-group">
+                <div className="form-group form-label">
                   <label>Username</label>
                   <input
                     type="text"
                     value={user.username}
                     className="form-control"
-                    placeholder="Enter username"
+                    // placeholder="Enter username"
                     required
                     onChange={(e) => {
                       setUser((user) => {
@@ -90,13 +87,13 @@ function RegisterComponent() {
                       })
                     }} />
                 </div>
-                <div className="form-group">
+                <div className="form-group form-label">
                   <label>Phone number</label>
                   <input
                     type="tel"
                     value={user.phone}
                     className="form-control"
-                    placeholder="Enter phone number"
+                    // placeholder="Enter phone number"
                     required
                     onChange={(e) => {
                       setUser((user) => {
@@ -116,9 +113,8 @@ function RegisterComponent() {
                   >{loading ? 'Signing up...' : 'Sign up'}</button>
                 </div>
               </form>
+              </div>
             </div>
-          </div>
-        </div>
       </div>
       <br/><br/><br/>
     </div>
