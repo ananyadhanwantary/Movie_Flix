@@ -6,7 +6,7 @@ function FooterComponent() {
   return (
     <>
     <hr className="p-0 m-0"/>
-    <footer className="footer d-flex bg-dark text-white py-2 fixed-bottom" style={{ height: "70px" }}>
+    <footer className="footer d-flex bg-dark text-white py-2 " style={{ height: "70px" }}>
       <div className="container d-flex justify-content-center align-content-center flex-column">
         <div className="column d-flex justify-content-center align-content-center ">
           <i className="bi bi-camera-reels-fill"></i>

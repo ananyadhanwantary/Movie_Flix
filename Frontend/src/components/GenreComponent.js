@@ -1,64 +1,9 @@
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-// import axios from "axios"
-// import { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router-dom';
-// function GenreComponent(){
-//     const location=useLocation()
-//     //console.log(location)
-//     const { state } = location;
-//     //console.log(state)
-//     const [movies,setMovies]=useState([])
-//     const g=state.movieGenre
-//     //console.log(g)
-//     useEffect(()=>{
-//         //console.log("ged")
-//         try{
-//             //console.log("try block")
-//             axios.get(`http://localhost:3001/api/admin/movie/bygenre/${g}`)
-//             .then((response)=>{
-//                 //console.log("then block")
-//                 //console.log(response.data)
-//                 setMovies(response.data)
-//         })
-//         }
-//         catch(err){
-//             console.log(err)
-//         }
-
-//     },[])
-//     return(
-//         <>
-//         <div className="container d-flex justify-content-center align-content-center">
-//             <div className="row justify-content-center">
-//                 {movies.map((movie) =>
-//                     <div className="col-lg p-3"  key={movie._id}>
-//                         <Card style={{ width: '18rem' }}>
-//                             <Card.Img variant="top" src={movie.moviePosterUrl} />
-//                             <Card.Body>
-//                                 <Card.Title>{movie.movieName}</Card.Title>
-//                                 <Card.Text>
-//                                     {movie.movieCast}
-//                                 </Card.Text>
-//                                 <Button variant="primary">Play Movie</Button>
-//                             </Card.Body>
-//                         </Card>
-//                     </div>
-//                 )}
-//             </div>
-//         </div>
-//         </>
-
-//     )
-// }
-// export default GenreComponent
 import DropDown from "./DropDown";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
-// import GenreCategoryComponent from "./GenreCategoryComponent";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/GenreComponent.css";
 
 function GenreComponent() {
   const navigate = useNavigate();
@@ -70,22 +15,20 @@ function GenreComponent() {
   useEffect(() => {
     async function fetchMoviesByGenre() {
       try {
-        if(g==="All"){
+        if (g === "All") {
           const response = await axios.get("http://localhost:3001/api/admin/movie");
           setMovies(response.data);
-        }
-        else{
-          const response = await axios.get(
-            `http://localhost:3001/api/admin/movie/bygenre/${g}`
-          );
+        } else {
+          const response = await axios.get(`http://localhost:3001/api/admin/movie/bygenre/${g}`);
           setMovies(response.data);
-      }
+        }
       } catch (err) {
         console.log(err);
       }
     }
     fetchMoviesByGenre();
   }, [g]);
+
   function handleSingleMovie(id) {
     try {
       console.log(id);
@@ -97,47 +40,30 @@ function GenreComponent() {
 
   return (
     <>
-    <div className="mt-5 ms-5">
-      <DropDown />
-    </div>
-    <Container className="mt-5">
-      <Row>
-        {/* <Col md={2} className="mb-3">
-          <GenreCategoryComponent />
-        </Col> */}
-        <Col md={10}>
-          <Row xs={1} md={2} lg={3} className="justify-content-center">
-            {movies.map((movie) => (
-              <Col key={movie._id} className="mb-3">
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={movie.moviePosterUrl} />
-                  <Card.Body>
-                    <Card.Title>{movie.movieName}</Card.Title>
-                    <Card.Text>{movie.movieCast}</Card.Text>
-                    <Button
-                      onClick={() => handleSingleMovie(movie._id)}
-                      variant="primary"
-                    >
-                      See More
-                    </Button>
-                    <Button
-                      className="ms-2"
-                      variant="secondary"
-                      href={movie.movieUrl}
-                    >
-                      Play Movie
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-      <br />
-      <br />
-      <br />
-    </Container>
+      <div className="dropdown-container mt-5">
+        <DropDown />
+      </div>
+      <Container className="container-custom">
+        <Row className="">
+          {movies.map((movie, index) => (
+            <Col key={movie._id} xs={12} sm={6} md={4} lg={2} className="mb-4">
+              <Card className="card-custom">
+                <Card.Img variant="top" src={movie.moviePosterUrl} />
+                <Card.Body className="card-body-custom">
+                  <div className="card-content">
+                    <Card.Title className="card-title-custom fs-6">{movie.movieName}</Card.Title>
+                    <Card.Text className="card-text-custom fs-7">{movie.movieCast.join(', ')}</Card.Text>
+                  </div>
+                  <div className="button-group-custom p-1">
+                    <Button className="custom-button" onClick={() => handleSingleMovie(movie._id)} variant="primary" size="sm">See More</Button>
+                    <Button className="custom-button ms-2" variant="secondary" href={movie.movieUrl} size="sm">Play Movie</Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </>
   );
 }

@@ -70,9 +70,13 @@ const styles = {
     width: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     color: '#ffffff', // Set text color to white
-      position: 'relative',
+    position: 'relative',
     zIndex: 1,
-    padding: '20px', // Add padding for better readability
+    paddingTop: '20px',
+    paddingLeft:'20px',
+    paddingRight:'20px',
+     // Add padding for better readability
+    // paddingBottom: '0px'
   }
 }
 
