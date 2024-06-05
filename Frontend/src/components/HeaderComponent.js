@@ -31,12 +31,17 @@ function HeaderComponent() {
     }
     return (
         <>
-            <div className='d-flex container-fluid bg-dark fixed-top' style={{ height: "50px" }}>
-                <div className='col-2 p-2 d-flex align-items-center poetsen-one-regular h1 text-white '
+            <div className='d-flex container-fluid bg-dark fixed-top d-flex align-items-center' style={{ height: "60px" }}>
+                <div className='p-2 d-flex align-items-center poetsen-one-regular h1 m-0 text-white '
                     onClick={(e) => { handleHome(e) }}>
                     <i className="bi bi-camera-reels-fill"></i> <span>MovieFlix</span>
                 </div>
-                <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center '>
+                <ul className="container-fluid d-inline-flex flex-wrap h5 flex-row-reverse py-2 align-items-center m-0 gap-4" style={{listStyleType: "none", flexGrow:1}}  >
+                    <li className="nav-item" >About us</li>
+                    <li className="nav-item" onClick={()=> navigate(`/byGenre`, { state: { movieGenre: "All" } })}>Movies</li>
+                    <li className="nav-item" onClick={() => navigate("/")}>Home</li>
+                </ul>
+                <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center m-0 w-auto' style={{minWidth:"fit-content"}}>
                     {token==null ?
                        <div className='float-right px-2'>
                         <button className='btn btn-light me-2' onClick={(e) => { handleLogin(e) }}>Login</button>
@@ -49,7 +54,6 @@ function HeaderComponent() {
                     </div>}
                 </div>
             </div>
-            <hr className="p-0 m-0" />
         </>
     );
 }

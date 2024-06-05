@@ -77,16 +77,22 @@ const styles = {
     paddingRight:'20px',
      // Add padding for better readability
     // paddingBottom: '0px'
+  },
+  inner: {
+    paddingTop: '20px',
+    paddingLeft:'20px',
+    paddingRight:'20px',
   }
 }
 
   return (
     <div style={styles.header}>
     <div style={styles.backgroundImageContainer}></div>
-      <div style={styles.content}>
+      <div style={styles.content} >
       <BrowserRouter>
         <AuthProvider>
           <HeaderComponent />
+          <div style={styles.inner}>
           <Routes>
             <Route path='/' exact element={<HomeComponent/>}></Route>
             <Route path="/login" element={<LoginComponent/>}></Route>
@@ -108,6 +114,7 @@ const styles = {
               <Route path="/editMovie/:id" element={<MovieEditComponet/>}></Route>
             </Route>
           </Routes>
+          </div>
         </AuthProvider>
       </BrowserRouter>
       <FooterComponent />

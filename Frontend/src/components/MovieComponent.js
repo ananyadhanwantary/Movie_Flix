@@ -60,7 +60,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import GenreCategoryComponent from "./GenreCategoryComponent";
+// import GenreCategoryComponent from "./GenreCategoryComponent";
 
 function MovieComponent() {
   const navigate = useNavigate();

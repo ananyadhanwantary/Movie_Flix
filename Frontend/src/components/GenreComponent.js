@@ -40,6 +40,7 @@ function GenreComponent() {
 
   return (
     <>
+    <div className="">
       <div className="dropdown-container mt-5">
         <DropDown />
       </div>
@@ -64,6 +65,7 @@ function GenreComponent() {
           ))}
         </Row>
       </Container>
+      </div>
     </>
   );
 }
