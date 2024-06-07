@@ -18,6 +18,7 @@ import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
 import GenreComponent from './components/GenreComponent';
 import ProfileComponent from './components/ProfileComponent';
+import AboutUs from './components/AboutUs';
 
 function App() {
 // const styles = {
@@ -73,15 +74,15 @@ const styles = {
     position: 'relative',
     zIndex: 1,
     paddingTop: '20px',
-    paddingLeft:'20px',
-    paddingRight:'20px',
+    // paddingLeft:'20px',
+    // paddingRight:'20px',
      // Add padding for better readability
     // paddingBottom: '0px'
   },
   inner: {
     paddingTop: '20px',
-    paddingLeft:'20px',
-    paddingRight:'20px',
+    // paddingLeft:'20px',
+    // paddingRight:'20px',
   }
 }
 
@@ -98,7 +99,8 @@ const styles = {
             <Route path="/login" element={<LoginComponent/>}></Route>
             <Route path="/signup" element={<RegisterComponent/>}></Route>
             <Route path='/profile' element={<ProfileComponent/>}></Route>
-
+            <Route path='/aboutUs' element={<AboutUs/>}></Route>
+            
             <Route element={<UserProtectedRoute/>}>
               <Route path="/byGenre" element={<GenreComponent/>}></Route>
               <Route path="/getMovie" element={<MovieComponent/>}></Route>
