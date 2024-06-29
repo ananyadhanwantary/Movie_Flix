@@ -5,7 +5,7 @@ import React from "react";
 function FooterComponent() {
   return (
     <>
-    <footer className="footer d-flex bg-dark text-white py-2 container-fluid" style={{ height: "70px" }}>
+    <footer className="footer d-flex bg-dark text-white py-2 container-fluid" style={{ height: "70px" , position : "fixed" , bottom : 0}}>
       <div className="container d-flex justify-content-center align-content-center flex-column">
         <div className="column d-flex justify-content-center align-content-center ">
           <i className="bi bi-camera-reels-fill"></i>

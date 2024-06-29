@@ -57,9 +57,9 @@ function EditComponent() {
     <br/><br/>
       <h1>Edit User</h1>
       <Form
-        className="center"
+        className="center vh-100"
         onSubmit={(e)=>handleEdit(e)}
-        style={{ maxWidth: "300px", margin: "auto" }}
+        style={{ maxWidth: "400px", margin: "auto" }}
       >
         <Form.Group controlId="formEmail">
           <Form.Label>Email</Form.Label>

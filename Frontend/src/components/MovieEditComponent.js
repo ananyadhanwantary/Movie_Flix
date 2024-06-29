@@ -132,7 +132,7 @@ function MovieEditComponet() {
     <Button variant="primary" type="submit" onClick={(e)=>handleEdit(e)}>Submit</Button>
 </Form> */}
 
-      <Form className>
+      <Form className="center" style={{ maxWidth: "800px", margin: "auto" }} >
         <Form.Group controlId="movieName">
           <Form.Label>Movie Name:</Form.Label>
           <Form.Control
@@ -213,7 +213,7 @@ function MovieEditComponet() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={(e) => handleEdit(e)}>
+        <Button variant="primary" className="my-4" type="submit" onClick={(e) => handleEdit(e)}>
           Submit
         </Button>
       </Form>

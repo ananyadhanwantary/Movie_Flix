@@ -7,7 +7,7 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 
 
 function HeaderComponent() {
-    const {token,logout} = useAuth()
+    const {token,logout,role} = useAuth()
     const navigate = useNavigate()
     function handleLogin(e) {
         e.preventDefault()
@@ -27,7 +27,8 @@ function HeaderComponent() {
     }
     function handleHome(e) {
         e.preventDefault()
-        navigate('/')
+        if(role==="admin")      navigate('/admin');
+        else    navigate('/');
     }
     return (
         <>
@@ -37,9 +38,9 @@ function HeaderComponent() {
                     <i className="bi bi-camera-reels-fill"></i> <span>MovieFlix</span>
                 </div>
                 <ul className="container-fluid d-inline-flex flex-wrap h5 flex-row-reverse py-2 align-items-center m-0 gap-4" style={{listStyleType: "none", flexGrow:1}}  >
-                    <li className="nav-item" >About us</li>
+                    <li className="nav-item" onClick={ () => navigate('/aboutUs')}>About us</li>
                     <li className="nav-item" onClick={()=> navigate(`/byGenre`, { state: { movieGenre: "All" } })}>Movies</li>
-                    <li className="nav-item" onClick={() => navigate("/")}>Home</li>
+                    <li className="nav-item" onClick={(e) =>{ handleHome(e) } }>Home</li>
                 </ul>
                 <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center m-0 w-auto' style={{minWidth:"fit-content"}}>
                     {token==null ?
