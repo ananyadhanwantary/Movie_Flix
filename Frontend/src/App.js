@@ -98,13 +98,13 @@ const styles = {
             <Route path='/' exact element={<HomeComponent/>}></Route>
             <Route path="/login" element={<LoginComponent/>}></Route>
             <Route path="/signup" element={<RegisterComponent/>}></Route>
-            <Route path='/profile' element={<ProfileComponent/>}></Route>
             <Route path='/aboutUs' element={<AboutUs/>}></Route>
             
             <Route element={<UserProtectedRoute/>}>
               <Route path="/byGenre" element={<GenreComponent/>}></Route>
               <Route path="/getMovie" element={<MovieComponent/>}></Route>
               <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
+              <Route path='/profile' element={<ProfileComponent/>}></Route>
             </Route>
 
             <Route element={<AdminProtectedRoute/>}>

@@ -261,9 +261,7 @@ function SingleMovieComponent() {
 
   return (
     <div >
-    <br />
-    <br />
-      <Container className="py-5 fw-bolder ">
+      <Container className="py-5 fw-bolder">
         <Row className="justify-content-center">
           <Col xs={12} md={6} className="text-center">
             <img

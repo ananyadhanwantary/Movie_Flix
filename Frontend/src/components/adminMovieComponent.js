@@ -4,8 +4,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { FaPenSquare } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-// import {}
-
+import "../styles/GenreComponent.css";
 
 function AdminMovieComponent(){
     const navigate = useNavigate()
@@ -70,50 +69,63 @@ function AdminMovieComponent(){
     //         console.log(err)
     //     }
     // }
-    
+    // const [hovered, setHovered] = useState(null);
+    // const cardStyle = (isHovered) => ({
+    //     border: 'none',
+    //     transition: 'transform 0.2s',
+    //     transform: isHovered ? 'translate(5px, -5px)' : 'none',
+    //     boxShadow: isHovered ? '0 6px 18px rgb(41, 130, 240)' : 'none'
+    //   });
     return (
         <>
-        {/* <div className="container d-flex justify-content-center align-content-center">
-            <div className="row justify-content-center">
-                <Button onClick={()=>handleMovieInsert()}>ADD MOVIE</Button>
-                {movies.map((movie) =>
-                    <div className="col-lg p-3"  key={movie._id}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={movie.moviePosterUrl} />
-                            <Card.Body>
-                                <Card.Title>{movie.movieName}</Card.Title>
-                                <Card.Text>
-                                    {movie.movieCast}
-                                </Card.Text>
-                                <Button variant="primary">Play Movie</Button>
-                                <FaPenSquare className="size-70-px"onClick={()=>handleMovieUpdate(movie)}/><MdDelete onClick={()=>handleMovieDelete(movie._id)}/>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                )}
-            </div>
-        </div> */}
-        <br/><br/>
-        <Container className="d-flex justify-content-center align-items-center">
+        {/* <Container className="d-flex justify-content-center align-items-center mt-4">
             <Row className="justify-content-center">
                 <Button onClick={handleMovieInsert}>ADD MOVIE</Button>
                 {movies.map((movie) => (
-                    <Col lg={3} className="p-3" key={movie._id}>
-                        <Card style={{ width: '18rem' }}>
+                    <Col lg={4} className="p-3 mb-3" key={movie._id}>
+                        <Card 
+                  style={cardStyle(hovered === movie._id)} 
+                  onMouseEnter={() => setHovered(movie._id)} 
+                  onMouseLeave={() => setHovered(null)}
+                >
                             <Card.Img variant="top" src={movie.moviePosterUrl} />
                             <Card.Body>
                                 <Card.Title>{movie.movieName}</Card.Title>
                                 <Card.Text>{movie.movieCast}</Card.Text>
-                                <Button variant="primary">Play Movie</Button>
-                                <FaPenSquare className="size-70-px" onClick={() => handleMovieUpdate(movie)} />
-                                <MdDelete onClick={() => handleMovieDelete(movie._id)} />
+                                <div className='d-flex justify-content-center align-items-center'>
+                                <Button variant="primary" className='me-2'>Play Movie</Button>
+                                <FaPenSquare className="size-70-px me-2" onClick={() => handleMovieUpdate(movie)} />
+                                <MdDelete className='me-2' onClick={() => handleMovieDelete(movie._id)} />
+                                </div>                            
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container> */}
+        <Container className="container-custom mb-4">
+            <Row className="">
+                <Button className="mb-4" onClick={handleMovieInsert}>ADD MOVIE</Button>
+                {movies.map((movie) => (
+                    <Col xs={12} sm={6} md={4} lg={2} className="mb-4" key={movie._id}>
+                        <Card className='card-custom'>
+                            <Card.Img variant="top" src={movie.moviePosterUrl} />
+                            <Card.Body className="card-body-custom">
+                                <div className="card-content">
+                                    <Card.Title className="card-title-custom fs-6">{movie.movieName}</Card.Title>
+                                    <Card.Text >{movie.movieCast}</Card.Text>
+                                </div>
+                                <Button variant="primary" className='mb-2'>Play Movie</Button>
+                                <div className='d-flex justify-content-center align-items-center'>
+                                    <FaPenSquare className="size-70-px me-2" onClick={() => handleMovieUpdate(movie)} />
+                                    <MdDelete className='me-2' onClick={() => handleMovieDelete(movie._id)} />
+                                </div>                            
                             </Card.Body>
                         </Card>
                     </Col>
                 ))}
             </Row>
         </Container>
-        <br/><br/><br/>
         </>
     );
 }

@@ -97,8 +97,8 @@ function MovieAddComponent(){
                     onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieCast: e.target.value }))}
                 />
             </Form.Group>
-            <br/><br/>
-            <Button variant="primary" type="submit" onClick={handleAddMovie}>
+            
+            <Button variant="primary" className="my-4" type="submit" onClick={handleAddMovie}>
                 Submit
             </Button>
         </Form>

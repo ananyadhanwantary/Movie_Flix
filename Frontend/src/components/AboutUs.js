@@ -1,9 +1,8 @@
-import react from "react"
 
 function AboutUs() {
     return (
         <>
-        <div className="container-fluid d-flex flex-row mt-3 bg-opacity-75 bg-black">
+        <div className="container-fluid d-flex flex-row mt-3 bg-opacity-75 bg-black vh-100">
             <div className="col-6 d-flex flex-column justify-content-center align-content-center p-5">
                 <div className="display-4 fw-bold p-1">
                 Enjoy on your TV
