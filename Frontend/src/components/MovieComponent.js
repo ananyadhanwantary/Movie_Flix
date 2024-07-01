@@ -95,9 +95,6 @@ function MovieComponent() {
       <br />
       <br />
       <Row>
-        {/* <Col sm={2} className="float-left">
-          <GenreCategoryComponent />
-        </Col> */}
         <Col sm={10}>
           <Row xs={1} md={2} lg={3} className="justify-content-center">
             {movies.map((movie) => (
@@ -113,7 +110,7 @@ function MovieComponent() {
                     >
                       See More
                     </Button>
-                    <Button className="ms-2" variant="secondary" href="https://www.imdb.com/video/vi4219471385/?ref_=tt_vi_i_2">
+                    <Button className="ms-2" variant="secondary" href={movie.movieUrl}/*"https://www.imdb.com/video/vi4219471385/?ref_=tt_vi_i_2"*/>
                       Play Movie
                     </Button>
                   </Card.Body>

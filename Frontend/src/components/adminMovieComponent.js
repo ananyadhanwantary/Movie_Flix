@@ -103,6 +103,7 @@ function AdminMovieComponent(){
                 ))}
             </Row>
         </Container> */}
+        
         <Container className="container-custom mb-4">
             <Row className="">
                 <Button className="mb-4" onClick={handleMovieInsert}>ADD MOVIE</Button>

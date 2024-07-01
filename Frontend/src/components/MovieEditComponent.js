@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 // import { Form, Button } from 'react-bootstrap';
-function MovieEditComponet() {
+function MovieEditComponent() {
   const navigate = useNavigate();
   const params = useParams();
   //const movie=params.id
@@ -17,6 +17,15 @@ function MovieEditComponet() {
     // movieCast:movies.movieCast
   });
   // console.log(newMovie)
+  useEffect(() => {
+    async function getData(){
+      const { id } = params;
+      var res = await axios.get(`http://localhost:3001/api/movie/${id}`)
+      console.log(res.data)
+      setNewMovie(res.data)
+    }
+    getData()
+  },[])
   async function handleEdit(e) {
     e.preventDefault();
     try {
@@ -37,7 +46,6 @@ function MovieEditComponet() {
           alert("You are not authorized to perform ths operation");
         }
       } else {
-        //setMovies([...movies,res.data.movie])
         setNewMovie({
           movieName: "",
           movieUrl: "",
@@ -224,4 +232,4 @@ function MovieEditComponet() {
     </>
   );
 }
-export default MovieEditComponet;
+export default MovieEditComponent;

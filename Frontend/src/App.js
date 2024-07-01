@@ -9,7 +9,7 @@ import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
 import MovieAddComponent from './components/MovieAddComponent';
 import MovieComponent from "./components/MovieComponent";
-import MovieEditComponet from './components/MovieEditComponent';
+import MovieEditComponent from './components/MovieEditComponent';
 import RegisterComponent from './components/RegisterComponent';
 import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
@@ -113,7 +113,7 @@ const styles = {
               <Route path='/editUser/:id' element={<EditComponent/>}></Route>
               <Route path="/addMovie/" element={<MovieAddComponent/>}></Route>
               <Route path="/admin/movie" element={<AdminMovieComponent/>}></Route>
-              <Route path="/editMovie/:id" element={<MovieEditComponet/>}></Route>
+              <Route path="/editMovie/:id" element={<MovieEditComponent/>}></Route>
             </Route>
           </Routes>
           </div>
