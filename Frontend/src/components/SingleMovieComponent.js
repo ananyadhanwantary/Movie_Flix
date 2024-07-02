@@ -190,7 +190,7 @@ function SingleMovieComponent() {
     if (token) {
       var res = await axios.get(
         `http://localhost:3001/api/movie/like/${id}`,
-        { userId: userId }
+        {params : {userId: userId }}
       );
       if (res.data.status) navigate("/login");
       else {
