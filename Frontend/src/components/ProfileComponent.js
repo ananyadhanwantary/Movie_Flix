@@ -71,7 +71,7 @@ function ProfileComponent() {
                     </Card.Body>
                 </Card>
             </Container>
-    <h1 style={{width:"fit-content"}} className="bold bg-dark ms-5">My Watchlist</h1>
+    <h1 style={{width:"fit-content"}} className="bold  ms-5">My Watchlist</h1>
     <Container className="mt-4">
 
       <Row>

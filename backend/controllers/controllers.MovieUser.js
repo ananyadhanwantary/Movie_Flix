@@ -98,7 +98,7 @@ async function getLikeCount(req,res){
         if (!movie) {
             console.log('Movie not found');
         }
-        res.json({"No of Likes":movie.like.noOfLikes})
+        res.json({"Likes":movie.like.noOfLikes})
         //res.send(movie.like.noOfLikes)
     }
     catch(err){
@@ -106,6 +106,8 @@ async function getLikeCount(req,res){
         res.status(500).json({message:"Error in getting like count"})
     }
 }
+
+
 
 async function addComment(req,res){
     try{

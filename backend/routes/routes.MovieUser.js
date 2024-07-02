@@ -10,7 +10,7 @@ routes.get("/:id",getMovie)
 routes.get("/like/:id",getLike)
 routes.put("/like/:id",addLike)
 routes.delete("/like/:id",removeLike)
-routes.get("/like/:id",getLikeCount)
+routes.get("/likecnt/:id",getLikeCount)
 routes.put("/comment/:id",addComment)
 routes.get("/comments/:id",getComments)
 
