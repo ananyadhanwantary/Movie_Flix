@@ -177,11 +177,17 @@ function SingleMovieComponent() {
   const [like, setLike] = useState(false);
   const [comment, setComment] = useState("");
   const [getComments, setgetComments] = useState([]);
+  const [likes,setLikes]=useState(0);
+
   useEffect(() => {
     const { id } = params;
     axios
       .get(`http://localhost:3001/api/movie/${id}`)
       .then((res) => setMovie(res.data))
+      .catch((err) => console.log(err));
+      axios
+      .get(`http://localhost:3001/api/admin/movie/like/${id}`)
+      .then((res) => setLikes(res.data))
       .catch((err) => console.log(err));
   },[params]);
 
@@ -258,6 +264,17 @@ function SingleMovieComponent() {
       })
       .catch((err) => console.log(err));
   }
+  // async function getLikes(){
+  //   const {id}=params
+  //   try{
+  //     const response =await axios.get(`http://localhost:3001/api/admin/movie/like/${id}`)
+  //     console.log(response.data)
+  //     setLikes(response.data)
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
 
   return (
     <div >
@@ -285,6 +302,8 @@ function SingleMovieComponent() {
               style={{ cursor: "pointer", fontSize: "24px" }}
               className={like ? "text-danger mb-4" : "mb-4"}
             />
+            <div><b type ="text" value={likes.NoofLikes} onChange={(e)=> setLikes(e.target.value)}/></div>
+            {/* <div>{likes.NoofLikes}</div> */}
             <Form.Group controlId="comment" className="mb-4">
               <Form.Label className="fw-bold">Comment:</Form.Label>
               <Form.Control

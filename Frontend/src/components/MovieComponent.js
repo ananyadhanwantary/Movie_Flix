@@ -65,7 +65,6 @@ import { useNavigate } from "react-router-dom";
 function MovieComponent() {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-
   useEffect(() => {
     async function fetchMovies() {
       try {
@@ -77,7 +76,6 @@ function MovieComponent() {
     }
     fetchMovies();
   }, []);
-
   function handleSingleMovie(id) {
     try {
       navigate(`/getMovie/${id}`);
