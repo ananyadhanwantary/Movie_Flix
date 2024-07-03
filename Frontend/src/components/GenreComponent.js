@@ -53,6 +53,14 @@ function GenreComponent() {
   // function handleChange(){
   //   handleSearch()
   // }
+  async function handleSearch(){
+    try{
+      navigate("/search/")
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
   const handleSearchButtonClick = () => {
     setShowSearchBar(!showSearchBar);
   };
