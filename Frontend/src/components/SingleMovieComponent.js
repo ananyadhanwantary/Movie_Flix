@@ -24,7 +24,6 @@ function SingleMovieComponent() {
     .then((res)=>{
         setLikecnt(res.data);
         console.log(res.data)
-        
     })
     .catch((err)=>console.log(err));
   },[params,like]);
