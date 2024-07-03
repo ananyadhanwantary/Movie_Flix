@@ -92,6 +92,7 @@ function MovieComponent() {
     <Container className="mt-4">
       <br />
       <br />
+      
       <Row>
         <Col sm={10}>
           <Row xs={1} md={2} lg={3} className="justify-content-center">

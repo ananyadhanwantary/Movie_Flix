@@ -1,5 +1,21 @@
 const MovieModel=require("../models/models.movies")
 const {userModel} = require("../models/models.UserModel")
+
+async function getLikedMovies(req,res){
+    try{
+        const movies=await MovieModel.find({})
+        var userId=req.query.userId
+        var user =await userModel.findById(userId)
+        var likedMovies=movies.filter((movie) =>{
+            return movie.like.likedUsers.find((u) => u.email == user.email)
+        })
+        res.status(200).json(likedMovies)
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in getting movie details"})
+    }
+}
 async function addMovie(req,res){
     try{
         const{movieName, movieUrl,moviePosterUrl,genre,movieCast}=req.body
@@ -148,7 +164,8 @@ async function getLike(req,res){
         if (!movie) {
             console.log('Movie not found');
         }
-        var userId=req.body.userId
+        var userId=req.query.userId
+        console.log(userId)
         var user =await userModel.findById(userId)
         var found = movie.like.likedUsers.find((u) => u===user)
         if(found)
@@ -169,6 +186,7 @@ async function addLike(req,res){
             console.log('Movie not found');
         }
         var userId=req.body.userId
+        // console.log(userId)
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
         movie.like.likedUsers.push(user)
@@ -216,7 +234,7 @@ async function getLikeCount(req,res){
         if (!movie) {
             console.log('Movie not found');
         }
-        res.send(movie.like.noOfLikes)
+        res.json({ "Likes": movie.like.noOfLikes });
     }
     catch(err){
         console.log(err)
@@ -247,4 +265,16 @@ async function addComment(req,res){
     }
 }
 
-module.exports={addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike,getAllGeneres}
+async function search(req,res){
+    try{
+        const searchQuery=req.query.search||"";
+        const movies = await MovieModel.find({ movieName: { $regex: searchQuery, $options: 'i' } });
+        res.json(movies)
+    }
+    catch(err){
+        console.log(err)
+        res.json({message:"Error occured while searching"})
+    }
+}
+
+module.exports={getLikedMovies,addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike,getAllGeneres,search}

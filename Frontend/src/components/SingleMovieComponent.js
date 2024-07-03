@@ -175,6 +175,7 @@ function SingleMovieComponent() {
   const { userId } = useAuth();
   const [movie, setMovie] = useState({});
   const [like, setLike] = useState(false);
+  const [likecnt,setLikecnt]=useState({});
   const [comment, setComment] = useState("");
   const [getComments, setgetComments] = useState([]);
   const [likes,setLikes]=useState(0);
@@ -185,18 +186,20 @@ function SingleMovieComponent() {
       .get(`http://localhost:3001/api/movie/${id}`)
       .then((res) => setMovie(res.data))
       .catch((err) => console.log(err));
-      axios
-      .get(`http://localhost:3001/api/admin/movie/like/${id}`)
-      .then((res) => setLikes(res.data))
-      .catch((err) => console.log(err));
-  },[params]);
+    axios.get(`http://localhost:3001/api/movie/likecnt/${id}`)
+    .then((res)=>{
+        setLikecnt(res.data);
+        console.log(res.data)
+    })
+    .catch((err)=>console.log(err));
+  },[params,like]);
 
   async function handleLike(id) {
     const token = localStorage.getItem("token");
     if (token) {
       var res = await axios.get(
         `http://localhost:3001/api/movie/like/${id}`,
-        { userId: userId }
+        {params : {userId: userId }}
       );
       if (res.data.status) navigate("/login");
       else {
@@ -300,10 +303,9 @@ function SingleMovieComponent() {
               onClick={() => handleLike(movie._id)}
               id="like_button"
               style={{ cursor: "pointer", fontSize: "24px" }}
-              className={like ? "text-danger mb-4" : "mb-4"}
+              className={like ? "text-danger " : ""}
             />
-            <div><b type ="text" value={likes.NoofLikes} onChange={(e)=> setLikes(e.target.value)}/></div>
-            {/* <div>{likes.NoofLikes}</div> */}
+            <h6>{likecnt.Likes}</h6>
             <Form.Group controlId="comment" className="mb-4">
               <Form.Label className="fw-bold">Comment:</Form.Label>
               <Form.Control

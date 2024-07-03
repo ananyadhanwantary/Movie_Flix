@@ -25,7 +25,22 @@ async function getMovie(req,res){
         res.status(500).json({message:"Error in getting movie details"})
     }
 }
-
+async function getLikedMovies(req,res){
+    try{
+        const movies=await MovieModel.find({})
+        var userId=req.userId
+        var user =await userModel.findById(userId)
+        console.log(userId)
+        var likedMovies=movies.filter((movie) =>{
+            return movie.like.likedUsers.includes(user)
+        })
+        res.status(200).json(likedMovies)
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in getting movie details"})
+    }
+}
 
 async function addLike(req,res){
     try{
@@ -35,6 +50,7 @@ async function addLike(req,res){
             console.log('Movie not found');
         }
         var userId=req.userId
+        console.log(userId)
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
         movie.like.likeduser.push(user)
@@ -82,7 +98,7 @@ async function getLikeCount(req,res){
         if (!movie) {
             console.log('Movie not found');
         }
-        res.json({"NoofLikes":movie.like.noOfLikes})
+        res.json({"Likes":movie.like.noOfLikes})
         //res.send(movie.like.noOfLikes)
     }
     catch(err){
@@ -90,6 +106,8 @@ async function getLikeCount(req,res){
         res.status(500).json({message:"Error in getting like count"})
     }
 }
+
+
 
 async function addComment(req,res){
     try{
@@ -113,4 +131,4 @@ async function addComment(req,res){
     }
 }
 
-module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount ,addComment }
+module.exports={getAllMovies,getMovie,addLike, removeLike, getLikeCount ,addComment,getLikedMovies }

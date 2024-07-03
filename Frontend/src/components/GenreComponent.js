@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/GenreComponent.css";
+import SearchComponent from "./SearchComponet";
 
 function GenreComponent() {
   const navigate = useNavigate();
@@ -37,6 +38,20 @@ function GenreComponent() {
       console.log(err);
     }
   }
+  // async function handleSearch(query){
+  //   try{
+  //     const response=await axios.get(`http://localhost:3001/api/movie/search?search=${query}`)
+  //     console.log(response.data)
+  //     setSearch(response.data)
+
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
+  // function handleChange(){
+  //   handleSearch()
+  // }
 
   return (
     <>
@@ -44,6 +59,7 @@ function GenreComponent() {
       <div className="dropdown-container mt-5">
         <DropDown />
       </div>
+      {/* <SearchComponent></SearchComponent> */}
       <Container className="container-custom">
         <Row className="">
           {movies.map((movie, index) => (
