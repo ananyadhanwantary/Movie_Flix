@@ -12,6 +12,7 @@ function GenreComponent() {
   const { state } = location;
   const [movies, setMovies] = useState([]);
   const g = state.movieGenre;
+  const [showSearchBar, setShowSearchBar] = useState(false);
 
   useEffect(() => {
     async function fetchMoviesByGenre() {
@@ -52,7 +53,9 @@ function GenreComponent() {
   // function handleChange(){
   //   handleSearch()
   // }
-
+  const handleSearchButtonClick = () => {
+    setShowSearchBar(!showSearchBar);
+  };
   return (
     <>
     <div className="">
@@ -60,6 +63,14 @@ function GenreComponent() {
         <DropDown />
       </div>
       {/* <SearchComponent></SearchComponent> */}
+      <button onClick={()=> handleSearch()}>Search</button>
+      <button onClick={handleSearchButtonClick}>
+        {showSearchBar ? 'Hide Search' : 'Show Search'}
+      </button>
+      {showSearchBar && (
+        <SearchComponent/>
+      )}
+
       <Container className="container-custom">
         <Row className="">
           {movies.map((movie, index) => (
