@@ -188,6 +188,7 @@ function SingleMovieComponent() {
     .then((res)=>{
         setLikecnt(res.data);
         console.log(res.data)
+        
     })
     .catch((err)=>console.log(err));
   },[params,like]);
@@ -267,69 +268,148 @@ function SingleMovieComponent() {
   }
 
   return (
-    <div >
-      <Container className="py-5 fw-bolder">
-        <Row className="justify-content-center">
-          <Col xs={12} md={6} className="text-center">
+    // <div >
+    //   <Container className="py-5 fw-bolder">
+    //     <Row className="justify-content-center">
+    //       <Col xs={12} md={6} className="text-center">
+    //         <img
+    //           src={movie.moviePosterUrl}
+    //           alt="Movie Poster"
+    //           className="img-fluid mb-4 rounded"
+    //         />
+    //         <h1 className="mb-3">{movie.movieName}</h1>
+    //         <p className=" mb-4">{movie.movieCast}</p>
+    //         {/* <div className="mt-2">
+    //           <h3 className="mb-2">Cast</h3>
+    //           <ul className="list-unstyled">
+    //             {movie.movieCast.map((actor,index) => (
+    //               <li key={index}>{actor}</li>
+    //             ))}
+    //           </ul>
+    //         </div> */}
+    //         <AiFillLike
+    //           onClick={() => handleLike(movie._id)}
+    //           id="like_button"
+    //           style={{ cursor: "pointer", fontSize: "24px" }}
+    //           className={like ? "text-danger " : ""}
+    //         />
+    //         <h6>{likecnt.Likes}</h6>
+    //         <Form.Group controlId="comment" className="mb-4">
+    //           <Form.Label className="fw-bold">Comment:</Form.Label>
+    //           <Form.Control
+    //             type="text"
+    //             value={comment}
+    //             onChange={(e) => setComment(e.target.value)}
+    //             placeholder="Enter your comment here"
+    //           />
+    //         </Form.Group>
+    //         <Button
+    //           variant="primary"
+    //           className="me-2"
+    //           onClick={() => addComment(movie._id)}
+    //         >
+    //           Submit Comment
+    //         </Button>
+    //         <Button
+    //           variant="secondary"
+    //           onClick={() => getCom(movie._id)}
+    //         >
+    //           Get Comments
+    //         </Button>
+    //         <div className="mt-5">
+    //           <h3 className="mb-3">Comments</h3>
+    //           {getComments.map((comment) => (
+    //             <div key={comment._id} className="my-3">
+    //               <div className="fw-bold">{comment.commentedUser.username}</div>
+    //               <div>{comment.comment}</div>
+    //             </div>
+    //           ))}
+    //         </div>
+    //       </Col>
+    //     </Row>
+    //   </Container>
+    //   <br />
+    //   <br />
+    // </div>
+        // <>
+        // <div className="container mt-5">
+        //   <h2 className="pt-serif-bold ">{movie.movieName}</h2>
+        //   <div style={{height:"300px", width:"fit-content"}} className="ms-0 container bg-black bg-opacity-50  d-flex justify-content-start align-content-start">
+        //     <img src={movie.moviePosterUrl} alt="movie" className="img " />
+        //     <div>
+        //       <h3 className="pt-serif-bold">Movie Details</h3>
+        //     </div>
+        //   </div>
+        // </div>
+        // </>
+        <div>
+<div className="d-flex justify-content-center align-items-center mt-5">
+      <div className="card mb-3 text-white bg-black bg-opacity-50" style={{ maxWidth: '800px' }}>
+        <div className="row g-0">
+          <div className="col-md-4 d-flex align-items-center justify-content-center">
             <img
+              style={{ height: "300px", width: "auto" }}
+              decoding="async"
+              className="img-fluid rounded-start border"
               src={movie.moviePosterUrl}
-              alt="Movie Poster"
-              className="img-fluid mb-4 rounded"
+              alt={movie.movieName}
             />
-            <h1 className="mb-3">{movie.movieName}</h1>
-            <p className=" mb-4">{movie.movieCast}</p>
-            {/* <div className="mt-2">
-              <h3 className="mb-2">Cast</h3>
-              <ul className="list-unstyled">
-                {movie.movieCast.map((actor,index) => (
-                  <li key={index}>{actor}</li>
-                ))}
-              </ul>
-            </div> */}
-            <AiFillLike
-              onClick={() => handleLike(movie._id)}
-              id="like_button"
-              style={{ cursor: "pointer", fontSize: "24px" }}
-              className={like ? "text-danger " : ""}
-            />
-            <h6>{likecnt.Likes}</h6>
-            <Form.Group controlId="comment" className="mb-4">
-              <Form.Label className="fw-bold">Comment:</Form.Label>
-              <Form.Control
-                type="text"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                placeholder="Enter your comment here"
-              />
-            </Form.Group>
-            <Button
-              variant="primary"
-              className="me-2"
-              onClick={() => addComment(movie._id)}
-            >
-              Submit Comment
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => getCom(movie._id)}
-            >
-              Get Comments
-            </Button>
-            <div className="mt-5">
-              <h3 className="mb-3">Comments</h3>
-              {getComments.map((comment) => (
-                <div key={comment._id} className="my-3">
-                  <div className="fw-bold">{comment.commentedUser.username}</div>
-                  <div>{comment.comment}</div>
-                </div>
-              ))}
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h2 className="card-title poetsen-one-regular">{movie.movieName}</h2>
+              <br />
+              <br />
+              <p className="card-text"><strong>Genre:</strong> {movie.genre}</p>
+              <p className="card-text"><strong>Actors:</strong> {movie.movieCast}</p>
+              <div className="d-flex align-items-center">
+                <AiFillLike
+                  onClick={() => handleLike(movie._id)}
+                  id="like_button"
+                  style={{ cursor: "pointer", fontSize: "24px" }}
+                  className={like ? "text-danger me-2" : ""}
+                />
+                <h6 className="pt-2">{likecnt.Likes}</h6>
+              </div>
             </div>
-          </Col>
-        </Row>
-      </Container>
-      <br />
-      <br />
+          </div>
+        </div>
+      </div>
     </div>
+    <div className="container mb-5 pb-5" style={{ maxWidth: '600px' }}>
+      <Form.Group controlId="comment" className="mb-4">
+        <Form.Label className="fw-bold">Comment:</Form.Label>
+        <Form.Control
+          type="text"
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Enter your comment here"
+        />
+      </Form.Group>
+      <Button
+        variant="primary"
+        className="me-2"
+        onClick={() => addComment(movie._id)}
+      >
+        Submit Comment
+      </Button>
+      <Button
+        variant="secondary"
+        onClick={() => getCom(movie._id)}
+      >
+        Get Comments
+      </Button>
+      <div className="mt-5">
+        <h3 className="mb-3">Comments</h3>
+        {getComments.map((comment) => (
+          <div key={comment._id} className="my-3">
+            <div className="fw-bold">{comment.commentedUser.username}</div>
+            <div>{comment.comment}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+      </div>
   );
 }
 
