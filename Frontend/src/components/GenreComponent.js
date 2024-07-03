@@ -72,13 +72,6 @@ function GenreComponent() {
       <div className="dropdown-container mt-5 ms-4">
       <DropDown />
       </div>
-      <button onClick={()=> handleSearch()}>Search</button>
-      <button onClick={handleSearchButtonClick}>
-        {showSearchBar ? 'Hide Search' : 'Show Search'}
-      </button>
-      {showSearchBar && (
-        <SearchComponent/>
-      )}
       <Container className="container-custom">
         <Row className="custom-row">
           {movies.map((movie, index) => (

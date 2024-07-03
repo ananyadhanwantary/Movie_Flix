@@ -106,7 +106,6 @@ const styles = {
               <Route path="/getMovie" element={<MovieComponent/>}></Route>
               <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
               <Route path='/profile' element={<ProfileComponent/>}></Route>
-              <Route path="/search/"element={<SearchComponent/>}></Route>
             </Route>
 
             <Route element={<AdminProtectedRoute/>}>
