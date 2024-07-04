@@ -105,10 +105,10 @@ function AdminMovieComponent(){
         </Container> */}
         
         <Container className="container-custom mb-4">
-            <Row className="">
+            <Row className="custom-row">
                 <Button className="mb-4" onClick={handleMovieInsert}>ADD MOVIE</Button>
                 {movies.map((movie) => (
-                    <Col xs={12} sm={6} md={4} lg={2} className="mb-4" key={movie._id}>
+                    <Col xs={12} sm={6} md={4} lg={2} className="custom-col custom-col-lg mb-4" key={movie._id}>
                         <Card className='card-custom'>
                             <Card.Img variant="top" src={movie.moviePosterUrl} />
                             <Card.Body className="card-body-custom">
