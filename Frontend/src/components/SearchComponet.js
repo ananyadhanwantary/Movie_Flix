@@ -40,13 +40,15 @@ const SearchComponent = () => {
         onChange={handleInputChange} 
         placeholder="Search for a movie..." 
       /> */}
+      <div className='d-flex justify-content-end pe-5 align-content-center'>
       <input
         type="search"
+        className=''
         value={query}
         onChange={handleInputChange}
         placeholder="Search for a movie..."
         style={{
-          width: "100%",
+          width: "25%",
           padding: "10px 15px",
           borderRadius: "5px",
           border: "1px solid #ced4da",
@@ -55,7 +57,7 @@ const SearchComponent = () => {
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         }}
       />
-      
+      </div>
       <Container className="container-custom">
         <Row className="custom-row">
           {search.map((movie, index) => (
