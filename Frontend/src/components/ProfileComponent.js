@@ -55,6 +55,10 @@ function ProfileComponent() {
           console.log(err);
         }
       }
+      function handleChangePassword(e){
+        e.preventDefault()
+        navigate('/changePassword')
+    }
     return (
         <>
             <Container className="vh-100 d-flex flex-column align-items-center justify-content-center">
@@ -70,7 +74,9 @@ function ProfileComponent() {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+                <button className='btn btn-outline-light me-2 mt-2' onClick={(e) => { handleChangePassword(e) }}>Change Password</button>
             </Container>
+            
     <h1 style={{width:"fit-content"}} className="bold  ms-5">My Likedlist</h1>
     <Container className="mt-4">
 
