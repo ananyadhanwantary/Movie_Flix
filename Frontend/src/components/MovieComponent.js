@@ -86,9 +86,9 @@ function MovieComponent() {
 
   return (
 <div>
-      <div className="dropdown-container mt-5">
+      {/* <div className="dropdown-container mt-5">
         <DropDown />
-      </div>
+      </div> */}
       <Container className="container-custom">
         <Row className="custom-row">
           {movies.map((movie, index) => (

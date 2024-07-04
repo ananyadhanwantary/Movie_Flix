@@ -19,6 +19,7 @@ import UserProtectedRoute from './routes/UserProtectedRoute';
 import GenreComponent from './components/GenreComponent';
 import ProfileComponent from './components/ProfileComponent';
 import AboutUs from './components/AboutUs';
+import ChangePasswordComponent from './components/ChangePasswordComponent';
 import SearchComponent from './components/SearchComponet';
 
 function App() {
@@ -106,6 +107,8 @@ const styles = {
               <Route path="/getMovie" element={<MovieComponent/>}></Route>
               <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
               <Route path='/profile' element={<ProfileComponent/>}></Route>
+              <Route path='/changePassword' element={<ChangePasswordComponent/>}></Route>
+              <Route path="/search/"element={<SearchComponent/>}></Route>
             </Route>
 
             <Route element={<AdminProtectedRoute/>}>

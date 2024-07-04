@@ -37,7 +37,7 @@ function HomeComponent() {
   async function handleGetMovie(e) {
     e.preventDefault();
     try {
-      navigate(`/byGenre`, { state: { movieGenre: "All" } });
+      navigate('/getMovie');
     } catch (err) {
       console.log(err);
     }

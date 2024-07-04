@@ -53,6 +53,17 @@ function GenreComponent() {
   // function handleChange(){
   //   handleSearch()
   // }
+  // async function handleSearch(){
+  //   try{
+  //     navigate("/search/")
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
+  // const handleSearchButtonClick = () => {
+  //   setShowSearchBar(!showSearchBar);
+  // };
 
   return (
     <>
@@ -60,8 +71,15 @@ function GenreComponent() {
       <div className="dropdown-container mt-5 ms-4">
       <DropDown />
       </div>
+      {/* <button onClick={()=> handleSearch()}>Search</button> */}
+      {/* <button onClick={handleSearchButtonClick}>
+        {showSearchBar ? 'Hide Search' : 'Show Search'}
+      </button>
+      {showSearchBar && (
+        <SearchComponent/>
+      )} */}
       <Container className="container-custom">
-        <Row className="custom-row">
+        <Row className="custom-row">    
           {movies.map((movie, index) => (
             <Col key={movie._id} xs={12} sm={6} md={4} lg={2} className="custom-col custom-col-lg mb-4">
               <Card className="card-custom">

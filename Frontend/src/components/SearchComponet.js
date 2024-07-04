@@ -33,13 +33,29 @@ const navigate = useNavigate();
   }
 
   return (
-    <div>
-      <input 
-        type="text" 
+    <div className='mt-5'>
+      {/* <input 
+        type="search" 
         value={query} 
         onChange={handleInputChange} 
         placeholder="Search for a movie..." 
-      />
+      /> */}
+      <input
+  type="search"
+  value={query}
+  onChange={handleInputChange}
+  placeholder="Search for a movie..."
+  style={{
+    width: "100%",
+    padding: "10px 15px",
+    borderRadius: "5px",
+    border: "1px solid #ced4da",
+    fontSize: "16px",
+    outline: "none",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+  }}
+/>
+
       <Container className="container-custom">
         <Row className="">
           {search.map((movie, index) => (
