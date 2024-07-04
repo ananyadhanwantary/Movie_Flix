@@ -14,10 +14,6 @@ function HeaderComponent() {
         e.preventDefault()
         navigate('/login')
     }
-    // function handleChangePassword(e){
-    //     e.preventDefault()
-    //     navigate('/changePassword')
-    // }
     function handleSignup(e) {
         e.preventDefault()
         navigate('/signup')
@@ -65,7 +61,6 @@ function HeaderComponent() {
                     </div>
                     :
                     <div className='float-right px-2'>
-                        
                         <IoPersonCircleSharp size={30} className="me-2" style={{ color: 'white' }} onClick={(e) => { handleProfile(e) }}/>
                         <button className='btn btn-primary' onClick={(e) => { handleLogout(e) }}>Logout</button>
                     </div>}
