@@ -265,4 +265,16 @@ async function addComment(req,res){
     }
 }
 
-module.exports={getLikedMovies,addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike,getAllGeneres}
+async function search(req,res){
+    try{
+        const searchQuery=req.query.search||"";
+        const movies = await MovieModel.find({ movieName: { $regex: searchQuery, $options: 'i' } });
+        res.json(movies)
+    }
+    catch(err){
+        console.log(err)
+        res.json({message:"Error occured while searching"})
+    }
+}
+
+module.exports={getLikedMovies,addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike,getAllGeneres,search}

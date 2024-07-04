@@ -65,7 +65,6 @@ import { useNavigate } from "react-router-dom";
 function MovieComponent() {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-
   useEffect(() => {
     async function fetchMovies() {
       try {
@@ -77,7 +76,6 @@ function MovieComponent() {
     }
     fetchMovies();
   }, []);
-
   function handleSingleMovie(id) {
     try {
       navigate(`/getMovie/${id}`);
@@ -88,9 +86,9 @@ function MovieComponent() {
 
   return (
 <div>
-      <div className="dropdown-container mt-5">
+      {/* <div className="dropdown-container mt-5">
         <DropDown />
-      </div>
+      </div> */}
       <Container className="container-custom">
         <Row className="custom-row">
           {movies.map((movie, index) => (

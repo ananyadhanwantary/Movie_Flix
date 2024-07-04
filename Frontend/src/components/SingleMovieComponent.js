@@ -14,6 +14,8 @@ function SingleMovieComponent() {
   const [likecnt,setLikecnt]=useState({});
   const [comment, setComment] = useState("");
   const [getComments, setgetComments] = useState([]);
+  const [likes,setLikes]=useState(0);
+
   useEffect(() => {
     const { id } = params;
     axios
@@ -101,6 +103,17 @@ function SingleMovieComponent() {
       })
       .catch((err) => console.log(err));
   }
+  // async function getLikes(){
+  //   const {id}=params
+  //   try{
+  //     const response =await axios.get(`http://localhost:3001/api/admin/movie/like/${id}`)
+  //     console.log(response.data)
+  //     setLikes(response.data)
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
 
   return (
     // <div >
