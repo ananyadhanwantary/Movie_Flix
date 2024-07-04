@@ -1,4 +1,11 @@
 /* GenreComponent.css */
+@media (min-width: 992px) {
+    .custom-row .custom-col {
+      flex: 0 0 20%; /* 100% divided by 5 */
+      max-width: 20%;
+    }
+}
+
 .container-custom {
     padding: 2rem 0;
 }

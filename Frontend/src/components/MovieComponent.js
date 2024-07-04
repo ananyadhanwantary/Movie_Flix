@@ -87,46 +87,33 @@ function MovieComponent() {
   }
 
   return (
-    <>
-    <div className="mt-5 ms-5">
-      <DropDown />
+<div>
+      <div className="dropdown-container mt-5">
+        <DropDown />
+      </div>
+      <Container className="container-custom">
+        <Row className="custom-row">
+          {movies.map((movie, index) => (
+            <Col key={movie._id} xs={12} sm={6} md={4} lg={2} className="custom-col mb-4">
+              <Card className="card-custom">
+                <Card.Img variant="top" src={movie.moviePosterUrl} />
+                <Card.Body className="card-body-custom">
+                  <div className="card-content">
+                    <Card.Title className="card-title-custom fs-6">{movie.movieName}</Card.Title>
+                    <Card.Text className="card-text-custom fs-7">{movie.movieCast.join(', ')}</Card.Text>
+                  </div>
+                  <div className="button-group-custom p-1">
+                    <Button className="custom-button" onClick={() => handleSingleMovie(movie._id)} variant="primary" size="sm">See More</Button>
+                    <Button className="custom-button ms-2" variant="secondary" href={movie.movieUrl} size="sm">Play Movie</Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
-    <Container className="mt-4">
-      <br />
-      <br />
-      
-      <Row>
-        <Col sm={10}>
-          <Row xs={1} md={2} lg={3} className="justify-content-center">
-            {movies.map((movie) => (
-              <Col key={movie._id} className="mb-3">
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src={movie.moviePosterUrl} />
-                  <Card.Body>
-                    <Card.Title>{movie.movieName}</Card.Title>
-                    <Card.Text>{movie.movieCast}</Card.Text>
-                    <Button
-                      onClick={() => handleSingleMovie(movie._id)}
-                      variant="primary"
-                    >
-                      See More
-                    </Button>
-                    <Button className="ms-2" variant="secondary" href={movie.movieUrl}/*"https://www.imdb.com/video/vi4219471385/?ref_=tt_vi_i_2"*/>
-                      Play Movie
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-      <br />
-      <br />
-      <br />
-    </Container>
-    </>
   );
-}
+};
 
 export default MovieComponent;

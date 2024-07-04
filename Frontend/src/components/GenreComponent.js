@@ -40,14 +40,14 @@ function GenreComponent() {
 
   return (
     <>
-    <div className="">
-      <div className="dropdown-container mt-5">
+    <div>
+      <div className="dropdown-container mt-5 ms-4">
         <DropDown />
       </div>
       <Container className="container-custom">
-        <Row className="">
+        <Row className="custom-row">
           {movies.map((movie, index) => (
-            <Col key={movie._id} xs={12} sm={6} md={4} lg={2} className="mb-4">
+            <Col key={movie._id} xs={12} sm={6} md={4} lg={2} className="custom-col custom-col-lg mb-4">
               <Card className="card-custom">
                 <Card.Img variant="top" src={movie.moviePosterUrl} />
                 <Card.Body className="card-body-custom">
@@ -57,7 +57,7 @@ function GenreComponent() {
                   </div>
                   <div className="button-group-custom p-1">
                     <Button className="custom-button" onClick={() => handleSingleMovie(movie._id)} variant="primary" size="sm">See More</Button>
-                    <Button className="custom-button ms-2" variant="secondary" href={movie.movieUrl} size="sm">Play Movie</Button>
+                    <Button className="custom-button" variant="secondary" href={movie.movieUrl} size="sm">Play Movie</Button>
                   </div>
                 </Card.Body>
               </Card>
@@ -65,7 +65,7 @@ function GenreComponent() {
           ))}
         </Row>
       </Container>
-      </div>
+    </div>
     </>
   );
 }
