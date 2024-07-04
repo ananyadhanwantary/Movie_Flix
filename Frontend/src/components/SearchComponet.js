@@ -40,7 +40,7 @@ const SearchComponent = () => {
         onChange={handleInputChange} 
         placeholder="Search for a movie..." 
       /> */}
-      <div className='d-flex justify-content-end pe-5 align-content-center'>
+      <div className='d-flex justify-content-end pe-5 me-5 align-content-center'>
       <input
         type="search"
         className=''
