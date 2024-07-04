@@ -116,11 +116,13 @@ function AdminMovieComponent(){
                                     <Card.Title className="card-title-custom fs-6">{movie.movieName}</Card.Title>
                                     <Card.Text >{movie.movieCast}</Card.Text>
                                 </div>
-                                <Button variant="primary" className='mb-2'>Play Movie</Button>
-                                <div className='d-flex justify-content-center justify-content-around align-items-center'>
-                                    <div style={{backgroundColor: "#21eb38"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleMovieUpdate(movie)}><FaPenSquare/></div>
-                                    <div style={{backgroundColor: "#f72525"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleMovieDelete(movie._id)}><MdDelete/></div>
-                                </div>                            
+                                <div className='d-flex flex-column'>
+                                    <Button variant="primary" className='mb-2'>Play Movie</Button>
+                                    <div className='d-flex justify-content-center justify-content-around align-items-center'>
+                                        <div style={{backgroundColor: "#21eb38"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleMovieUpdate(movie)}><FaPenSquare/></div>
+                                        <div style={{backgroundColor: "#f72525"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleMovieDelete(movie._id)}><MdDelete/></div>
+                                    </div> 
+                                </div>                           
                             </Card.Body>
                         </Card>
                     </Col>

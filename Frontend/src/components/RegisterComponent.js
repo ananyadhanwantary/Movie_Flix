@@ -2,6 +2,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 
 function RegisterComponent() {
   const [user, setUser] = useState({
@@ -9,7 +10,12 @@ function RegisterComponent() {
   })
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+};
+
   const handleSignup = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -53,7 +59,7 @@ function RegisterComponent() {
                       })
                     }} />
                 </div>
-                <div className="form-group form-label">
+                {/* <div className="form-group form-label">
                   <label>Password</label>
                   <input
                     type="password"
@@ -69,7 +75,35 @@ function RegisterComponent() {
                         }
                       })
                     }} />
-                </div>
+                </div> */}
+                <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <div className="input-group">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    className="form-control"
+                                    id="password"
+                                    value={user.password}
+                                    onChange={(e) => {
+                                      setUser((user) => {
+                                        return {
+                                          ...user,
+                                          password: e.target.value
+                                        }
+                                      })
+                                    }}
+                                    required
+                                />
+                                <div className="input-group-append">
+                                    <div
+                                        className="btn btn-outline-secondary"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        {showPassword ? <RiEyeOffFill /> : <RiEyeFill />}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 <div className="form-group form-label">
                   <label>Username</label>
                   <input

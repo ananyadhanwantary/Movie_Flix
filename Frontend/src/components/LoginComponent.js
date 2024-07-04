@@ -1,45 +1,26 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../providers/AuthProvider';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    // console.log(useAuth())
-    const {loginAction} = useAuth()
-    // const navigate = useNavigate();
-    const handleLogin=(e) => {
+    const { loginAction } = useAuth();
+
+    const handleLogin = (e) => {
         e.preventDefault();
         setLoading(true);
-        loginAction({email,password})
-        setLoading(false)
+        loginAction({ email, password });
+        setLoading(false);
     }
-    // const handleLogin = (e) => {
-    //     e.preventDefault();
-    //     setLoading(true);
-    //     setError('');
-    //     axios.post('http://localhost:3001/api/login', {
-    //         email: email,
-    //         password: password
-    //     }).then((res) => {
-    //         setLoading(false);
-    //         if (res.status === 200) {
-    //             alert(res.data.message)
-    //             localStorage.setItem('token', res.data.token);
-    //             navigate('/');
-    //         } else {
-    //             alert(res.data.message)
-    //             setError(res.data.msg || 'Login failed');
-    //         }
-    //     }).catch(err => {
-    //         setLoading(false);
-    //         alert("User does not exist please Register")
-    //         navigate("/signup")
-    //         setError('Error in login');
-    //     });
-    // };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
         <div className="vh-100">
@@ -47,7 +28,7 @@ const Login = () => {
             <div className="container-fluid d-flex align-items-center justify-content-center h-75">
                 <div className="card p-4 shadow" style={{ width: '20rem' }}>
                     <h3 className="card-title text-center">Login</h3>
-                    <form onSubmit={(e)=>handleLogin(e)}>
+                    <form onSubmit={(e) => handleLogin(e)}>
                         <div className="mb-3">
                             <label htmlFor="email" className="form-label">Email</label>
                             <input
@@ -61,20 +42,28 @@ const Login = () => {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="password" className="form-label">Password</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
+                            <div className="input-group">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    className="form-control"
+                                    id="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <div className="input-group-append">
+                                    <div
+                                        className="btn btn-outline-secondary"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        {showPassword ? <RiEyeOffFill /> : <RiEyeFill />}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         {/* {error && <div className="alert alert-danger">{error}</div>} */}
                         <div className="d-grid">
-                            <button type="submit" className="btn btn-primary" 
-                            disabled={loading}
-                            >
+                            <button type="submit" className="btn btn-primary" disabled={loading}>
                                 {loading ? 'Logging in...' : 'Login'}
                             </button>
                         </div>

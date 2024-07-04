@@ -13,6 +13,10 @@ function HeaderComponent() {
         e.preventDefault()
         navigate('/login')
     }
+    function handleChangePassword(e){
+        e.preventDefault()
+        navigate('/changePassword')
+    }
     function handleSignup(e) {
         e.preventDefault()
         navigate('/signup')
@@ -44,12 +48,13 @@ function HeaderComponent() {
                 </ul>
                 <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center m-0 w-auto' style={{minWidth:"fit-content"}}>
                     {token==null ?
-                       <div className='float-right px-2'>
+                       <div className='float-right px-2 flex'>
                         <button className='btn btn-light me-2' onClick={(e) => { handleLogin(e) }}>Login</button>
                         <button className='btn btn-primary' onClick={(e) => { handleSignup(e) }}>Sign-up</button>
                     </div>
                     :
                     <div className='float-right px-2'>
+                        <button className='btn btn-outline-light me-2' onClick={(e) => { handleChangePassword(e) }}>Change Password</button>
                         <IoPersonCircleSharp size={30} className="me-2" style={{ color: 'white' }} onClick={(e) => { handleProfile(e) }}/>
                         <button className='btn btn-primary' onClick={(e) => { handleLogout(e) }}>Logout</button>
                     </div>}
