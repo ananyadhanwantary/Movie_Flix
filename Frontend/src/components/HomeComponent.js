@@ -86,7 +86,7 @@ function HomeComponent() {
                 alt="Third slide"
               />
               <Carousel.Caption>
-                <h3>Poplarity Indicators</h3>
+                <h3>Popularity Indicators</h3>
                 <p>
                   showcases movie popularity and highlights what is currently
                   favored by the community.
