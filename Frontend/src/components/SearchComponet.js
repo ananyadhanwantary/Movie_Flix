@@ -33,9 +33,9 @@ const navigate = useNavigate();
   }
 
   return (
-    <div>
+    <div className='mt-5'>
       <input 
-        type="text" 
+        type="search" 
         value={query} 
         onChange={handleInputChange} 
         placeholder="Search for a movie..." 

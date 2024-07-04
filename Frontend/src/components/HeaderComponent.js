@@ -30,6 +30,14 @@ function HeaderComponent() {
         if(role==="admin")      navigate('/admin');
         else    navigate('/');
     }
+    function handleMovie(e){
+        e.preventDefault()
+        navigate('/getMovie')
+    }
+    function handleSearch(e){
+        e.preventDefault()
+        navigate('/search/')
+    }
     return (
         <>
             <div className='d-flex container-fluid bg-dark fixed-top d-flex align-items-center' style={{ height: "60px" }}>
@@ -39,7 +47,9 @@ function HeaderComponent() {
                 </div>
                 <ul className="container-fluid d-inline-flex flex-wrap h5 flex-row-reverse py-2 align-items-center m-0 gap-4" style={{listStyleType: "none", flexGrow:1}}  >
                     <li className="nav-item" onClick={ () => navigate('/aboutUs')}>About us</li>
-                    <li className="nav-item" onClick={()=> navigate(`/byGenre`, { state: { movieGenre: "All" } })}>Movies</li>
+                    <li className="nav-item" onClick={(e)=>{handleMovie(e)}}>Movies</li>
+                    <li className='nav-item' onClick={(e)=>{handleSearch(e)}}>Search</li>
+                    <li className='nav-item' onClick={()=> navigate(`/byGenre`, { state: { movieGenre: "All" } })}>Genre</li>
                     <li className="nav-item" onClick={(e) =>{ handleHome(e) } }>Home</li>
                 </ul>
                 <div className='container-fluid d-inline-flex flex-wrap flex-row-reverse py-2 align-items-center m-0 w-auto' style={{minWidth:"fit-content"}}>

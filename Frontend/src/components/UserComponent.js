@@ -132,14 +132,10 @@ function UserComponent() {
                                 <td>{user.phone}</td>
                                 <td>{user.active ? "Online" : "Offline"}</td>
                                 <td >
-                                    <FaPenSquare
-                                        onClick={() => handleEdit(user._id)}
-                                        style={{ cursor: 'pointer', color: 'blue' }}
-                                    />
-                                    <MdDelete
-                                        onClick={() => handleDelete(user._id)}
-                                        style={{ cursor: 'pointer', color: 'red' }}
-                                    />
+                                    <div className='d-flex justify-content-center justify-content-around align-items-center '>
+                                        <div style={{backgroundColor: "#21eb38"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleEdit(user._id)}><FaPenSquare/></div>
+                                        <div style={{backgroundColor: "#f72525"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleDelete(user._id)}><MdDelete/></div>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
