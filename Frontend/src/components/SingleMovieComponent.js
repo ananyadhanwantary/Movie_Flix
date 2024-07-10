@@ -14,7 +14,7 @@ function SingleMovieComponent() {
   const [likecnt,setLikecnt]=useState({});
   const [comment, setComment] = useState("");
   const [getComments, setgetComments] = useState([]);
-  const [likes,setLikes]=useState(0);
+  // const [likes,setLikes]=useState(0);
 
   useEffect(() => {
     const { id } = params;
@@ -28,22 +28,33 @@ function SingleMovieComponent() {
         console.log(res.data)
     })
     .catch((err)=>console.log(err));
+    
   },[params,like]);
-
+useEffect(()=>{
+  var temp
+    checkLikes(movie._id)
+    .then(res =>{ 
+      temp=res
+      if(temp){
+        document.getElementById("like_button").style.color = "red";
+      }
+    })
+    .catch(err => console.log(err))
+},)
   async function handleLike(id) {
     const token = localStorage.getItem("token");
     if (token) {
-      var res = await axios.get(
-        `http://localhost:3001/api/movie/like/${id}`,
-        {params : {userId: userId }}
-      );
-      if (res.data.status) navigate("/login");
-      else {
-        setLike(res.data.liked);
-      }
+      // var res = await axios.get(
+      //   `http://localhost:3001/api/movie/like/${id}`,
+      //   {params : {userId: userId }}
+      // );
+      // if (res.data.status) navigate("/login");
+      // else {
+      //   setLike(res.data.liked);
+      // }
       if (!like) {
         try {
-          res = await axios.put(
+          var res = await axios.put(
             `http://localhost:3001/api/movie/like/${id}`,
             { userId: userId }
           );
@@ -56,11 +67,11 @@ function SingleMovieComponent() {
         }
       } else {
         try {
-          res = await axios.delete(
+          var resd = await axios.delete(
             `http://localhost:3001/api/movie/like/${id}`,
             { userId: userId }
           );
-          if (res.status === 200) {
+          if (resd.status === 200) {
             setLike(false);
             document.getElementById("like_button").style.color = "white";
           }
@@ -73,7 +84,21 @@ function SingleMovieComponent() {
       navigate("/login");
     }
   }
-
+  async function checkLikes(id){
+    var res = await axios.get(
+      `http://localhost:3001/api/movie/like/${id}`,
+      {params : {userId: userId }}
+    );
+    console.log(res.data.liked)
+    if (res.data.liked===true){
+      setLike(true);
+       return true;
+      } 
+    if (res.data.liked===false){ 
+      setLike(false)
+      return false
+    } 
+  }
   function addComment(id) {
     const token = localStorage.getItem("token");
     axios
@@ -217,6 +242,7 @@ function SingleMovieComponent() {
                   style={{ cursor: "pointer", fontSize: "24px" }}
                   className={like ? "text-danger me-2" : ""}
                 />
+                <p>{like}</p>
                 <h6 className="pt-2">{likecnt.Likes}</h6>
               </div>
             </div>

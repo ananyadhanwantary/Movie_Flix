@@ -34,7 +34,7 @@ const CheckUser = async (req, res) => {
     }
     const user = await userModel.findOne({ email });
     if (!user) {
-      return res.status(404).json({ message: "User does not exist!! " });
+      return res.json({ message: "User does not exist!! " });
     }
     const auth = await bcrypt.compare(password, user.password);
     if (!auth) {

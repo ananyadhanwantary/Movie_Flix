@@ -119,6 +119,7 @@ function ProfileComponent() {
                 .catch(err => console.log(err));
                 console.log(likedMovies[0])}}>click me</button> */}
             <br /><br /><br />
+            <br /><br /><br />
         </>
     );
 }

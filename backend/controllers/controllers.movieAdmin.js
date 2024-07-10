@@ -167,7 +167,7 @@ async function getLike(req,res){
         var userId=req.query.userId
         console.log(userId)
         var user =await userModel.findById(userId)
-        var found = movie.like.likedUsers.find((u) => u===user)
+        var found = movie.like.likedUsers.find((u) => u.email === user.email)
         if(found)
             res.json({liked : true})
         else
