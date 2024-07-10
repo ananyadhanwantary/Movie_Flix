@@ -52,7 +52,8 @@ function HomeComponent() {
               {/* <ExampleCarouselImage text="First slide" /> */}
               <img
                 className="d-block w-25 center"
-                src="https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg"
+                // src="https://wallpapers.com/images/hd/movie-poster-background-p5qblffj7cvswl5g.jpg"
+                src="https://hips.hearstapps.com/hmg-prod/images/netflix-thanksgiving-movies-64de904b09410.jpg?crop=1.00xw:1.00xh;0,0&resize=500:*"
                 alt="Third slide"
               />
               <Carousel.Caption >
