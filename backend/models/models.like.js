@@ -2,10 +2,9 @@ const mongoose=require("mongoose")
 const {userSchema}=require("../models/models.UserModel")
 
 const likeSchema=mongoose.Schema({
-    noOfLikes:{
-        type:Number,
-    },
-    likedUsers: [userSchema]
+    noOfLikes:Number,
+    likedUsers: [userSchema],
+    noOfDislikes:Number,
+    dislikedUsers: [userSchema]
 })
-// const LikesModel=mongoose.model("Like",likeSchema)
 module.exports={likeSchema}

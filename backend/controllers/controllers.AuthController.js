@@ -9,14 +9,8 @@ const SaveUser = async (req, res) => {
     if (existingUser) {
       return res.json({ message: "User already exists" });
     } else {
-      // const user = await userModel.create(req.body);
       const user = new userModel(req.body);
       await user.save();
-      /*const token = createSecretToken(user._id);
-    res.cookie("token", token, {
-      withCredentials: true,
-      httpOnly: false,
-    });*/
       res
         .status(200)
         .json({ message: "User signed in successfully", success: true, user });
@@ -41,11 +35,6 @@ const CheckUser = async (req, res) => {
       return res.json({ message: "Incorrect password or email" });
     }
     const token = createSecretToken(user._id);
-    /*await res.cookie("token", token, {
-      withCredentials: true,
-      httpOnly: false,
-    });
-    res.status(201).json({ message: "User logged in successfully", success: true });*/
     res.status(200).json({
       token: token,
       login: true,
@@ -72,8 +61,7 @@ const changePassword = async (req, res) => {
       return res
         .status(400)
         .json({ message: "Current password is incorrect." });
-
-    //user.password =await bcrypt.hash(newPassword, 12);
+        
     user.password=newPassword;
     await user.save();
 

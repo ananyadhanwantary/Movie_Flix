@@ -1,0 +1,1379 @@
+[{
+  "_id": {
+    "$oid": "664f174d9fd30e2c2864d216"
+  },
+  "movieName": "Inception",
+  "movieUrl": "https://www.imdb.com/title/tt1375666/",
+  "moviePosterUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p7825626_p_v8_ae.jpg",
+  "genre": "Science Fiction",
+  "movieCast": [
+    "Leonardo DiCaprio",
+    "Joseph Gordon-Levitt",
+    "Elliot Page"
+  ],
+  "like": {
+    "noOfLikes": 1,
+    "likedUsers": [
+      {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$KaQpxUqdpQQRMsYB2746SeBi.iqFSaahQS7jv3LsTEvCXluCnOI7G",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "664f174d9fd30e2c2864d217"
+    }
+  },
+  "comments": [
+    {
+      "comment": "hi",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665b5fe411e0dfcf9a87d609"
+      }
+    },
+    {
+      "comment": "hello",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665b669356650348fe12d654"
+      }
+    },
+    {
+      "comment": "user 1 comment",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665b66f756650348fe12ff4f"
+      }
+    },
+    {
+      "comment": "user 1 comment 2",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665b673456650348fe131edf"
+      }
+    },
+    {
+      "comment": "comment",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665bf98ccc1825d24ce465e6"
+      }
+    },
+    {
+      "comment": "comment",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665c7b930b297f7b83ae7052"
+      }
+    },
+    {
+      "comment": "comment",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665c9ef284f3c48910000645"
+      }
+    },
+    {
+      "comment": "nice moviee",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "668378095758647b8ebeb466"
+      }
+    },
+    {
+      "comment": "ananya ",
+      "commentedUser": {
+        "email": "ananya@gmail.com",
+        "password": "$2a$12$Et6H/lLIl8/YOohGSm5LjeM/uGhkh2zCYP2W5pcInejeZvF3AK2vm",
+        "username": "ananya",
+        "phone": {
+          "$numberLong": "9704871066"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668f8e902056149e37f57e7e"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "668f8efd2056149e37f580bc"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "664f17569fd30e2c2864d21a"
+  },
+  "movieName": "The Dark Knight",
+  "movieUrl": "https://www.imdb.com/title/tt0468569/",
+  "moviePosterUrl": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg",
+  "genre": "Action",
+  "movieCast": [
+    "Christian Bale",
+    "Heath Ledger",
+    "Aaron Eckhart"
+  ],
+  "like": {
+    "noOfLikes": 2,
+    "likedUsers": [
+      {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$Fc2Zzb8NqFKN2M1R2z7paex9Bli1VSta967487gPd/kGnnCCRZeyC",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      {
+        "email": "admin@gmail.com",
+        "password": "$2a$12$5Isfcqa4kj3w1TNecUlvsOU2emj8tbszPSKTuRIStblORdqKgjNpO",
+        "username": "admin",
+        "role": "admin",
+        "active": true,
+        "_id": {
+          "$oid": "664f1700fb79aef3b0a380f9"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "664f17569fd30e2c2864d21b"
+    }
+  },
+  "comments": [
+    {
+      "comment": "I'm Batman",
+      "commentedUser": {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "665c54c1e1d7b85e43445f34"
+      }
+    },
+    {
+      "comment": "hi",
+      "commentedUser": {
+        "email": "user10@gmail.com",
+        "password": "$2a$12$rOw.q4cRgsUzZ8s0sfdBheEjpdgn2JPGB93lUNw9Mf7hNuldvSGQO",
+        "username": "user10",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "66851679cea84a41775b0a54"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "668516afcea84a41775b0b2a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762eda"
+  },
+  "movieName": "dawn of the Planet of the Apes",
+  "movieUrl": "https://www.20thcenturystudios.com/movies/kingdom-of-the-planet-of-the-apes",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
+  "genre": "Science Fiction",
+  "movieCast": [
+    "Owen Teague",
+    "Freya Allan",
+    "Kevin Durand",
+    "Peter Macon",
+    "William H. Macy"
+  ],
+  "like": {
+    "noOfLikes": 8,
+    "likedUsers": [
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "demouser123@gmail.com",
+        "password": "$2a$12$8pcCVDendYMgWJtA.BU.pezCUnCS.MBp6IdUrE8vJNoywhsRyPHN.",
+        "username": "demouser",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668504fd3446f3b62ce9ccde"
+        },
+        "__v": 0
+      },
+      {
+        "email": "admin@gmail.com",
+        "password": "$2a$12$5Isfcqa4kj3w1TNecUlvsOU2emj8tbszPSKTuRIStblORdqKgjNpO",
+        "username": "admin",
+        "role": "admin",
+        "active": true,
+        "_id": {
+          "$oid": "664f1700fb79aef3b0a380f9"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762edb"
+    }
+  },
+  "comments": [
+    {
+      "comment": "",
+      "commentedUser": {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "667d5d0b05f765dfb77ebb0b"
+      }
+    },
+    {
+      "comment": "I'm Batman",
+      "commentedUser": {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "667d5d1105f765dfb77ebb23"
+      }
+    },
+    {
+      "comment": "",
+      "commentedUser": {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "667d5d1105f765dfb77ebb31"
+      }
+    },
+    {
+      "comment": "",
+      "commentedUser": {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "667d5d1305f765dfb77ebb46"
+      }
+    },
+    {
+      "comment": "I loved it",
+      "commentedUser": {
+        "email": "admin@gmail.com",
+        "password": "$2a$12$5Isfcqa4kj3w1TNecUlvsOU2emj8tbszPSKTuRIStblORdqKgjNpO",
+        "username": "admin",
+        "role": "admin",
+        "active": true,
+        "_id": {
+          "$oid": "664f1700fb79aef3b0a380f9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "66857f1ceb6c93b5bc9615ee"
+      }
+    },
+    {
+      "comment": "I'm Batman",
+      "commentedUser": {
+        "email": "user32@gmail.com",
+        "password": "$2a$12$N8aZKMLQg6ABZ/oqMdiqI.RxbjQjzw3h89nW88Itra0/nUTm3FcQ.",
+        "username": "user32",
+        "phone": 7894615,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "66b32e3b3a6d99375a4651d9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "66b32e7a3a6d99375a4655fe"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762ee3"
+  },
+  "movieName": "Atlas",
+  "movieUrl": "https://www.netflix.com/title/81012048",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/bcM2Tl5HlsvPBnL8DKP9Ie6vU4r.jpg",
+  "genre": "Science Fiction",
+  "movieCast": [
+    "Jennifer Lopez",
+    "Simu Liu",
+    "Sterling K. Brown",
+    "Gregory James Cohan",
+    "Abraham Popoola"
+  ],
+  "like": {
+    "noOfLikes": 5,
+    "likedUsers": [
+      {
+        "email": "demouser123@gmail.com",
+        "password": "$2a$12$8pcCVDendYMgWJtA.BU.pezCUnCS.MBp6IdUrE8vJNoywhsRyPHN.",
+        "username": "demouser",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668504fd3446f3b62ce9ccde"
+        },
+        "__v": 0
+      },
+      {
+        "email": "demouser123@gmail.com",
+        "password": "$2a$12$8pcCVDendYMgWJtA.BU.pezCUnCS.MBp6IdUrE8vJNoywhsRyPHN.",
+        "username": "demouser",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668504fd3446f3b62ce9ccde"
+        },
+        "__v": 0
+      },
+      {
+        "email": "demouser123@gmail.com",
+        "password": "$2a$12$8pcCVDendYMgWJtA.BU.pezCUnCS.MBp6IdUrE8vJNoywhsRyPHN.",
+        "username": "demouser",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668504fd3446f3b62ce9ccde"
+        },
+        "__v": 0
+      },
+      {
+        "email": "demouser123@gmail.com",
+        "password": "$2a$12$8pcCVDendYMgWJtA.BU.pezCUnCS.MBp6IdUrE8vJNoywhsRyPHN.",
+        "username": "demouser",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668504fd3446f3b62ce9ccde"
+        },
+        "__v": 0
+      },
+      {
+        "email": "ironman123@gmail.com",
+        "password": "$2a$12$B8xJUkcaPePN9MCFLIwBnevBQsr/u1k2fibdKbPbuIU7A2zIx527q",
+        "username": "Ironman",
+        "phone": {
+          "$numberLong": "9876541230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668672f6d4d9ef0f618ff53d"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ee4"
+    }
+  },
+  "comments": [
+    {
+      "comment": "i hate this movie",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$KaQpxUqdpQQRMsYB2746SeBi.iqFSaahQS7jv3LsTEvCXluCnOI7G",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "6686ad986aa3c2a596628ada"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762ee9"
+  },
+  "movieName": "Immaculate",
+  "movieUrl": "https://www.immaculate.film",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/fdZpvODTX5wwkD0ikZNaClE4AoW.jpg",
+  "genre": "Horror",
+  "movieCast": [
+    "Sydney Sweeney",
+    "Álvaro Morte",
+    "Benedetta Porcaroli",
+    "Dora Romano",
+    "Giorgio Colangeli"
+  ],
+  "like": {
+    "noOfLikes": 6,
+    "likedUsers": [
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$KaQpxUqdpQQRMsYB2746SeBi.iqFSaahQS7jv3LsTEvCXluCnOI7G",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762eea"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762eec"
+  },
+  "movieName": "Furiosa: A Mad Max Saga",
+  "movieUrl": "https://www.furiosaamadmaxsaga.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
+  "genre": "Action",
+  "movieCast": [
+    "Anya Taylor-Joy",
+    "Chris Hemsworth",
+    "Tom Burke",
+    "Alyla Browne",
+    "George Shevtsov"
+  ],
+  "like": {
+    "noOfLikes": 4,
+    "likedUsers": [
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762eed"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762ee0"
+  },
+  "movieName": "Boy Kills World",
+  "movieUrl": "https://www.boykillsworldmovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/25JskXmchcYwj3jHRmcPm738MpB.jpg",
+  "genre": "Action",
+  "movieCast": [
+    "Bill Skarsgård",
+    "Jessica Rothe",
+    "Michelle Dockery",
+    "Brett Gelman",
+    "Isaiah Mustafa"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ee1"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762ef2"
+  },
+  "movieName": "Godzilla Minus One",
+  "movieUrl": "https://godzillafilm.co.uk",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/hkxxMIGaiCTmrEArK7J56JTKUlB.jpg",
+  "genre": "Science Fiction",
+  "movieCast": [
+    "Ryunosuke Kamiki",
+    "Minami Hamabe",
+    "Yuki Yamada",
+    "Munetaka Aoki",
+    "Hidetaka Yoshioka"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ef3"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762edd"
+  },
+  "movieName": "Tarot",
+  "movieUrl": "https://www.tarotmovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/gAEUXC37vl1SnM7PXsHTF23I2vq.jpg",
+  "genre": "Horror",
+  "movieCast": [
+    "Harriet Slater",
+    "Adain Bradley",
+    "Avantika",
+    "Jacob Batalon",
+    "Humberly González"
+  ],
+  "like": {
+    "noOfLikes": 3,
+    "likedUsers": [
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      },
+      {
+        "email": "akhira@gmail.com",
+        "password": "$2a$12$Th1JrtCDpVRbZCI1d/FDqeEwAk0d7suqE15MQlFrbYDVugOle85IS",
+        "username": "akhira",
+        "phone": 789654123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "668e3939115cd5d4dfc06b40"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ede"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762ef8"
+  },
+  "movieName": "The Fall Guy",
+  "movieUrl": "https://www.thefallguymovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/tSz1qsmSJon0rqjHBxXZmrotuse.jpg",
+  "genre": "Action",
+  "movieCast": [
+    "Ryan Gosling",
+    "Emily Blunt",
+    "Aaron Taylor-Johnson",
+    "Hannah Waddingham",
+    "Teresa Palmer"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ef9"
+    }
+  },
+  "comments": [
+    {
+      "comment": "nice",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$KaQpxUqdpQQRMsYB2746SeBi.iqFSaahQS7jv3LsTEvCXluCnOI7G",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "6686aed86aa3c2a5966316e2"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762efb"
+  },
+  "movieName": "Kung Fu Panda 4",
+  "movieUrl": "https://www.dreamworks.com/movies/kung-fu-panda-4",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+  "genre": "Animation",
+  "movieCast": [
+    "Jack Black",
+    "Awkwafina",
+    "Viola Davis",
+    "Dustin Hoffman",
+    "Bryan Cranston"
+  ],
+  "like": {
+    "noOfLikes": 1,
+    "likedUsers": [
+      {
+        "email": "user10@gmail.com",
+        "password": "$2a$12$rOw.q4cRgsUzZ8s0sfdBheEjpdgn2JPGB93lUNw9Mf7hNuldvSGQO",
+        "username": "user10",
+        "phone": {
+          "$numberLong": "7894561230"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "66851679cea84a41775b0a54"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762efc"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762efe"
+  },
+  "movieName": "Dune: Part Two",
+  "movieUrl": "https://www.dunemovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/czembW0Rk1Ke7lCJGahbOhdCuhV.jpg",
+  "genre": "Science Fiction",
+  "movieCast": [
+    "Timothée Chalamet",
+    "Zendaya",
+    "Rebecca Ferguson",
+    "Javier Bardem",
+    "Josh Brolin"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762eff"
+    }
+  },
+  "comments": [
+    {
+      "comment": "I loved it",
+      "commentedUser": {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "668282d397efb7a1788b2414"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762f01"
+  },
+  "movieName": "Civil War",
+  "movieUrl": "https://a24films.com/films/civil-war",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+  "genre": "War",
+  "movieCast": [
+    "Kirsten Dunst",
+    "Wagner Moura",
+    "Cailee Spaeny",
+    "Stephen McKinley Henderson",
+    "Nelson Lee"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762f02"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762f04"
+  },
+  "movieName": "Oppenheimer",
+  "movieUrl": "http://www.oppenheimermovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
+  "genre": "Drama",
+  "movieCast": [
+    "Cillian Murphy",
+    "Emily Blunt",
+    "Matt Damon",
+    "Robert Downey Jr.",
+    "Florence Pugh"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762f05"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762f07"
+  },
+  "movieName": "Fast X",
+  "movieUrl": "https://fastxmovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+  "genre": "Action",
+  "movieCast": [
+    "Vin Diesel",
+    "Michelle Rodriguez",
+    "Tyrese Gibson",
+    "Ludacris",
+    "John Cena"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762f08"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762f0a"
+  },
+  "movieName": "Un père idéal",
+  "movieUrl": "",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/4xJd3uwtL1vCuZgEfEc8JXI9Uyx.jpg",
+  "genre": "Drama",
+  "movieCast": [
+    "Laurent Gerra",
+    "Eddy Mitchell",
+    "Laure-Lucille Simon",
+    "Jérôme Kircher",
+    "Tess Barthélémy"
+  ],
+  "like": {
+    "noOfLikes": 1,
+    "likedUsers": [
+      {
+        "email": "user6@gmail.com",
+        "password": "$2a$12$a280mfK0WKWSNjHkcw42nOxQOnNH2P2H8OGP.o7UbNdXJ1yo2A30G",
+        "username": "user6",
+        "phone": {
+          "$numberLong": "9561476523"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "66850524e28fcf2b1ce0bc04"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762f0b"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762f0d"
+  },
+  "movieName": "xXx",
+  "movieUrl": "http://www.sonypictures.com/movies/xxx/",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/xeEw3eLeSFmJgXZzmF2Efww0q3s.jpg",
+  "genre": "Action",
+  "movieCast": [
+    "Vin Diesel",
+    "Asia Argento",
+    "Marton Csokas",
+    "Samuel L. Jackson",
+    "Michael Roof"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762f0e"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762f10"
+  },
+  "movieName": "The First Omen",
+  "movieUrl": "https://www.20thcenturystudios.com/movies/the-first-omen",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/uGyiewQnDHPuiHN9V4k2t9QBPnh.jpg",
+  "genre": "Horror",
+  "movieCast": [
+    "Nell Tiger Free",
+    "Ralph Ineson",
+    "Sônia Braga",
+    "Bill Nighy",
+    "María Caballero"
+  ],
+  "like": {
+    "noOfLikes": 1,
+    "likedUsers": [
+      {
+        "email": "user5@gmail.com",
+        "password": "$2a$12$QNhE2yTm6hR0oOA94E2bq..CTfLoIb4tWQ5fWgtamE8nKXLFqZ1hy",
+        "username": "user5",
+        "phone": 789456123,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665c548be1d7b85e43445ef5"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762f11"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadcf0b61e5b496762f13"
+  },
+  "movieName": "Inside Out 2",
+  "movieUrl": "https://movies.disney.com/inside-out-2",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/xeqXXTE1Cd3qNaAEOT6qbhhCsgJ.jpg",
+  "genre": "Animation",
+  "movieCast": [
+    "Amy Poehler",
+    "Maya Hawke",
+    "Kensington Tallman",
+    "Liza Lapira",
+    "Tony Hale"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadcf0b61e5b496762f14"
+    }
+  },
+  "comments": [
+    {
+      "comment": "Superb movie!",
+      "commentedUser": {
+        "email": "user1@gmail.com",
+        "password": "$2a$12$KaQpxUqdpQQRMsYB2746SeBi.iqFSaahQS7jv3LsTEvCXluCnOI7G",
+        "username": "user1",
+        "phone": {
+          "$numberLong": "9740876610"
+        },
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "665b58dda411cd48932e8bf9"
+        },
+        "__v": 0
+      },
+      "_id": {
+        "$oid": "6686ac276aa3c2a596621c6d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762eef"
+  },
+  "movieName": "Godzilla x Kong: The New Empire",
+  "movieUrl": "https://www.godzillaxkongmovie.com",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg",
+  "genre": "Science Fiction",
+  "movieCast": [
+    "Rebecca Hall",
+    "Brian Tyree Henry",
+    "Dan Stevens",
+    "Kaylee Hottle",
+    "Alex Ferns"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ef0"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dadce0b61e5b496762ef5"
+  },
+  "movieName": "The Garfield Movie",
+  "movieUrl": "https://www.thegarfield-movie.com/",
+  "moviePosterUrl": "https://image.tmdb.org/t/p/w500/p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg",
+  "genre": "Animation",
+  "movieCast": [
+    "Chris Pratt",
+    "Samuel L. Jackson",
+    "Hannah Waddingham",
+    "Ving Rhames",
+    "Nicholas Hoult"
+  ],
+  "like": {
+    "noOfLikes": 0,
+    "likedUsers": [],
+    "_id": {
+      "$oid": "665dadce0b61e5b496762ef6"
+    }
+  },
+  "comments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "668f911e2056149e37f5a83d"
+  },
+  "movieName": "Kalki 2898",
+  "movieUrl": " https://www.imdb.com/title/tt12735488/",
+  "moviePosterUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQBK0xjcUNmVYwRH0oJe1ERb0nQQlwVHyMWg&s",
+  "genre": "Action ",
+  "movieCast": [
+    "Prabhas ,Amitab Bachan, Deepika Padukone"
+  ],
+  "like": {
+    "noOfLikes": 1,
+    "likedUsers": [
+      {
+        "email": "user32@gmail.com",
+        "password": "$2a$12$N8aZKMLQg6ABZ/oqMdiqI.RxbjQjzw3h89nW88Itra0/nUTm3FcQ.",
+        "username": "user32",
+        "phone": 7894615,
+        "role": "user",
+        "active": true,
+        "_id": {
+          "$oid": "66b32e3b3a6d99375a4651d9"
+        },
+        "__v": 0
+      }
+    ],
+    "_id": {
+      "$oid": "668f911e2056149e37f5a83e"
+    }
+  },
+  "comments": [],
+  "__v": 0
+}]

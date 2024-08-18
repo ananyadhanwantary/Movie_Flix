@@ -1,17 +1,20 @@
 const mongoose=require("mongoose")
 
 const {likeSchema}=require("./models.like")
-const commentSchema=require("./models.comments")
+const reviewSchema=require("./models.reviews")
 
-const moviesSchema=mongoose.Schema({
+const movieSchema=mongoose.Schema({
     movieName:String,
-    movieUrl:String,
-    moviePosterUrl:String,
+    movieFileName: String,
+    moviePosterName: String,
+    releaseYear: Number,
+    // Duration: Time,
+    language: String,
     genre: String,
     movieCast:[String],
-    like:likeSchema,
-    comments:[commentSchema]
+    like: likeSchema,
+    reviews: [reviewSchema]
 })
 
-const MovieModel=mongoose.model("Movie",moviesSchema)
-module.exports=MovieModel
+const movieModel=mongoose.model("Movie",movieSchema)
+module.exports= {movieModel,movieSchema}
