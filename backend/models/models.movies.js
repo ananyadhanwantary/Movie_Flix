@@ -8,7 +8,7 @@ const movieSchema=mongoose.Schema({
     movieFileName: String,
     moviePosterName: String,
     releaseYear: Number,
-    // Duration: Time,
+    description: String,
     language: String,
     genre: String,
     movieCast:[String],

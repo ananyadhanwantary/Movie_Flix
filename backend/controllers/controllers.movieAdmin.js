@@ -2,13 +2,14 @@ const {movieModel} = require("../models/models.movies");
 
 async function addMovie(req, res) {
   try {
-    const { movieName, releaseYear, language, genre, movieCast } = req.body;
+    const { movieName, releaseYear, description, language, genre, movieCast } = req.body;
     const { movieFile, posterFile} = req;
     const movie = new movieModel({
       movieName,
       movieFileName: movieFile,
       moviePosterName: posterFile,
       releaseYear,
+      description,
       language,
       movieCast,
       genre,

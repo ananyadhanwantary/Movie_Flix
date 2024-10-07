@@ -5,8 +5,8 @@ import React from "react";
 function FooterComponent() {
   return (
     <>
-    <footer className="footer d-flex bg-dark text-white py-2 container-fluid" style={{ height: "70px" , position : "fixed" , bottom : 0}}>
-      <div className="container d-flex justify-content-center align-content-center flex-column">
+    <footer className="footer d-flex bg-dark text-white py-2 container-fluid" style={{ height: "80px", bottom : 0}}>
+      <div className="container d-flex justify-content-center align-content-center flex-column p-2">
         <div className="column d-flex justify-content-center align-content-center ">
           <i className="bi bi-camera-reels-fill"></i>
           <span>MovieFlix</span>

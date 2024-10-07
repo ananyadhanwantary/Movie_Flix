@@ -1,9 +1,33 @@
-const movieModel=require("../models/models.movies")
+const path = require("path")
+const {movieModel}=require("../models/models.movies")
 const {userModel} = require("../models/models.UserModel")
+
+async function getMovieFile(req,res){
+    try{
+        const fileName = req.params.filename;
+        const videoPath = path.join(__dirname,'../resources/movies/',fileName);
+        res.sendFile(videoPath);
+    }
+    catch(err){
+        console.log(err);
+        res.status(404).json({message: "Movie File Doesn't exist"});
+    }
+}
+async function getPosterFile(req,res){
+    try{
+        const fileName = req.params.filename;
+        const posterPath = path.join(__dirname,'../resources/posters/',fileName);
+        res.sendFile(posterPath);
+    }
+    catch(err){
+        console.log(err);
+        res.status(404).json({message: "Poster File Doesn't exist"});
+    }
+}
 
 async function getLikedMovies(req,res){
     try{
-        const movies=await MovieModel.find({})
+        const movies=await movieModel.find({})
         var userId=req.query.userId
         var user =await userModel.findById(userId)
         var likedMovies=movies.filter((movie) =>{
@@ -21,7 +45,7 @@ async function getMoviesByGenre(req,res){
     try{
         const g=req.params.genre
         
-        const movies=await MovieModel.find({})
+        const movies=await movieModel.find({})
         const moviearr=[]
         movies.forEach((movie)=> {
             if( movie.genre==g)
@@ -36,14 +60,12 @@ async function getMoviesByGenre(req,res){
 }
 
 async function getAllGeneres(req,res){
-    const movies=await MovieModel.find({})
-    // console.log(movies)
+    const movies=await movieModel.find({})
     var genres= new Set()
     movies.forEach( (movie) => {
         genres.add(movie.genre)
     });
     const temp = [...genres]
-    // console.log(temp)
     res.status(200).json(temp)
 }
 
@@ -60,7 +82,7 @@ async function getAllMovies(req,res){
 async function getMovie(req,res){
     try{
         const {id}=req.params;
-        const movie= await MovieModel.findById(id);
+        const movie= await movieModel.findById(id);
         if(!movie){
             res.status(404).json({message:"Movie NOT found"})
         }
@@ -75,7 +97,7 @@ async function getMovie(req,res){
 async function getComments(req,res){
     try{
         const id=(req.params.id)
-        const movie=await MovieModel.findById(id)
+        const movie=await movieModel.findById(id)
         if(!movie){
             res.status(404).json({message:"Movie NOT found"})
         }
@@ -93,7 +115,7 @@ async function getComments(req,res){
 async function getLike(req,res){
     try{
         const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
+        const movie = await movieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
         }
@@ -115,7 +137,7 @@ async function getLike(req,res){
 async function addLike(req,res){
     try{
         const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
+        const movie = await movieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
         }
@@ -124,7 +146,7 @@ async function addLike(req,res){
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
         movie.like.likedUsers.push(user)
-        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
+        const updatedMovie = await movieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
         res.json(updatedMovie)
     }
     catch(err){
@@ -136,7 +158,7 @@ async function addLike(req,res){
 async function removeLike(req,res){
     try{
         const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
+        const movie = await movieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
         }
@@ -152,7 +174,7 @@ async function removeLike(req,res){
             console.log(err)
             console.log("user not found");
         }
-        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
+        const updatedMovie = await movieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
         res.json(updatedMovie)
     }
     catch(err){
@@ -164,7 +186,7 @@ async function removeLike(req,res){
 async function getLikeCount(req,res){
     try{
         const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
+        const movie = await movieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
         }
@@ -179,7 +201,7 @@ async function getLikeCount(req,res){
 async function addComment(req,res){
     try{
         const movieId=req.params.id
-        const movie=await MovieModel.findById(movieId)
+        const movie=await movieModel.findById(movieId)
         // console.log(req.body)
         if(!movie){
             res.json({message:"Movie Not found"})
@@ -189,7 +211,7 @@ async function addComment(req,res){
         data={comment:req.body.comment,commentedUser:user}
         movie.comments.push(data)
         // console.log(movie.comments)
-        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
+        const updatedMovie = await movieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
         res.json(updatedMovie)
     }
     catch(err){
@@ -203,7 +225,7 @@ async function addComment(req,res){
 async function search(req,res){
     try{
         const searchQuery=req.query.search||"";
-        const movies = await MovieModel.find({ movieName: { $regex: searchQuery, $options: 'i' } });
+        const movies = await movieModel.find({ movieName: { $regex: searchQuery, $options: 'i' } });
         res.json(movies)
     }
     catch(err){
@@ -212,4 +234,4 @@ async function search(req,res){
     }
 }
 
-module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getMoviesByGenre, addComment, getLikeCount, removeLike, addLike,getLike, getAllGeneres, search}
+module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getMoviesByGenre, addComment, getLikeCount, removeLike, addLike,getLike, getAllGeneres, search, getMovieFile, getPosterFile}

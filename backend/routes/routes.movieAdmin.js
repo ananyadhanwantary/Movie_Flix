@@ -1,6 +1,6 @@
 const express=require("express")
 const {addMovie,updateMovie,deleteMovie}=require("../controllers/controllers.movieAdmin")
-const {upload} = require("../resourses/handleStorage")
+const {upload} = require("../resources/handleStorage")
 
 const routes=express.Router()
 

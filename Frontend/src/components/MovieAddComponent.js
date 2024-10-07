@@ -1,117 +1,6 @@
-// import axios from "axios";
-// import { useState } from "react";
-// import { Button, Container, Form } from 'react-bootstrap';
-// import { useNavigate } from "react-router-dom";
-// function MovieAddComponent(){
-//     const navigate = useNavigate()
-//         const [movies, setMovies] = useState([])
-//         const [newMovie, setNewMovie] = useState({
-//             movieName: "",
-//             movieUrl: "",
-//             moviePosterUrl: "",
-//             genre: "",
-//             movieCast: []
-//         })
-//     async function handleAddMovie(e) {
-//         e.preventDefault()
-//         try{
-//             const token = localStorage.getItem("token")
-//             var res = await axios.post(`http://localhost:3001/api/admin/movie/`,newMovie,{ headers: {"Authorization" : `Bearer ${token}`} })
-//             if(res.data.status===false){
-//                 if(res.data.login===false){
-//                     alert("please Login to proceed")
-//                     navigate("/login")
-//                 }
-//                 else if(res.data.role==="user"){
-//                     alert("You are not authorized to perform ths operation")
-//                 }
-//             }
-//             else{
-//                 setMovies([...movies,res.data.movie])
-//                 setNewMovie({
-//                     movieName:"",
-//                     movieUrl:"",
-//                     moviePosterUrl:"",
-//                     genre: "",
-//                     movieCast:[]
-//                 })
-//                 navigate("/admin/movie")
-//             }
-//         }
-//         catch(err){
-//             console.log(err)
-//         }
-//     }
-//     return(
-//         <>
-//         <br/><br/>
-//         <Container className="border border-black">
-//             <h1 className="text-center fw-bolder">ADD MOVIE</h1>
-//         <Form className="center" style={{ maxWidth: "800px", margin: "auto" }}>
-//             <Form.Group controlId="movieName">
-//                 <Form.Label>Movie Name:</Form.Label>
-//                 <Form.Control
-//                     type="text"
-//                     placeholder="Enter movie name"
-//                     value={newMovie.movieName}
-//                     onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieName: e.target.value }))}
-//                 />
-//             </Form.Group>
-
-//             <Form.Group controlId="movieUrl">
-//                 <Form.Label>Movie Url:</Form.Label>
-//                 <Form.Control
-//                     type="text"
-//                     placeholder="Enter movie URL"
-//                     value={newMovie.movieUrl}
-//                     onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieUrl: e.target.value }))}
-//                 />
-//             </Form.Group>
-
-//             <Form.Group controlId="moviePosterUrl">
-//                 <Form.Label>Movie Poster Url:</Form.Label>
-//                 <Form.Control
-//                     type="text"
-//                     placeholder="Enter movie poster URL"
-//                     value={newMovie.moviePosterUrl}
-//                     onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, moviePosterUrl: e.target.value }))}
-//                 />
-//             </Form.Group>
-
-//             <Form.Group controlId="genre">
-//                 <Form.Label>Genre:</Form.Label>
-//                 <Form.Control
-//                     type="text"
-//                     placeholder="Enter genre"
-//                     value={newMovie.genre}
-//                     onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, genre: e.target.value }))}
-//                 />
-//             </Form.Group>
-
-//             <Form.Group controlId="movieCast">
-//                 <Form.Label>Movie Cast:</Form.Label>
-//                 <Form.Control
-//                     type="text"
-//                     placeholder="Enter movie cast"
-//                     value={newMovie.movieCast}
-//                     onChange={(e) => setNewMovie((previousMovie) => ({ ...previousMovie, movieCast: e.target.value }))}
-//                 />
-//             </Form.Group>
-            
-//             <Button variant="primary" className="my-4" type="submit" onClick={handleAddMovie}>
-//                 Submit
-//             </Button>
-//         </Form>
-//         <br/>
-//         </Container>
-//         <br/><br/>
-//         </>
-//     )
-
-// }
-// export default MovieAddComponent
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const MovieAddComponent = () => {
   const [movieName, setMovieName] = useState('');
@@ -119,6 +8,7 @@ const MovieAddComponent = () => {
   const [movieCast, setMovieCast] = useState('');
   const [releaseYear, setReleaseYear] = useState('');
   const [language, setLanguage] = useState('');
+  const [description, setDescription] = useState("");
   const [videoFile, setVideoFile] = useState(null);
   const [posterFile, setPosterFile] = useState(null);
   const [message, setMessage] = useState('');
@@ -144,6 +34,7 @@ const MovieAddComponent = () => {
     formData.append('genre', genre);
     formData.append('movieCast', movieCast);
     formData.append('releaseYear', releaseYear);
+    formData.append('description', description);
     formData.append('language', language);
     formData.append('video', videoFile);
     formData.append('poster', posterFile);
@@ -163,80 +54,104 @@ const MovieAddComponent = () => {
   };
 
   return (
-    <div>
-      <h1>Add New Movie</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Movie Name:</label>
-          <input
+    <Container className="mt-5 w-50">
+      <h1 className="text-center mb-4">Add New Movie</h1>
+      {message && <Alert variant={message.includes('successfully') ? 'success' : 'danger'}>{message}</Alert>}
+      <Form className='' onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="movieName">
+          <Form.Label>Movie Name</Form.Label>
+          <Form.Control
             type="text"
             value={movieName}
             onChange={(e) => setMovieName(e.target.value)}
             required
+            placeholder="Enter movie name"
           />
-        </div>
-        <div>
-          <label>Genre:</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="genre">
+          <Form.Label>Genre</Form.Label>
+          <Form.Control
             type="text"
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
             required
+            placeholder="Enter genre"
           />
-        </div>
-        <div>
-          <label>Cast:</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="movieCast">
+          <Form.Label>Cast</Form.Label>
+          <Form.Control
             type="text"
             value={movieCast}
             onChange={(e) => setMovieCast(e.target.value)}
             required
+            placeholder="Enter movie cast"
           />
-        </div>
-        <div>
-          <label>Release Year:</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="releaseYear">
+          <Form.Label>Release Year</Form.Label>
+          <Form.Control
             type="number"
             value={releaseYear}
             onChange={(e) => setReleaseYear(e.target.value)}
             required
+            placeholder="Enter release year"
           />
-        </div>
-        <div>
-          <label>Language:</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="description">
+          <Form.Label>Description</Form.Label>
+          <Form.Control
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            placeholder="Enter movie description"
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="language">
+          <Form.Label>Language</Form.Label>
+          <Form.Control
             type="text"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
             required
+            placeholder="Enter language"
           />
-        </div>
-        <div>
-          <label>Upload Video:</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="videoFile">
+          <Form.Label>Upload Video</Form.Label>
+          <Form.Control
             type="file"
             name="video"
             accept="video/*"
             onChange={handleFileChange}
             required
           />
-        </div>
-        <div>
-          <label>Upload Poster:</label>
-          <input
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="posterFile">
+          <Form.Label>Upload Poster</Form.Label>
+          <Form.Control
             type="file"
             name="poster"
             accept="image/*"
             onChange={handleFileChange}
             required
           />
-        </div>
-        <button type="submit">Add Movie</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Add Movie
+        </Button>
+      </Form>
+    </Container>
   );
 };
 
 export default MovieAddComponent;
-
