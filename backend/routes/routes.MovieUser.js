@@ -14,5 +14,8 @@ routes.delete("/like/:id",removeLike)
 routes.get("/likecnt/:id",getLikeCount)
 routes.put("/comment/:id",addComment)
 routes.get("/comments/:id",getComments)
+routes.get("/getAllGenres",getAllGeneres)
+routes.get("/byGenre/:genre",getMoviesByGenre)
+
 
 module.exports=routes

@@ -39,45 +39,12 @@ function GenreComponent() {
       console.log(err);
     }
   }
-  // async function handleSearch(query){
-  //   try{
-  //     const response=await axios.get(`http://localhost:3001/api/movie/search?search=${query}`)
-  //     console.log(response.data)
-  //     setSearch(response.data)
-
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
-  // function handleChange(){
-  //   handleSearch()
-  // }
-  // async function handleSearch(){
-  //   try{
-  //     navigate("/search/")
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
-  // const handleSearchButtonClick = () => {
-  //   setShowSearchBar(!showSearchBar);
-  // };
-
   return (
     <>
     <div>
       <div className="dropdown-container mt-5 ms-4">
       <DropDown />
       </div>
-      {/* <button onClick={()=> handleSearch()}>Search</button> */}
-      {/* <button onClick={handleSearchButtonClick}>
-        {showSearchBar ? 'Hide Search' : 'Show Search'}
-      </button>
-      {showSearchBar && (
-        <SearchComponent/>
-      )} */}
       <Container className="container-custom">
         <Row className="custom-row">    
           {movies.map((movie, index) => (

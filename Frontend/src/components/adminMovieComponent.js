@@ -9,13 +9,6 @@ import "../styles/GenreComponent.css";
 function AdminMovieComponent(){
     const navigate = useNavigate()
     const [movies, setMovies] = useState([])
-    // const [newMovie,setNewMovie]= useState({
-    //     movieName:"",
-    //     movieUrl:"",
-    //     moviePosterUrl:"",
-    //     genre: "",
-    //     movieCast:[]
-    // })
     useEffect(() => {
         try {
             axios.get("http://localhost:3001/api/movie/")

@@ -20,6 +20,7 @@ app.use(express.urlencoded({extended:true}))
 
 mongoose.connect(uri)
 .then(()=>console.log("connection successful"))
+
 app.use(cors())
 app.use(bodyParser.json())
 app.use("/api/movie",movieUserRoutes)
