@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap';
 
 const MovieAddComponent = () => {
   const [movieName, setMovieName] = useState('');
@@ -8,13 +8,14 @@ const MovieAddComponent = () => {
   const [movieCast, setMovieCast] = useState('');
   const [releaseYear, setReleaseYear] = useState('');
   const [language, setLanguage] = useState('');
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState('');
   const [videoFile, setVideoFile] = useState(null);
   const [posterFile, setPosterFile] = useState(null);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
-    if (e.target.name === 'video') {
+    if (e.target.name === 'movie') {
       setVideoFile(e.target.files[0]);
     } else if (e.target.name === 'poster') {
       setPosterFile(e.target.files[0]);
@@ -23,7 +24,7 @@ const MovieAddComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     if (!movieName || !genre || !movieCast || !releaseYear || !language || !videoFile || !posterFile) {
       setMessage('All fields are required.');
       return;
@@ -36,20 +37,34 @@ const MovieAddComponent = () => {
     formData.append('releaseYear', releaseYear);
     formData.append('description', description);
     formData.append('language', language);
-    formData.append('video', videoFile);
+    formData.append('movie', videoFile);
     formData.append('poster', posterFile);
 
     try {
-      const response = await axios.post('http://localhost:5000/movies', formData, {
+      setLoading(true);
+      const response = await axios.post('http://localhost:3001/api/admin/movie', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
       setMessage('Movie added successfully!');
+      setLoading(false);
+
+      // Clear form inputs after success
+      setMovieName('');
+      setGenre('');
+      setMovieCast('');
+      setReleaseYear('');
+      setLanguage('');
+      setDescription('');
+      setVideoFile(null);
+      setPosterFile(null);
+
       console.log(response.data);
     } catch (error) {
       console.error('Error uploading movie:', error);
       setMessage('Error adding movie. Please try again.');
+      setLoading(false);
     }
   };
 
@@ -128,7 +143,7 @@ const MovieAddComponent = () => {
           <Form.Label>Upload Video</Form.Label>
           <Form.Control
             type="file"
-            name="video"
+            name="movie"
             accept="video/*"
             onChange={handleFileChange}
             required
@@ -146,8 +161,8 @@ const MovieAddComponent = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Add Movie
+        <Button variant="primary" type="submit" disabled={loading}>
+          {loading ? <Spinner animation="border" size="sm" /> : 'Add Movie'}
         </Button>
       </Form>
     </Container>

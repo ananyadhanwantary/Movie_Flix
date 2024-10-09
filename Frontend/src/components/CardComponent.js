@@ -1,27 +1,29 @@
 import React from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/CardComponent.css'; // Assuming you put the custom styles in this file
-const posterURL = process.env.REACT_APP_posterURL
-const CardComponent = ({movie}) => {
-    console.log(movie)
-    return (
-        <div className="d-flex justify-content-center align-items-center ">
-            <div className="card-container">
-                <div className="card slide1">
-                    <div  >
-                        <img variant="top" className="position-absolute top-0 start-0 w-100" src={`${posterURL}${movie.moviePosterName}`} />
-                    </div>
-                </div>
-                <div className="card slide2">
-                    <div className="card-content text-center">
-                    <p className="card-title-custom fs-6">{movie.movieName} ({movie.releaseYear})</p>
-                    <p className="card-text-custom fs-6">Genre: {movie.genre}</p>
-                    <p className="card-text-custom fs-6">{movie.description}</p>
-                    </div>
-                </div>
-            </div>
+import '../styles/CardComponent.css';
+const posterURL = process.env.REACT_APP_posterURL;
+
+const CardComponent = ({ movie, handleSingleMovie }) => {
+  return (
+    <div className="card-container" onClick={() => handleSingleMovie(movie)}>
+      <div className="movie-card">
+        <div className="movie-poster">
+          <img className="poster-img" src={`${posterURL}${movie.moviePosterName}`} alt={movie.movieName} />
         </div>
-    );
+        <div className="movie-details">
+          <div className='details-content'>
+          <h5 className="movie-title">{movie.movieName} ({movie.releaseYear})</h5>
+          <p className="movie-genre">Genre: {movie.genre}</p>
+          <p className="movie-language">Lang: {movie.language}</p>
+          <p className="movie-description">
+            {movie.description && movie.description.length > 0 
+              ? (movie.description.length > 100 ? movie.description.slice(0, 100) + '...see more' : movie.description) 
+              : 'No description available'}
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CardComponent;

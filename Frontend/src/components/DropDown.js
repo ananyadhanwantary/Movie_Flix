@@ -11,7 +11,7 @@ function DropDown() {
     useEffect(() => {
         async function fetchGenres() {
             try {
-                const response = await axios.get("http://localhost:3001/api/admin/movie/getAllGenres");
+                const response = await axios.get("http://localhost:3001/api/movie/getAllGenres");
                 var l=response.data
                 l.splice(0,0,"All")
                 // setGenres();

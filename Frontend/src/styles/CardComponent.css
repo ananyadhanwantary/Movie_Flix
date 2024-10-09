@@ -1,68 +1,78 @@
-/* .card-container .icon {
+.card-container {
+    perspective: 1000px;
+    cursor: pointer;
+    height: 100%;
+  }
+  
+  .movie-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .movie-card:hover {
+    transform: rotateY(180deg);
+  }
+  
+  .movie-poster {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .poster-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 15px 15px 15px 15px;
+  }
+  
+  /* Backside with Blurred Background */
+  .movie-details {
+    position: relative;
+    margin: 5px;
+    text-align: center;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: #2c73df;
-} */
-
-/* .card-container .icon .fa {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    color: #fff;
-} */
-
-.card-container .card {
-    width: 300px;
-    height: 200px;
-    transition: 0.5s;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    transform: rotateY(180deg);
+  }
+  
+  /* Movie details content (text) */
+  .details-content {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-container .slide1 {
-    z-index: 1;
-    transition: 0.7s;
-    transform: translateY(100px);
-}
-
-.card-container:hover .slide1 {
-    transform: translateY(0px);
-}
-
-.card-container .slide2 {
-    padding: 20px;
-    box-sizing: border-box;
-    transition: 0.8s;
-    transform: translateY(-100px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.card-container:hover .slide2 {
-    transform: translateY(0);
-}
-
-.card-container .slide2::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 4px;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #2c73df;
-}
-
-.card-container .slide2 .content p,
-.card-container .slide2 .content h3 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: #414141;
-}
+    z-index: 2;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  .movie-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    /* margin: 0px; */
+  }
+  
+  .movie-genre, .movie-language {
+    font-size: 1rem;
+    color: #333;
+    margin: 0px;
+  }
+  
+  .movie-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0px;
+  }
+  
