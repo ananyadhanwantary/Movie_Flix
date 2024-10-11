@@ -115,9 +115,9 @@ const styles = {
               <Route path="/admin" element={<AdminHomeComponent/>}></Route>
               <Route path="/getUsers" element={<UserComponent/>}></Route>
               <Route path='/editUser/:id' element={<EditComponent/>}></Route>
-              <Route path="/addMovie/" element={<MovieAddComponent/>}></Route>
+              <Route path="/addMovie/:id?" element={<MovieAddComponent/>}></Route>
               <Route path="/admin/movie" element={<AdminMovieComponent/>}></Route>
-              <Route path="/editMovie/:id" element={<MovieEditComponent/>}></Route>
+              {/* <Route path="/editMovie/:id" element={<MovieEditComponent/>}></Route> */}
             </Route>
           </Routes>
           </div>

@@ -6,5 +6,5 @@ const routes=express.Router()
 
 routes.post("/", upload, addMovie)
 routes.delete("/:id",deleteMovie)
-routes.patch("/:id",updateMovie)
+routes.put("/:id", upload,updateMovie)
 module.exports=routes

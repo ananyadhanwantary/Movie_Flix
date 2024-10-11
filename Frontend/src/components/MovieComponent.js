@@ -29,12 +29,12 @@ function MovieComponent() {
   }
 
   return (
-    <div className="movie-component">
+    <div className="movie-component m-3">
       <br />
       <br />
       <br />
-      <Container fluid>
-        <Row className="justify-content-center">
+      <Container fluid className="">
+        <Row className="justify-content-start">
           {movies.map((movie) => (
             <Col key={movie._id} xs={12} sm={6} md={4} lg={3} className="m-4">
               <CardComponent movie={movie} handleSingleMovie={handleSingleMovie} />

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom'; // Import useParams to get the ID from the URL
 
 const MovieAddComponent = () => {
   const [movieName, setMovieName] = useState('');
@@ -13,6 +14,29 @@ const MovieAddComponent = () => {
   const [posterFile, setPosterFile] = useState(null);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const { id } = useParams(); // Get the movie ID from the URL if it exists
+  const navigate = useNavigate();
+
+  // Fetch movie details if we are editing an existing movie
+  useEffect(() => {
+    if (id) {
+      // If `id` is present, fetch movie data
+      axios.get(`http://localhost:3001/api/movie/${id}`)
+        .then((response) => {
+          const movie = response.data;
+          setMovieName(movie.movieName);
+          setGenre(movie.genre);
+          setMovieCast(movie.movieCast);
+          setReleaseYear(movie.releaseYear);
+          setLanguage(movie.language);
+          setDescription(movie.description);
+        })
+        .catch((error) => {
+          setMessage('Error fetching movie data. Please try again.');
+          console.error(error);
+        });
+    }
+  }, [id]);
 
   const handleFileChange = (e) => {
     if (e.target.name === 'movie') {
@@ -24,8 +48,8 @@ const MovieAddComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!movieName || !genre || !movieCast || !releaseYear || !language || !videoFile || !posterFile) {
+
+    if (!movieName || !genre || !movieCast || !releaseYear || !language || (!videoFile && !id) || (!posterFile && !id)) {
       setMessage('All fields are required.');
       return;
     }
@@ -37,19 +61,33 @@ const MovieAddComponent = () => {
     formData.append('releaseYear', releaseYear);
     formData.append('description', description);
     formData.append('language', language);
-    formData.append('movie', videoFile);
-    formData.append('poster', posterFile);
+    if (videoFile) formData.append('movie', videoFile); // Append only if a new video file is selected
+    if (posterFile) formData.append('poster', posterFile); // Append only if a new poster file is selected
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:3001/api/admin/movie', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      setMessage('Movie added successfully!');
-      setLoading(false);
+      let response;
+      
+      if (id) {
+        // If there's an `id`, update the existing movie
+        response = await axios.put(`http://localhost:3001/api/admin/movie/${id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        setMessage('Movie updated successfully!');
+      } else {
+        // If no `id`, add a new movie
+        response = await axios.post('http://localhost:3001/api/admin/movie', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        setMessage('Movie added successfully!');
+      }
 
+      setLoading(false);
+      
       // Clear form inputs after success
       setMovieName('');
       setGenre('');
@@ -63,16 +101,16 @@ const MovieAddComponent = () => {
       console.log(response.data);
     } catch (error) {
       console.error('Error uploading movie:', error);
-      setMessage('Error adding movie. Please try again.');
+      setMessage('Error adding/updating movie. Please try again.');
       setLoading(false);
     }
   };
 
   return (
     <Container className="mt-5 w-50">
-      <h1 className="text-center mb-4">Add New Movie</h1>
+      <h1 className="text-center mb-4">{id ? 'Edit Movie' : 'Add New Movie'}</h1>
       {message && <Alert variant={message.includes('successfully') ? 'success' : 'danger'}>{message}</Alert>}
-      <Form className='' onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="movieName">
           <Form.Label>Movie Name</Form.Label>
           <Form.Control
@@ -146,8 +184,8 @@ const MovieAddComponent = () => {
             name="movie"
             accept="video/*"
             onChange={handleFileChange}
-            required
           />
+          {id && !videoFile && <p>Current video file will be retained if no new file is selected.</p>}
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="posterFile">
@@ -157,12 +195,12 @@ const MovieAddComponent = () => {
             name="poster"
             accept="image/*"
             onChange={handleFileChange}
-            required
           />
+          {id && !posterFile && <p>Current poster will be retained if no new file is selected.</p>}
         </Form.Group>
 
         <Button variant="primary" type="submit" disabled={loading}>
-          {loading ? <Spinner animation="border" size="sm" /> : 'Add Movie'}
+          {loading ? <Spinner animation="border" size="sm" /> : id ? 'Update Movie' : 'Add Movie'}
         </Button>
       </Form>
     </Container>

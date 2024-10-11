@@ -46,10 +46,10 @@ function AdminMovieComponent(){
     }
 
     async function handleMovieInsert(){
-        navigate("/addMovie")
+        navigate("/addMovie/")
     }
     async function handleMovieUpdate(movie){
-        navigate(`/editMovie/${movie._id}`)
+        navigate(`/addMovie/${movie._id}`)
         
     }
     return (
