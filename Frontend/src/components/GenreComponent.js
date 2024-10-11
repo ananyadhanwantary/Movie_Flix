@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/GenreComponent.css";
-import SearchComponent from "./SearchComponet";
 const posterURL = process.env.REACT_APP_posterURL
 
 function GenreComponent() {
@@ -13,7 +12,6 @@ function GenreComponent() {
   const { state } = location;
   const [movies, setMovies] = useState([]);
   const g = state.movieGenre;
-  const [showSearchBar, setShowSearchBar] = useState(false);
 
   useEffect(() => {
     async function fetchMoviesByGenre() {
@@ -22,7 +20,7 @@ function GenreComponent() {
           const response = await axios.get("http://localhost:3001/api/movie");
           setMovies(response.data);
         } else {
-          const response = await axios.get(`http://localhost:3001/api/admin/movie/bygenre/${g}`);
+          const response = await axios.get(`http://localhost:3001/api/movie/bygenre/${g}`);
           setMovies(response.data);
         }
       } catch (err) {

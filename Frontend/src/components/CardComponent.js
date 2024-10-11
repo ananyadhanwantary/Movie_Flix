@@ -8,6 +8,7 @@ const CardComponent = ({ movie, handleSingleMovie }) => {
       <div className="movie-card">
         <div className="movie-poster">
           <img className="poster-img" src={`${posterURL}${movie.moviePosterName}`} alt={movie.movieName} />
+          {/* <h5 className="movie-title-front text-black">{movie.movieName} ({movie.releaseYear})</h5> */}
         </div>
         <div className="movie-details">
           <div className='details-content'>
@@ -22,6 +23,7 @@ const CardComponent = ({ movie, handleSingleMovie }) => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

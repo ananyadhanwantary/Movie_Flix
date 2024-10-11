@@ -41,17 +41,27 @@ async function getLikedMovies(req,res){
     }
 }
 
-async function getMoviesByGenre(req,res){
+async function getMoviesByFilter(req,res){
     try{
-        const g=req.params.genre
-        
-        const movies=await movieModel.find({})
-        const moviearr=[]
-        movies.forEach((movie)=> {
-            if( movie.genre==g)
-            moviearr.push(movie)
-        })
-        res.status(200).json(moviearr)
+        var movies;
+        const g = req.params.genre
+        const l = req.params.language
+        if(g === 'All' && l === 'All'){
+            movies=await movieModel.find({})
+        }
+        else if( l === 'All'){
+            movies = await movieModel.find({ genre: { $regex: new RegExp(g, "i") } });
+        }
+        else if( g === 'All'){
+            movies = await movieModel.find({ language: { $regex: new RegExp(l, "i") } });
+        }
+        else{
+            movies = await movieModel.find({
+                genre: { $regex: new RegExp(g, "i") },
+                language: { $regex: new RegExp(l, "i") }
+              });
+        }
+        res.status(200).json(movies)
     }
     catch(err){
         console.log(err)
@@ -60,13 +70,13 @@ async function getMoviesByGenre(req,res){
 }
 
 async function getAllGeneres(req,res){
-    const movies=await movieModel.find({})
-    var genres= new Set()
-    movies.forEach( (movie) => {
-        genres.add(movie.genre)
-    });
-    const temp = [...genres]
-    res.status(200).json(temp)
+    const uniqueGenres = await movieModel.distinct('genre');
+    res.status(200).json(uniqueGenres)
+}
+
+async function getAllLangs(req,res){
+    const uniqueLanguages = await movieModel.distinct('language');
+    res.status(200).json(uniqueLanguages)
 }
 
 async function getAllMovies(req,res){
@@ -113,25 +123,28 @@ async function getComments(req,res){
 }
 
 async function getLike(req,res){
-    try{
-        const movieId=(req.params.id)
+    const movieId = req.params.id;
+    const userId = req.query.userId;
+    try {
         const movie = await movieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
+            return res.status(404).json({ message: 'Movie not found' });
         }
-        var userId=req.query.userId
-        console.log(userId)
-        var user =await userModel.findById(userId)
-        var found = movie.like.likedUsers.find((u) => u.email === user.email)
-        if(found)
-            res.json({liked : true})
-        else
-            res.json({liked : false})
+        
+        const user = await userModel.findById(userId);
+        if (!user) {
+            console.log('user not found',userId);
+            return res.status(404).json({ message: `${userId}  user not found` });
+        }
+        const found = movie.like.likedUsers.some((u) => u.email === user.email);
+        res.json({ liked: found })
+    } 
+    catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'An error occurred' })
     }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in liking movie"})
-    }
+
 }
 
 async function addLike(req,res){
@@ -221,7 +234,6 @@ async function addComment(req,res){
     }
 }
 
-
 async function search(req,res){
     try{
         const searchQuery=req.query.search||"";
@@ -234,4 +246,4 @@ async function search(req,res){
     }
 }
 
-module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getMoviesByGenre, addComment, getLikeCount, removeLike, addLike,getLike, getAllGeneres, search, getMovieFile, getPosterFile}
+module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getAllLangs, getMoviesByFilter, addComment, getLikeCount, removeLike, addLike,getLike, getAllGeneres, search, getMovieFile, getPosterFile}

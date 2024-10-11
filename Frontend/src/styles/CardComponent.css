@@ -1,7 +1,7 @@
 .card-container {
     perspective: 1000px;
     cursor: pointer;
-    height: 100%;
+    height: 90%;
   }
   
   .movie-card {
@@ -17,6 +17,7 @@
   
   .movie-card:hover {
     transform: rotateY(180deg);
+    box-shadow: 0 3px 18px rgb(41, 130, 240);
   }
   
   .movie-poster {
@@ -28,9 +29,11 @@
   
   .poster-img {
     width: 100%;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 15px 15px 15px 15px;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area and clips any excess */
+    border-radius: 10px;
+    /* height: 85%; */
+    /* border-radius: 10px 10px 0px 0px; */
   }
   
   /* Backside with Blurred Background */

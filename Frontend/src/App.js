@@ -56,7 +56,7 @@ const styles = {
     zIndex: 0,
   },
   backgroundImageContainer: {
-     position: 'absolute',
+    position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
@@ -65,7 +65,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'repeat',
     backgroundSize: 'cover',
-    filter: 'brightness(50%)', // Adjust brightness value as needed
+    filter: 'blur(4px)', // Adjust brightness value as needed
     zIndex: -1,
   },
   content: {

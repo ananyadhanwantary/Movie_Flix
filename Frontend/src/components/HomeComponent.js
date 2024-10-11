@@ -6,7 +6,7 @@ function HomeComponent() {
   async function handleGetMovie(e) {
     e.preventDefault();
     try {
-      navigate('/getMovie');
+      navigate('/getMovie',{ state: { movieGenre: "All" , movieLanguage: "All"} });
     } catch (err) {
       console.log(err);
     }

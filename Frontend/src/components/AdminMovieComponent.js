@@ -5,6 +5,8 @@ import { FaPenSquare } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import "../styles/GenreComponent.css";
+const posterURL = process.env.REACT_APP_posterURL;
+
 
 function AdminMovieComponent(){
     const navigate = useNavigate()
@@ -60,11 +62,10 @@ function AdminMovieComponent(){
                 {movies.map((movie) => (
                     <Col xs={12} sm={6} md={4} lg={2} className="custom-col custom-col-lg mb-4" key={movie._id}>
                         <Card className='card-custom'>
-                            <Card.Img variant="top" src={movie.moviePosterUrl} />
+                            <Card.Img  variant="top" src={`${posterURL}${movie.moviePosterName}`} />
                             <Card.Body className="card-body-custom">
                                 <div className="card-content">
                                     <Card.Title className="card-title-custom fs-6">{movie.movieName}</Card.Title>
-                                    <Card.Text >{movie.movieCast}</Card.Text>
                                 </div>
                                 <div className='d-flex flex-column'>
                                     <Button variant="primary" className='mb-2'>Play Movie</Button>
