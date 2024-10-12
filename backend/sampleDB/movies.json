@@ -1,0 +1,342 @@
+[
+  {
+    "movieName": "Inside Out 2",
+    "movieUrl": "https://movies.disney.com/inside-out-2",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+    "movieCast": [
+      "Amy Poehler",
+      "Maya Hawke",
+      "Kensington Tallman",
+      "Liza Lapira",
+      "Phyllis Smith"
+    ],
+    "genre": "Animation",
+    "releaseYear": "2024-06-11",
+    "description": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
+    "tagline": "Make room for new emotions.",
+    "language": "English"
+  },
+  {
+    "movieName": "Kill",
+    "movieUrl": "https://www.lionsgate.com/movies/kill",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/m2zXTuNPkywdYLyWlVyJZW2QOJH.jpg",
+    "movieCast": [
+      "Lakshya Lalwani",
+      "Raghav Juyal",
+      "Tanya Maniktala",
+      "Abhishek Chauhan",
+      "Ashish Vidhyarthi"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-07-03",
+    "description": "When an army commando finds out his true love is engaged against her will, he boards a New Dehli-bound train in a daring quest to derail the arranged marriage. But when a gang of knife-wielding thieves begin to terrorize innocent passengers on his train, the commando takes them on himself in a death-defying kill-spree to save those around him — turning what should have been a typical commute into an adrenaline-fueled thrill ride.",
+    "tagline": "The end of the line starts here.",
+    "language": "Hindi"
+  },
+  {
+    "movieName": "It Ends with Us",
+    "movieUrl": "https://www.itendswithus.movie",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/AjV6jFJ2YFIluYo4GQf13AA1tqu.jpg",
+    "movieCast": [
+      "Blake Lively",
+      "Justin Baldoni",
+      "Brandon Sklenar",
+      "Jenny Slate",
+      "Hasan Minhaj"
+    ],
+    "genre": "Romance",
+    "releaseYear": "2024-08-07",
+    "description": "Lily Bloom overcomes a traumatic childhood to embark on a new life in Boston and chase a lifelong dream of opening her own business. A chance meeting with charming neurosurgeon Ryle Kincaid sparks an intense connection, but as the two fall deeply in love, Lily begins to see sides of Ryle that remind her of her parents' relationship.",
+    "tagline": "We break the pattern or the pattern breaks us.",
+    "language": "English"
+  },
+  {
+    "movieName": "Alien: Romulus",
+    "movieUrl": "https://www.20thcenturystudios.com/movies/alien-romulus",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/b33nnKl1GSFbao4l3fZDDqsMx0F.jpg",
+    "movieCast": [
+      "Cailee Spaeny",
+      "David Jonsson",
+      "Archie Renaux",
+      "Isabela Merced",
+      "Spike Fearn"
+    ],
+    "genre": "Horror",
+    "releaseYear": "2024-08-13",
+    "description": "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.",
+    "tagline": "",
+    "language": "English"
+  },
+  {
+    "movieName": "Despicable Me 4",
+    "movieUrl": "https://www.despicable.me",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/wWba3TaojhK7NdycRhoQpsG0FaH.jpg",
+    "movieCast": [
+      "Steve Carell",
+      "Kristen Wiig",
+      "Will Ferrell",
+      "Sofía Vergara",
+      "Miranda Cosgrove"
+    ],
+    "genre": "Animation",
+    "releaseYear": "2024-06-20",
+    "description": "Gru and Lucy and their girls—Margo, Edith and Agnes—welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Gru also faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, forcing the family to go on the run.",
+    "tagline": "Things just got a little more despicable.",
+    "language": "English"
+  },
+  {
+    "movieName": "Deadpool & Wolverine",
+    "movieUrl": "https://www.marvel.com/movies/deadpool-and-wolverine",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+    "movieCast": [
+      "Ryan Reynolds",
+      "Hugh Jackman",
+      "Emma Corrin",
+      "Matthew Macfadyen",
+      "Dafne Keen"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-07-24",
+    "description": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+    "tagline": "Come together.",
+    "language": "English"
+  },
+  {
+    "movieName": "A Quiet Place: Day One",
+    "movieUrl": "https://www.aquietplacemovie.com",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/hU42CRk14JuPEdqZG3AWmagiPAP.jpg",
+    "movieCast": [
+      "Lupita Nyong'o",
+      "Joseph Quinn",
+      "Alex Wolff",
+      "Djimon Hounsou",
+      "Eliane Umuhire"
+    ],
+    "genre": "Horror",
+    "releaseYear": "2024-06-26",
+    "description": "As New York City is invaded by alien creatures who hunt by sound, a woman named Sam fights to survive with her cat.",
+    "tagline": "Hear how it all began.",
+    "language": "English"
+  },
+  {
+    "movieName": "One Fast Move",
+    "movieUrl": "https://www.amazon.com/dp/B0CX9JPW4K",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/hdBUjfbdr1ymS0kycAT7qguOmWA.jpg",
+    "movieCast": [
+      "K.J. Apa",
+      "Eric Dane",
+      "Maia Reficco",
+      "Edward James Olmos",
+      "Austin North"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-08-07",
+    "description": "A dishonorably discharged soldier seeks out his estranged father to help him pursue his dream of becoming a professional motorcycle racer. While training, he meets a small-town, aspiring singer and a motorcycle shop owner who begin to break down the walls his father’s absence had built up.",
+    "tagline": "",
+    "language": "English"
+  },
+  {
+    "movieName": "Mayhem!",
+    "movieUrl": "",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/u9035lysUz3ccloQt0SeIp1Mu8a.jpg",
+    "movieCast": [
+      "Nassim Lyes",
+      "Loryn Nounay",
+      "Olivier Gourmet",
+      "Vithaya Pansringarm",
+      "Mehdi Hadim"
+    ],
+    "genre": "Action",
+    "releaseYear": "2023-06-28",
+    "description": "Sam is a professional boxer about to get released from prison. While on parole, his past catches up with him and he has no choice but to flee. Five years later, he has rebuilt a simple life on an exotic island in Thailand with his wife and her daughter, but when he gets blackmailed by a dangerous local godfather, he must embark on a dangerous drug smuggling mission which results in a tragedy. Now has only one purpose: to seek merciless vengeance.",
+    "tagline": "This ends one way.",
+    "language": "French"
+  },
+  {
+    "movieName": "Prey",
+    "movieUrl": "",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/5wAlO5zZ3IyzLBAf7cp5WejalmG.jpg",
+    "movieCast": [
+      "Ryan Phillippe",
+      "Emile Hirsch",
+      "Mena Suvari",
+      "Dylan Flashner",
+      "Tristan Thompson"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-03-15",
+    "description": "A young couple is compelled to leave their Christian missionary station in the Kalahari Desert after being threatened with death by an extremist militant gang. After crashing their aircraft they must battle man and beast for their lives.",
+    "tagline": "Let the hunt begin.",
+    "language": "Spanish"
+  },
+  {
+    "movieName": "Saving Bikini Bottom: The Sandy Cheeks Movie",
+    "movieUrl": "https://www.netflix.com/title/81221340",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/30YnfZdMNIV7noWLdvmcJS0cbnQ.jpg",
+    "movieCast": [
+      "Carolyn Lawrence",
+      "Tom Kenny",
+      "Clancy Brown",
+      "Bill Fagerbakke",
+      "Mr. Lawrence"
+    ],
+    "genre": "Animation",
+    "releaseYear": "2024-08-01",
+    "description": "When Bikini Bottom is scooped from the ocean, scientific squirrel Sandy Cheeks and her pal SpongeBob SquarePants saddle up for Texas to save their town.",
+    "tagline": "Buckle up.",
+    "language": "English"
+  },
+  {
+    "movieName": "The Convert",
+    "movieUrl": "",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/e5ZqqPlhKstzB4geibpZh38w7Pq.jpg",
+    "movieCast": [
+      "Guy Pearce",
+      "Tioreore Ngatai-Melbourne",
+      "Antonio Te Maioha",
+      "Jacqueline McKenzie",
+      "Te Kohe Tuhaka"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-03-14",
+    "description": "Munro, a soldier turned lay preacher, comes to New Zealand to minister to the first British colonists, but he is converted by the powerful chief Maianui to serve a different purpose.",
+    "tagline": "A fight for peace. A heart at war.",
+    "language": "Maori"
+  },
+  {
+    "movieName": "Mission: Cross",
+    "movieUrl": "https://www.netflix.com/title/81771382",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/aE9WqOApdRYsowsGE0118dyA4c9.jpg",
+    "movieCast": [
+      "Hwang Jung-min",
+      "Yum Jung-ah",
+      "Jeon Hye-jin",
+      "Jeong Man-sik",
+      "Kim Chan-hyung"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-08-05",
+    "description": "In the ultimate test of marriage, an agent-turned-househusband gets tangled in a perilous mission with his detective wife, who's clueless about his past.",
+    "tagline": "From a dear nemesis of a husband to a hot summer action ally",
+    "language": "Korean"
+  },
+  {
+    "movieName": "The Instigators",
+    "movieUrl": "https://tv.apple.com/movie/umc.cmc.3ocr6483492qm53io2bsy2o69",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/thI9pM7Qu43f42sOOl5wy75UAo.jpg",
+    "movieCast": [
+      "Matt Damon",
+      "Casey Affleck",
+      "Hong Chau",
+      "Michael Stuhlbarg",
+      "Paul Walter Hauser"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-08-02",
+    "description": "Rory and Cobby are unlikely partners thrown together for a heist. But when it goes awry, they team up to outrun police, backward bureaucrats, and a vengeful crime boss.",
+    "tagline": "Worst. Heist. Ever.",
+    "language": "English"
+  },
+  {
+    "movieName": "The Garfield Movie",
+    "movieUrl": "https://www.thegarfield-movie.com/",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/xYduFGuch9OwbCOEUiamml18ZoB.jpg",
+    "movieCast": [
+      "Chris Pratt",
+      "Samuel L. Jackson",
+      "Hannah Waddingham",
+      "Ving Rhames",
+      "Nicholas Hoult"
+    ],
+    "genre": "Animation",
+    "releaseYear": "2024-04-30",
+    "description": "Garfield, the world-famous, Monday-hating, lasagna-loving indoor cat, is about to have a wild outdoor adventure! After an unexpected reunion with his long-lost father – scruffy street cat Vic – Garfield and his canine friend Odie are forced from their perfectly pampered life into joining Vic in a hilarious, high-stakes heist.",
+    "tagline": "Indoor cat. Outdoor adventure.",
+    "language": "English"
+  },
+  {
+    "movieName": "Kingdom of the Planet of the Apes",
+    "movieUrl": "https://www.20thcenturystudios.com/movies/kingdom-of-the-planet-of-the-apes",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/gKkl37BQuKTanygYQG1pyYgLVgf.jpg",
+    "movieCast": [
+      "Owen Teague",
+      "Freya Allan",
+      "Kevin Durand",
+      "Peter Macon",
+      "William H. Macy"
+    ],
+    "genre": "Science Fiction",
+    "releaseYear": "2024-05-08",
+    "description": "Several generations following Caesar's reign, apes – now the dominant species – live harmoniously while humans have been reduced to living in the shadows. As a new tyrannical ape leader builds his empire, one young ape undertakes a harrowing journey that will cause him to question all he's known about the past and to make choices that will define a future for apes and humans alike.",
+    "tagline": "No one can stop the reign.",
+    "language": "English"
+  },
+  {
+    "movieName": "Dragonkeeper",
+    "movieUrl": "http://www.dragonkeepermovie.com",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/ggZGnJLzO3BTu7ysuuIzou3Oex5.jpg",
+    "movieCast": [
+      "Lucía Pérez",
+      "Mario Gas",
+      "Fernando Castro",
+      "Carlos de Luna",
+      "José Gómez Adán"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-04-11",
+    "description": "Set in Han Imperial China, the plot follows the adventures of enslaved girl Ping with ancient dragon Long Danzi. Dragons had been banished from the kingdom. Ping, an orphan, finds one of the last remaining dragon eggs. Palace guards force Ping to run away in order to return the dragon egg to the ocean and save all dragons from extinction. Ping discovers that she is a true Dragonkeeper.",
+    "tagline": "Everybody just saw a girl.",
+    "language": "Mandarin"
+  },
+  {
+    "movieName": "Furiosa: A Mad Max Saga",
+    "movieUrl": "https://www.furiosaamadmaxsaga.com",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
+    "movieCast": [
+      "Anya Taylor-Joy",
+      "Chris Hemsworth",
+      "Tom Burke",
+      "Alyla Browne",
+      "George Shevtsov"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-05-22",
+    "description": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
+    "tagline": "Fury is born.",
+    "language": "English"
+  },
+  {
+    "movieName": "Bad Boys: Ride or Die",
+    "movieUrl": "https://www.badboys.movie",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/oGythE98MYleE6mZlGs5oBGkux1.jpg",
+    "movieCast": [
+      "Will Smith",
+      "Martin Lawrence",
+      "Vanessa Hudgens",
+      "Alexander Ludwig",
+      "Paola Nuñez"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-06-05",
+    "description": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
+    "tagline": "Miami's finest are now its most wanted.",
+    "language": "English"
+  },
+  {
+    "movieName": "Twisters",
+    "movieUrl": "https://www.twisters-movie.com",
+    "moviePosterUrl": "https://image.tmdb.org/t/p/w500/pjnD08FlMAIXsfOLKQbvmO0f0MD.jpg",
+    "movieCast": [
+      "Daisy Edgar-Jones",
+      "Glen Powell",
+      "Anthony Ramos",
+      "Brandon Perea",
+      "Maura Tierney"
+    ],
+    "genre": "Action",
+    "releaseYear": "2024-07-10",
+    "description": "As storm season intensifies, the paths of former storm chaser Kate Carter and reckless social-media superstar Tyler Owens collide when terrifying phenomena never seen before are unleashed. The pair and their competing teams find themselves squarely in the paths of multiple storm systems converging over central Oklahoma in the fight of their lives.",
+    "tagline": "Chase. Ride. Survive.",
+    "language": "English"
+  }
+]

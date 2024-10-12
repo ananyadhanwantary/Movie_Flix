@@ -21,7 +21,6 @@ import ProfileComponent from './components/ProfileComponent';
 import AboutUs from './components/AboutUs';
 import ChangePasswordComponent from './components/ChangePasswordComponent';
 import SearchComponent from './components/SearchComponet';
-
 function App() {
 // const styles = {
 //   header: {
@@ -56,7 +55,7 @@ const styles = {
     zIndex: 0,
   },
   backgroundImageContainer: {
-     position: 'absolute',
+    position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
@@ -65,7 +64,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'repeat',
     backgroundSize: 'cover',
-    filter: 'brightness(50%)', // Adjust brightness value as needed
+    filter: 'blur(4px)', // Adjust brightness value as needed
     zIndex: -1,
   },
   content: {
@@ -115,9 +114,9 @@ const styles = {
               <Route path="/admin" element={<AdminHomeComponent/>}></Route>
               <Route path="/getUsers" element={<UserComponent/>}></Route>
               <Route path='/editUser/:id' element={<EditComponent/>}></Route>
-              <Route path="/addMovie/" element={<MovieAddComponent/>}></Route>
+              <Route path="/addMovie/:id?" element={<MovieAddComponent/>}></Route>
               <Route path="/admin/movie" element={<AdminMovieComponent/>}></Route>
-              <Route path="/editMovie/:id" element={<MovieEditComponent/>}></Route>
+              {/* <Route path="/editMovie/:id" element={<MovieEditComponent/>}></Route> */}
             </Route>
           </Routes>
           </div>

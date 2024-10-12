@@ -1,280 +1,119 @@
-const MovieModel=require("../models/models.movies")
-const {userModel} = require("../models/models.UserModel")
+const {movieModel} = require("../models/models.movies");
+const fs = require('fs');
+const path = require('path');
 
-async function getLikedMovies(req,res){
-    try{
-        const movies=await MovieModel.find({})
-        var userId=req.query.userId
-        var user =await userModel.findById(userId)
-        var likedMovies=movies.filter((movie) =>{
-            return movie.like.likedUsers.find((u) => u.email == user.email)
-        })
-        res.status(200).json(likedMovies)
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in getting movie details"})
-    }
-}
-async function addMovie(req,res){
-    try{
-        const{movieName, movieUrl,moviePosterUrl,genre,movieCast}=req.body
-
-        const movie=await MovieModel.create({
-            // _id:movieId,
-            movieName:movieName, 
-            movieUrl:movieUrl,
-            moviePosterUrl:moviePosterUrl,
-            movieCast:movieCast,
-            genre:genre,
-            like:{
-                noOfLikes:0,
-                likedUsers:[]
-            },
-            comments:[]
-        })
-        res.status(200).json(movie)
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in adding movies"})
-    }
-}
-
-async function getMoviesByGenre(req,res){
-    try{
-        const g=req.params.genre
-        
-        const movies=await MovieModel.find({})
-        const moviearr=[]
-        movies.forEach((movie)=> {
-            if( movie.genre==g)
-            moviearr.push(movie)
-        })
-        res.status(200).json(moviearr)
-        // moviesByGenre = {}
-        // var genres= new Set()
-        // movies.forEach( (movie) => {
-        //     genres.add(movie.genre)
-        // });
-        // console.log(genres)
-        // genres.forEach(genre => {
-        //     moviesByGenre[genre]=movies.filter(movie => movie.genre === genre)
-        // })
-        // console.log(moviesByGenre)
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in getting movie details"})
-    }
-}
-async function getAllGeneres(req,res){
-    const movies=await MovieModel.find({})
-    // console.log(movies)
-    var genres= new Set()
-    movies.forEach( (movie) => {
-        genres.add(movie.genre)
+async function addMovie(req, res) {
+  try {
+    const { movieName, releaseYear, description, language, genre, movieCast } = req.body;
+    const { movieFile, posterFile} = req;
+    const movie = new movieModel({
+      movieName,
+      movieFileName: movieFile,
+      moviePosterName: posterFile,
+      releaseYear,
+      description,
+      language,
+      movieCast,
+      genre,
+      like: {
+        noOfLikes: 0,
+        likedUsers: [],
+        noOfDislikes: 0,
+        dislikedUsers: []
+      },
+      reviews: []
     });
-    const temp = [...genres]
-    // console.log(temp)
-    res.status(200).json(temp)
+    await movie.save();
+    res.status(200).json(movie);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error in adding movies" });
+  }
 }
 
-async function getAllMovies(req,res){
-    try{
-        const movies=await MovieModel.find({})
-        res.status(200).json(movies)
+const updateMovie = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { movieName, genre, movieCast, releaseYear, description, language } = req.body;
+    console.log(releaseYear)
+    // Find the movie by ID
+    let movie = await movieModel.findById(id);
+    if (!movie) {
+      return res.status(404).json({ message: "Movie NOT found" });
     }
-    catch(err){
-        res.status(500).json({message:"Error in getting movie details"})
-    }
-}
 
-async function getMovie(req,res){
-    try{
-        const {id}=req.params;
-        const movie= await MovieModel.findById(id);
-        if(!movie){
-            res.status(404).json({message:"Movie NOT found"})
-        }
-        else res.status(200).json(movie);
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in getting movie details"})
-    }
-}
+    // Update movie fields with new data from req.body
+    movie.movieName = movieName || movie.movieName;
+    movie.genre = genre || movie.genre;
+    movie.movieCast = movieCast || movie.movieCast;
+    movie.releaseYear = releaseYear || movie.releaseYear;
+    movie.description = description || movie.description;
+    movie.language = language || movie.language;
 
-async function updateMovie(req,res){
-    try{
-        const id = (req.params.id);
-        movie = await MovieModel.findByIdAndUpdate(id,req.body)
-        if(!movie){
-            res.status(404).json({message:"Movie NOT found"})
-        }
-        else{
-            movie=await MovieModel.findById(id)
-            res.status(200).json(movie)
-        }
+    // Check if a video file is uploaded, if yes, update the video
+    if (req.file && req.file.fieldname === 'movie') {
+      movie.videoFile = req.file.path; // Assuming `path` is the location where multer stores the file
     }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in updating movie details"})
-    }
-} 
 
-async function deleteMovie(req,res){
-    try{
-        const id = req.params.id;
-        const movie = await MovieModel.findByIdAndDelete(id)
-        if(!movie){
-            res.status(404).json({message:"Movie NOT found"})
-        }
-        else{
-            res.status(200).json({movie:movie,message:"Movie Deleted successfully"})
-        }
+    // Check if a poster file is uploaded, if yes, update the poster
+    if (req.file && req.file.fieldname === 'poster') {
+      movie.posterFile = req.file.path;
     }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in deleting movie details"})
-    }
-}
 
-async function getComments(req,res){
-    try{
-        const id=(req.params.id)
-        const movie=await MovieModel.findById(id)
-        if(!movie){
-            res.status(404).json({message:"Movie NOT found"})
-        }
-        else{
-            res.status(200).json(movie.comments)
-        }
+    // Save the updated movie
+    const updatedMovie = await movie.save();
+    return res.status(200).json(updatedMovie);
 
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json("Error in getting all comments")
-    }
-}
-async function getLike(req,res){
-    try{
-        const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
-        if (!movie) {
-            console.log('Movie not found');
-        }
-        var userId=req.query.userId
-        console.log(userId)
-        var user =await userModel.findById(userId)
-        var found = movie.like.likedUsers.find((u) => u.email === user.email)
-        if(found)
-            res.json({liked : true})
-        else
-            res.json({liked : false})
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in liking movie"})
-    }
-}
-async function addLike(req,res){
-    try{
-        const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
-        if (!movie) {
-            console.log('Movie not found');
-        }
-        var userId=req.body.userId
-        // console.log(userId)
-        var user =await userModel.findById(userId)
-        movie.like.noOfLikes = movie.like.noOfLikes+1
-        movie.like.likedUsers.push(user)
-        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
-        res.json(updatedMovie)
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in liking movie"})
-    }
-}
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ message: "Error in updating movie details" });
+  }
+};
 
-async function removeLike(req,res){
-    try{
-        const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
-        if (!movie) {
-            console.log('Movie not found');
-        }
-        movie.like.noOfLikes = movie.like.noOfLikes-1
-        try{
-            var userId=req.body.userId;
-            var user =await userModel.findById(userId)
-            var ind = movie.like.likedUsers.indexOf(user)
-            if(ind)
-                movie.like.likedUsers.splice(ind,1)
-        }
-        catch(err){
-            console.log(err)
-            console.log("user not found");
-        }
-        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
-        res.json(updatedMovie)
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in disliking movie"})
-    }
-}
 
-async function getLikeCount(req,res){
-    try{
-        const movieId=(req.params.id)
-        const movie = await MovieModel.findById(movieId);
-        if (!movie) {
-            console.log('Movie not found');
+const deleteMovie = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    // Find the movie first to get the file paths
+    const movie = await movieModel.findById(id);
+    if (!movie) {
+      return res.status(404).json({ message: "Movie NOT found" });
+    }
+
+    // Delete the video file, if it exists
+    if (movie.videoFile) {
+      const videoPath = path.resolve(movie.videoFile);
+      fs.unlink(videoPath, (err) => {
+        if (err) {
+          console.error(`Error deleting video file: ${err}`);
+        } else {
+          console.log(`Video file deleted: ${videoPath}`);
         }
-        res.json({ "Likes": movie.like.noOfLikes });
+      });
     }
-    catch(err){
-        console.log(err)
-        res.status(500).json({message:"Error in getting like count"})
-    }
-}
 
-async function addComment(req,res){
-    try{
-        const movieId=req.params.id
-        const movie=await MovieModel.findById(movieId)
-        // console.log(req.body)
-        if(!movie){
-            res.json({message:"Movie Not found"})
+    // Delete the poster file, if it exists
+    if (movie.posterFile) {
+      const posterPath = path.resolve(movie.posterFile);
+      fs.unlink(posterPath, (err) => {
+        if (err) {
+          console.error(`Error deleting poster file: ${err}`);
+        } else {
+          console.log(`Poster file deleted: ${posterPath}`);
         }
-        var userId=req.body.userId;
-        const user=await userModel.findById(userId)
-        data={comment:req.body.comment,commentedUser:user}
-        movie.comments.push(data)
-        // console.log(movie.comments)
-        const updatedMovie = await MovieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
-        res.json(updatedMovie)
+      });
     }
-    catch(err){
-        console.log(err)
-        res.json({message:"Error in commenting"})
 
-    }
-}
+    // Now delete the movie from the database
+    await movieModel.findByIdAndDelete(id);
+    return res.status(200).json({ message: "Movie Deleted successfully" });
 
-async function search(req,res){
-    try{
-        const searchQuery=req.query.search||"";
-        const movies = await MovieModel.find({ movieName: { $regex: searchQuery, $options: 'i' } });
-        res.json(movies)
-    }
-    catch(err){
-        console.log(err)
-        res.json({message:"Error occured while searching"})
-    }
-}
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: "Error in deleting movie details" });
+  }
+};
 
-module.exports={getLikedMovies,addMovie,getAllMovies,getMovie,updateMovie,deleteMovie,getComments,getMoviesByGenre,addComment,getLikeCount,removeLike,addLike,getLike,getAllGeneres,search}
+
+module.exports={addMovie, updateMovie, deleteMovie}

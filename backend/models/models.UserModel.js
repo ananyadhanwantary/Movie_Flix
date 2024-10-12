@@ -1,15 +1,10 @@
 const mongoose=require("mongoose")
 const bcrypt=require("bcryptjs")
-
+const {movieSchema} = require("./models.movies")
 const userSchema=mongoose.Schema({
-    // _id:{
-    //     type:Number,
-    //     //required:true
-    // },
     email:{
         type:String,
         required:true,
-        //unique:true
     },
     password:{
         type:String,
@@ -24,8 +19,21 @@ const userSchema=mongoose.Schema({
     active:{
         type:Boolean,
         default:true
+    },
+    watchlist:{
+        type: [String],
+        default: [],
     }
 })
+
+userSchema.methods.addToWatchlist = function (movieId) {
+    // Ensure only unique movie IDs are added
+    if (!this.watchlist.includes(movieId)) {
+        this.watchlist.push(movieId);
+    }
+    return this.save();
+};
+
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
         return next();
