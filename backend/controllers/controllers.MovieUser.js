@@ -104,7 +104,7 @@ async function getMovie(req,res){
     }
 }
 
-async function getComments(req,res){
+async function getReviews(req,res){
     try{
         const id=(req.params.id)
         const movie=await movieModel.findById(id)
@@ -112,13 +112,13 @@ async function getComments(req,res){
             res.status(404).json({message:"Movie NOT found"})
         }
         else{
-            res.status(200).json(movie.comments)
+            res.status(200).json(movie.Reviews)
         }
 
     }
     catch(err){
         console.log(err)
-        res.status(500).json("Error in getting all comments")
+        res.status(500).json("Error in getting all Reviews")
     }
 }
 
@@ -271,29 +271,19 @@ async function getDislikeCount(req,res){
     }
 }
 
-async function addComment(req,res){
-    try{
-        const movieId=req.params.id
-        const movie=await movieModel.findById(movieId)
-        // console.log(req.body)
-        if(!movie){
-            res.json({message:"Movie Not found"})
-        }
-        var userId=req.body.userId;
-        const user=await userModel.findById(userId)
-        data={comment:req.body.comment,commentedUser:user}
-        movie.comments.push(data)
-        // console.log(movie.comments)
-        const updatedMovie = await movieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
-        res.json(updatedMovie)
-    }
-    catch(err){
+async function addReview(req,res){
+    const { rating, review, userId } = req.body;
+    try {
+      const movie = await movieModel.findById(req.params.id);
+      const user = await userModel.findById(userId)
+      movie.reviews.splice(0,0,{ reviewedUser:user.username, rating, review });
+      await movie.save();
+      res.status(200).send('Review added successfully');
+    } catch (err) {
         console.log(err)
-        res.json({message:"Error in commenting"})
-
+      res.status(500).send('Error submitting review');
     }
-}
-
+};
 async function search(req,res){
     try{
         const searchQuery=req.query.search||"";
@@ -355,4 +345,4 @@ async function removeFromWatchlist(req,res){
     }
 }
 
-module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getAllLangs, getMoviesByFilter, addComment, getLikeCount, getDislikeCount, addDislike, removeLike, addLike, removeDislike, getLike, getAllGeneres, search, getMovieFile, getPosterFile, addToWatchlist, removeFromWatchlist}
+module.exports={getLikedMovies, getAllMovies, getMovie, getReviews, getAllLangs, getMoviesByFilter, addReview, getLikeCount, getDislikeCount, addDislike, removeLike, addLike, removeDislike, getLike, getAllGeneres, search, getMovieFile, getPosterFile, addToWatchlist, removeFromWatchlist}

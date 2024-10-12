@@ -1,5 +1,5 @@
 const express=require("express")
-const {getLikedMovies, getAllMovies, getMovie, getComments, getAllLangs, getMoviesByFilter, addComment, getDislikeCount, getLikeCount, removeDislike, removeLike, addDislike, addLike, getLike, getAllGeneres, search, getMovieFile, getPosterFile, addToWatchlist, removeFromWatchlist}=require("../controllers/controllers.MovieUser")
+const {getLikedMovies, getAllMovies, getMovie, getReviews, getAllLangs, getMoviesByFilter, addReview, getDislikeCount, getLikeCount, removeDislike, removeLike, addDislike, addLike, getLike, getAllGeneres, search, getMovieFile, getPosterFile, addToWatchlist, removeFromWatchlist}=require("../controllers/controllers.MovieUser")
 
 const routes=express.Router()
 
@@ -18,8 +18,8 @@ routes.delete("/like/:id",removeLike)
 routes.delete("/dislike/:id",removeDislike)
 routes.get("/likecnt/:id",getLikeCount)
 routes.get("/dislikecnt/:id",getDislikeCount)
-routes.put("/comment/:id",addComment)
-routes.get("/comments/:id",getComments)
+routes.put("/review/:id",addReview)
+routes.get("/reviews/:id",getReviews)
 routes.get("/byFilter/:genre/:language",getMoviesByFilter)
 routes.get("/movieFile/:filename",getMovieFile)
 routes.get("/posterFile/:filename",getPosterFile)

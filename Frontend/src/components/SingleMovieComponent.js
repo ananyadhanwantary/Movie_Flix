@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../styles/SingleMovieComponent.css"
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import ReviewComponent from "./ReviewComponent";
 
 
 const posterURL = process.env.REACT_APP_posterURL;
@@ -23,13 +24,17 @@ function SingleMovieComponent() {
   const [dislike, setDislike] = useState(false);
   const [likecnt, setLikecnt] = useState(0);
   const [dislikecnt, setDislikecnt] = useState(0);
-  const [comment, setComment] = useState("");
+  const [reviews, setReviews] = useState([]);
+  const [review, setReview] = useState("");
   const [isPlaying, setIsPlaying] = useState(false); 
   const { id } = params;
   useEffect(() => {
     axios
       .get(`http://localhost:3001/api/movie/${id}`,)
-      .then((res) => setMovie(res.data))
+      .then((res) => {
+        setMovie(res.data)
+        setReviews(res.data.reviews)
+      })
       .catch((err) => console.log(err));
 
     axios.get(`http://localhost:3001/api/movie/like/${id}`,{params: { userId: userId }})
@@ -38,6 +43,12 @@ function SingleMovieComponent() {
         setDislike(res.data.disliked)
       })
       .catch((err) => console.log(err));
+
+    // axios.get(`http://localhost:3001/api/movie/comments/${id}`)
+    //   .then((res) =>{
+    //     setReview(res.data.)
+    //   })
+    //   .catch((err) => console.log(err));
   },[]);
 
   useEffect(() => {
@@ -133,18 +144,15 @@ function SingleMovieComponent() {
     }
   }
 
-  function addComment(id) {
-    const token = localStorage.getItem("token");
-    axios
-      .put(
-        `http://localhost:3001/api/movie/comment/${id}`,
-        { comment: comment, userId: userId }
+  function addreview(id) {
+    axios.put(`http://localhost:3001/api/movie/review/${id}`,
+        { review: review, userId: userId }
       )
       .then((res) => {
         if (res.data.status) navigate("/login");
         else {
-          setMovie(res.data);
-          setComment("");
+          // setMovie(res.data);
+          setReview("");
         }
       })
       .catch((err) => console.log(err));
@@ -153,11 +161,11 @@ function SingleMovieComponent() {
   function getCom(id) {
     axios
       .get(
-        `http://localhost:3001/api/movie/comments/${id}`,
+        `http://localhost:3001/api/movie/reviews/${id}`,
         { userId: userId }
       )
       .then((res) => {
-        // setgetComments(res.data);
+        // setgetreviews(res.data);
       })
       .catch((err) => console.log(err));
   }
@@ -256,39 +264,38 @@ function SingleMovieComponent() {
               </div>
 
               {/* Watchlist Button */}
-              <Button variant="primary" className="mt-3" onClick={() => handleWatchlist(movie._id)}>
+              <Button variant="primary" className="mt-3" style={{width: "fit-content"}} onClick={() => handleWatchlist(movie._id)}>
                 Add to Watchlist
               </Button>
               <ToastContainer />
 
-              {/* Comment Section */}
-              <Form.Group controlId="comment" className="mt-4">
-                <Form.Label className="fw-bold">Comment:</Form.Label>
+              {/* review Section */}
+              <ReviewComponent movieId={movie._id} userId={userId}/>
+
+              {/* <Form.Group controlId="review" className="mt-4">
+                <Form.Label className="fw-bold">review:</Form.Label>
                 <Form.Control
                   type="text"
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                  placeholder="Enter your comment here"
+                  value={review}
+                  onChange={(e) => setReview(e.target.value)}
+                  placeholder="Enter your review here"
                 />
               </Form.Group>
 
-              {/* <Button variant="primary" className="me-2" onClick={() => addComment(movie._id)}>
-                Submit Comment
-              </Button>
-              <Button variant="secondary" onClick={() => getCom(movie._id)}>
-                Get Comments
+              <Button variant="primary" className="me-2" onClick={() => addreview(movie._id)}>
+                Submit review
               </Button> */}
 
-              {/* Display Comments */}
-              {/* <div className="mt-5">
-                <h3 className="mb-3">Comments</h3>
-                {getComments.map((comment) => (
-                  <div key={comment._id} className="my-3">
-                    <div className="fw-bold">{comment.commentedUser.username}</div>
-                    <div>{comment.comment}</div>
+              {/* Display reviews */}
+              <div className="mt-5">
+                <h3 className="mb-3">Reviews</h3>
+                {reviews.map((review) => (
+                  <div key={review._id} className="my-3">
+                    <div className="fw-bold">{review.reviewedUser}</div>
+                    <div>{review.review}</div>
                   </div>
                 ))}
-              </div> */}
+              </div>
             </div>
           </div>
         </Col>
