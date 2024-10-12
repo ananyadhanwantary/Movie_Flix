@@ -8,7 +8,7 @@ const likeSchema = mongoose.Schema({
     },
     likedUsers: {
         type: [userSchema],
-        unique: true,  
+        default: [],
     },
     noOfDislikes: {
         type: Number,
@@ -16,16 +16,8 @@ const likeSchema = mongoose.Schema({
     },
     dislikedUsers: {
         type: [userSchema],
-        unique: true,  
+        default: [],
     }
 });
-
-likeSchema.index({ 
-    "likedUsers._id": 1,  
-}, { unique: true });
-
-likeSchema.index({ 
-    "dislikedUsers._id": 1,  
-}, { unique: true });
 
 module.exports = { likeSchema };

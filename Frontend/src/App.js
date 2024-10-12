@@ -21,7 +21,6 @@ import ProfileComponent from './components/ProfileComponent';
 import AboutUs from './components/AboutUs';
 import ChangePasswordComponent from './components/ChangePasswordComponent';
 import SearchComponent from './components/SearchComponet';
-
 function App() {
 // const styles = {
 //   header: {

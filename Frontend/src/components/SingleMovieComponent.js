@@ -6,7 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome play icon
 import { useAuth } from "../providers/AuthProvider";
 import { useNavigate, useParams } from "react-router-dom";
+import "../styles/SingleMovieComponent.css"
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+
 const posterURL = process.env.REACT_APP_posterURL;
+
 
 function SingleMovieComponent() {
   const navigate = useNavigate();
@@ -14,12 +20,13 @@ function SingleMovieComponent() {
   const { userId } = useAuth();
   const [movie, setMovie] = useState({});
   const [like, setLike] = useState(false);
-  const [likecnt, setLikecnt] = useState({});
+  const [dislike, setDislike] = useState(false);
+  const [likecnt, setLikecnt] = useState(0);
+  const [dislikecnt, setDislikecnt] = useState(0);
   const [comment, setComment] = useState("");
   const [isPlaying, setIsPlaying] = useState(false); 
   const { id } = params;
   useEffect(() => {
-    
     axios
       .get(`http://localhost:3001/api/movie/${id}`,)
       .then((res) => setMovie(res.data))
@@ -28,7 +35,7 @@ function SingleMovieComponent() {
     axios.get(`http://localhost:3001/api/movie/like/${id}`,{params: { userId: userId }})
       .then((res) =>{
         setLike(res.data.liked)
-        console.log(res.data)
+        setDislike(res.data.disliked)
       })
       .catch((err) => console.log(err));
   },[]);
@@ -36,10 +43,56 @@ function SingleMovieComponent() {
   useEffect(() => {
     axios.get(`http://localhost:3001/api/movie/likecnt/${id}`)
       .then((res) => {
-        setLikecnt(res.data);
+        setLikecnt(res.data.Likes);
       })
       .catch((err) => console.log(err));
   },[like])
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/api/movie/dislikecnt/${id}`)
+      .then((res) => {
+        setDislikecnt(res.data.Dislikes);
+      })
+      .catch((err) => console.log(err));
+  },[dislike])
+
+  async function handleDislike(id){
+    const token = localStorage.getItem("token");
+    if (token) {
+      if (!dislike) {
+        try {
+          var res = await axios.put(
+            `http://localhost:3001/api/movie/dislike/${id}`,
+            { userId: userId }
+          );
+          if (res.status === 200) {
+            setDislike(true);
+          }
+          if(like){
+            handleLike(id)
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      } 
+      else {
+        try {
+          var res = await axios.delete(
+            `http://localhost:3001/api/movie/dislike/${id}`,
+            { userId: userId }
+          );
+          if (res.status === 200) {
+            setDislike(false);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    } else {
+      alert("User not Logged In Please Login");
+      navigate("/login");
+    }
+  }
 
   async function handleLike(id) {
     const token = localStorage.getItem("token");
@@ -52,9 +105,12 @@ function SingleMovieComponent() {
           );
           if (res.status === 200) {
             setLike(true);
-            document.getElementById("like_button").style.color = "red";
           }
-        } catch (err) {
+          if(dislike){
+            handleDislike(id)
+          }
+        } 
+        catch (err) {
           console.log(err);
         }
       } 
@@ -62,11 +118,10 @@ function SingleMovieComponent() {
         try {
           var res = await axios.delete(
             `http://localhost:3001/api/movie/like/${id}`,
-            { userId: userId }
+            { userId: userId }  
           );
           if (res.status === 200) {
             setLike(false);
-            document.getElementById("like_button").style.color = "white";
           }
         } catch (err) {
           console.log(err);
@@ -113,8 +168,20 @@ function SingleMovieComponent() {
     setIsPlaying(true);
   };
 
+  async function handleWatchlist(id) {
+   
+    const res = axios.post(`http://localhost:3001/api/movie/watchlist/${id}`,{userId:userId})
+    .then((res) => {
+      toast.success("Movie added to watchlist!", {
+        position: "top-center"
+      });
+    })
+    .catch((err) => console.log(err));
+  }
+
   return (
     <Container className="mt-5">
+      
       <Row className="justify-content-center">
         <Col md={8}>
           <div className="card text-white bg-black bg-transparent">
@@ -170,38 +237,29 @@ function SingleMovieComponent() {
               <p><strong>Description:</strong> {movie.description}</p>
 
               {/* Like Button */}
-              <div className="d-flex align-items-center">
+              <div className="d-flex align-items-center border border-dark-subtle rounded-pill" style={{width: "fit-content"}}>
                 <AiOutlineLike
                   onClick={() => handleLike(movie._id)}
                   id="like_button"
                   style={{ cursor: "pointer", fontSize: "30px" }}
-                  className={like ? "text-danger" : "text-white"}
+                  className={like ? "text-danger mx-3 my-1" : "text-white mx-3 my-1"}
                 />
-                <p>{likecnt.Likes}</p>
-                <hr />
+                <span className="like">{likecnt}</span>
+                <div className="vr border mx-2"></div>
+                <span className="like">{dislikecnt}</span>
                 <AiOutlineDislike
-                  onClick={() => handleLike(movie._id)}
-                  id="like_button"
+                  onClick={() => handleDislike(movie._id)}
+                  id="dislike_button"
                   style={{ cursor: "pointer", fontSize: "30px", transform: "rotateY(180deg)" }}
-                  className={like ? "text-danger" : "text-white"}
+                  className={dislike ? "text-danger mx-3 my-1" : "text-white mx-3 my-1"}
                 />
               </div>
 
-              {/* <div class="like-dislike-container">
-                <div className="like-button" onclick={handleLike()}>
-                    <i className="fas fa-thumbs-up"></i>
-                    <span className="button-count">100</span>
-                </div>
-                <div className="dislike-button" onclick="toggleDislike()">
-                    <i className="fas fa-thumbs-down"></i>
-                    <span className="button-count">10</span>
-                </div>
-              </div> */}
-
               {/* Watchlist Button */}
-              <Button variant="primary" className="mt-3" onClick={() => alert("Added to Watchlist!")}>
+              <Button variant="primary" className="mt-3" onClick={() => handleWatchlist(movie._id)}>
                 Add to Watchlist
               </Button>
+              <ToastContainer />
 
               {/* Comment Section */}
               <Form.Group controlId="comment" className="mt-4">
@@ -213,6 +271,7 @@ function SingleMovieComponent() {
                   placeholder="Enter your comment here"
                 />
               </Form.Group>
+
               {/* <Button variant="primary" className="me-2" onClick={() => addComment(movie._id)}>
                 Submit Comment
               </Button>

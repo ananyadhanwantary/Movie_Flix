@@ -27,9 +27,9 @@ function MovieComponent() {
   }, [g]);
 
   // This function now passes the selected movie as state when navigating
-  function handleSingleMovie(movie) {
-    navigate(`/getMovie/${movie._id}`, { state: { movie } });
-  }
+  // function handleSingleMovie(movie) {
+  //   navigate(`/getMovie/${movie._id}`, { state: { movie } });
+  // }
 
   return (
     <div className="movie-component m-3">
@@ -40,7 +40,7 @@ function MovieComponent() {
         <Row className="justify-content-start">
           {movies.map((movie) => (
             <Col key={movie._id} xs={12} sm={6} md={4} lg={3} className="my-4">
-              <CardComponent movie={movie} handleSingleMovie={handleSingleMovie} />
+              <CardComponent movie={movie}  />
             </Col>
           ))}
         </Row>

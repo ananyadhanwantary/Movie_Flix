@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/CardComponent.css';
 const posterURL = process.env.REACT_APP_posterURL;
 
-const CardComponent = ({ movie, handleSingleMovie }) => {
+const CardComponent = ({ movie }) => {
+  const navigate = useNavigate();
+  
+  function handleSingleMovie(movie) {
+    navigate(`/getMovie/${movie._id}`, { state: { movie } }); 
+  }
+
   return (
     <div className="card-container" onClick={() => handleSingleMovie(movie)}>
       <div className="movie-card">

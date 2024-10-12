@@ -3,6 +3,7 @@ const multer = require('multer');
 // Configure storage for Multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
+    console.log("destination")
     // Check if the file is a movie or a poster and store accordingly
     if (file.fieldname === 'movie') {
       cb(null, __dirname + '/movies'); 
@@ -13,6 +14,7 @@ const storage = multer.diskStorage({
     }
   },
   filename: (req, file, cb) => {
+    console.log("destination")
     const { movieName, releaseYear } = req.body;
     let extArray = file.originalname.split('.');
     let extension = extArray[extArray.length - 1]; // Get the file extension
@@ -35,6 +37,7 @@ const storage = multer.diskStorage({
 const uploadHandler = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
+    console.log("destination")
     // Define MIME type categories
     const isImage = file.mimetype.startsWith('image/');
     const isVideo = file.mimetype.startsWith('video/');

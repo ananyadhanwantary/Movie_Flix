@@ -20,8 +20,20 @@ const userSchema=mongoose.Schema({
         type:Boolean,
         default:true
     },
-    watchlist: [String]
+    watchlist:{
+        type: [String],
+        default: [],
+    }
 })
+
+userSchema.methods.addToWatchlist = function (movieId) {
+    // Ensure only unique movie IDs are added
+    if (!this.watchlist.includes(movieId)) {
+        this.watchlist.push(movieId);
+    }
+    return this.save();
+};
+
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) {
         return next();

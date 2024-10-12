@@ -131,14 +131,12 @@ async function getLike(req,res){
             console.log('Movie not found');
             return res.status(404).json({ message: 'Movie not found' });
         }
-        
         const user = await userModel.findById(userId);
-        if (!user) {
-            console.log('user not found',userId);
-            return res.status(404).json({ message: `${userId}  user not found` });
-        }
-        const found = movie.like.likedUsers.some((u) => u.email === user.email);
-        res.json({ liked: found })
+        console.log(userId)
+        const liked = movie.like.likedUsers.some((u) => u.email === user.email);
+        const disliked = movie.like.dislikedUsers.some((u) => u.email === user.email);
+        res.json({ liked: liked, disliked: disliked })
+        
     } 
     catch (error) {
         console.error(error)
@@ -155,7 +153,6 @@ async function addLike(req,res){
             console.log('Movie not found');
         }
         var userId=req.body.userId
-        // console.log(userId)
         var user =await userModel.findById(userId)
         movie.like.noOfLikes = movie.like.noOfLikes+1
         movie.like.likedUsers.push(user)
@@ -196,14 +193,77 @@ async function removeLike(req,res){
     }
 }
 
-async function getLikeCount(req,res){
+async function addDislike(req,res){
     try{
         const movieId=(req.params.id)
         const movie = await movieModel.findById(movieId);
         if (!movie) {
             console.log('Movie not found');
         }
-        res.json({ "Likes": movie.like.noOfLikes });
+        var userId=req.body.userId
+        var user =await userModel.findById(userId)
+        movie.like.noOfDislikes = movie.like.noOfDislikes+1
+        movie.like.dislikedUsers.push(user)
+        const updatedMovie = await movieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
+        res.json(updatedMovie)
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in liking movie"})
+    }
+}
+
+async function removeDislike(req,res){
+    try{
+        const movieId=(req.params.id)
+        const movie = await movieModel.findById(movieId);
+        if (!movie) {
+            console.log('Movie not found');
+        }
+        movie.like.noOfDislikes = movie.like.noOfDislikes-1
+        try{
+            var userId=req.body.userId;
+            var user =await userModel.findById(userId)
+            var ind = movie.like.dislikedUsers.indexOf(user)
+            if(ind)
+                movie.like.dislikedUsers.splice(ind,1)
+        }
+        catch(err){
+            console.log(err)
+            console.log("user not found");
+        }
+        const updatedMovie = await movieModel.findOneAndUpdate({_id:movieId},movie,{new:true});
+        res.json(updatedMovie)
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in disliking movie"})
+    }
+}
+
+async function getLikeCount(req,res){
+    try{
+        const movieId=(req.params.id)
+        const cnt = await movieModel.findOne({ _id: movieId }, { "like.noOfLikes": 1, _id: 0 })
+        if (!cnt) {
+            console.log('Movie not found');
+        }
+        res.json({ "Likes": cnt.like.noOfLikes });
+    }
+    catch(err){
+        console.log(err)
+        res.status(500).json({message:"Error in getting like count"})
+    }
+}
+
+async function getDislikeCount(req,res){
+    try{
+        const movieId=(req.params.id)
+        const cnt = await movieModel.findOne({ _id: movieId }, { "like.noOfDislikes": 1, _id: 0 })
+        if (!cnt) {
+            console.log('Movie not found');
+        }
+        res.json({ "Dislikes": cnt.like.noOfDislikes });
     }
     catch(err){
         console.log(err)
@@ -246,4 +306,53 @@ async function search(req,res){
     }
 }
 
-module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getAllLangs, getMoviesByFilter, addComment, getLikeCount, removeLike, addLike,getLike, getAllGeneres, search, getMovieFile, getPosterFile}
+async function addToWatchlist(req,res){
+    const movieId = req.params.id;
+    const userId = req.body.userId;
+
+    try{
+        let user = await userModel.findById(userId)
+        if(user){
+            if (!user.watchlist.includes(movieId)) {
+                user.watchlist.push(movieId);
+                user =await user.save()
+            }
+            res.status(200).json({user: user})
+            console.log(user)
+        }
+        else{
+            res.status(404)
+        }
+    }
+    catch(err){
+        console.log(err)
+        res.json({message:"Error occured while adding to watchlist"})
+    }
+}
+
+async function removeFromWatchlist(req,res){
+    console.log(req)
+    const movieId = req.params.id;
+    const userId = req.query.userId;
+    console.log(userId)
+    try{
+        let user = await userModel.findById(userId)
+        if(user){
+            console.log(user.watchlist)
+            user.watchlist = user.watchlist.filter(id => id !== movieId);
+            console.log(user.watchlist)
+            user =await user.save()
+            res.status(200).json({user: user})
+            console.log(user)
+        }
+        else{
+            res.status(404).json({user: false})
+        }
+    }
+    catch(err){
+        console.log(err)
+        res.json({message:"Error occured while adding to watchlist"})
+    }
+}
+
+module.exports={getLikedMovies, getAllMovies, getMovie, getComments, getAllLangs, getMoviesByFilter, addComment, getLikeCount, getDislikeCount, addDislike, removeLike, addLike, removeDislike, getLike, getAllGeneres, search, getMovieFile, getPosterFile, addToWatchlist, removeFromWatchlist}
