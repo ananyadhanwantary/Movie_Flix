@@ -112,7 +112,7 @@ async function getReviews(req,res){
             res.status(404).json({message:"Movie NOT found"})
         }
         else{
-            res.status(200).json(movie.Reviews)
+            res.status(200).json(movie.reviews)
         }
 
     }

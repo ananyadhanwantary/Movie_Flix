@@ -24,8 +24,8 @@ function SingleMovieComponent() {
   const [dislike, setDislike] = useState(false);
   const [likecnt, setLikecnt] = useState(0);
   const [dislikecnt, setDislikecnt] = useState(0);
-  const [reviews, setReviews] = useState([]);
-  const [review, setReview] = useState("");
+  // const [reviews, setReviews] = useState([]);
+  // const [review, setReview] = useState("");
   const [isPlaying, setIsPlaying] = useState(false); 
   const { id } = params;
   useEffect(() => {
@@ -33,7 +33,6 @@ function SingleMovieComponent() {
       .get(`http://localhost:3001/api/movie/${id}`,)
       .then((res) => {
         setMovie(res.data)
-        setReviews(res.data.reviews)
       })
       .catch((err) => console.log(err));
 
@@ -43,12 +42,6 @@ function SingleMovieComponent() {
         setDislike(res.data.disliked)
       })
       .catch((err) => console.log(err));
-
-    // axios.get(`http://localhost:3001/api/movie/comments/${id}`)
-    //   .then((res) =>{
-    //     setReview(res.data.)
-    //   })
-    //   .catch((err) => console.log(err));
   },[]);
 
   useEffect(() => {
@@ -144,33 +137,6 @@ function SingleMovieComponent() {
     }
   }
 
-  function addreview(id) {
-    axios.put(`http://localhost:3001/api/movie/review/${id}`,
-        { review: review, userId: userId }
-      )
-      .then((res) => {
-        if (res.data.status) navigate("/login");
-        else {
-          // setMovie(res.data);
-          setReview("");
-        }
-      })
-      .catch((err) => console.log(err));
-  }
-
-  function getCom(id) {
-    axios
-      .get(
-        `http://localhost:3001/api/movie/reviews/${id}`,
-        { userId: userId }
-      )
-      .then((res) => {
-        // setgetreviews(res.data);
-      })
-      .catch((err) => console.log(err));
-  }
-
-
   // Function to handle video play
   const handlePlayClick = () => {
     setIsPlaying(true);
@@ -188,11 +154,11 @@ function SingleMovieComponent() {
   }
 
   return (
-    <Container className="mt-5">
-      
+    <Container fluid className="pt-5 bg-dark">
+      <Container style={{color:"#a1a1aa"}}>
       <Row className="justify-content-center">
         <Col md={8}>
-          <div className="card text-white bg-black bg-transparent">
+          <div className="card bg-transparent" style={{color:"#a1a1aa"}}>
             <div className="card-body">
               {/* Video Player with Thumbnail */}
               <div className="position-relative">
@@ -238,19 +204,23 @@ function SingleMovieComponent() {
               </div>
 
               {/* Movie Title and Details */}
-              <h2>{movie.movieName} ({movie.releaseYear})</h2>
-              <p><strong>Genre:</strong> {movie.genre}</p>
-              <p><strong>Language:</strong> {movie.language}</p>
-              <p><strong>Cast:</strong> {movie.movieCast}</p>
-              <p><strong>Description:</strong> {movie.description}</p>
+              <h1 className="roboto-condensed-font" style={{}}>{movie.movieName} ({movie.releaseYear})</h1>
+              <div className="josefin-sans-font text-capitalize" style={{color:"#008080", fontSize:"30px"}}>Movie Info:</div>
+              <ul className="roboto-regular" style={{ fontSize:"20px"}}>
+                <li><strong>Genre:</strong> {movie.genre}</li>
+                <li><strong>Language:</strong> {movie.language}</li>
+                <li><strong>Released Year:</strong> {movie.releaseYear}</li>
+                <li><strong>Cast:</strong> {movie.movieCast}</li>
+                <li><strong>Description:</strong> {movie.description}</li>
+              </ul>
 
               {/* Like Button */}
               <div className="d-flex align-items-center border border-dark-subtle rounded-pill" style={{width: "fit-content"}}>
                 <AiOutlineLike
                   onClick={() => handleLike(movie._id)}
                   id="like_button"
-                  style={{ cursor: "pointer", fontSize: "30px" }}
-                  className={like ? "text-danger mx-3 my-1" : "text-white mx-3 my-1"}
+                  style={{ cursor: "pointer", fontSize: "30px", color: like ? "red" : "white"}}
+                  className={like ? "mx-3 my-1" : "mx-3 my-1"}
                 />
                 <span className="like">{likecnt}</span>
                 <div className="vr border mx-2"></div>
@@ -264,42 +234,18 @@ function SingleMovieComponent() {
               </div>
 
               {/* Watchlist Button */}
-              <Button variant="primary" className="mt-3" style={{width: "fit-content"}} onClick={() => handleWatchlist(movie._id)}>
+              <Button variant="primary" className="mt-3 border-0" style={{backgroundColor: "#008000", width: "fit-content"}} onClick={() => handleWatchlist(movie._id)}>
                 Add to Watchlist
               </Button>
               <ToastContainer />
 
               {/* review Section */}
               <ReviewComponent movieId={movie._id} userId={userId}/>
-
-              {/* <Form.Group controlId="review" className="mt-4">
-                <Form.Label className="fw-bold">review:</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={review}
-                  onChange={(e) => setReview(e.target.value)}
-                  placeholder="Enter your review here"
-                />
-              </Form.Group>
-
-              <Button variant="primary" className="me-2" onClick={() => addreview(movie._id)}>
-                Submit review
-              </Button> */}
-
-              {/* Display reviews */}
-              <div className="mt-5">
-                <h3 className="mb-3">Reviews</h3>
-                {reviews.map((review) => (
-                  <div key={review._id} className="my-3">
-                    <div className="fw-bold">{review.reviewedUser}</div>
-                    <div>{review.review}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </Col>
       </Row>
+      </Container>
     </Container>
   );
 }

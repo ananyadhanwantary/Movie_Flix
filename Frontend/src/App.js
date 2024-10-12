@@ -65,7 +65,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'repeat',
     backgroundSize: 'cover',
-    filter: 'blur(4px)', // Adjust brightness value as needed
+    filter: 'blur(8px)', // Adjust brightness value as needed
     zIndex: -1,
   },
   content: {
