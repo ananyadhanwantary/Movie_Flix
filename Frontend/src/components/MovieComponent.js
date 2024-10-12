@@ -26,13 +26,8 @@ function MovieComponent() {
     fetchMoviesByGenre();
   }, [g]);
 
-  // This function now passes the selected movie as state when navigating
-  // function handleSingleMovie(movie) {
-  //   navigate(`/getMovie/${movie._id}`, { state: { movie } });
-  // }
-
   return (
-    <div className="movie-component m-3">
+    <div className="movie-component m-3 vh-100">
       <div className="dropdown-container mt-5 ms-4">
       <DropDown />
       </div>

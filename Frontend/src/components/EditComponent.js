@@ -11,26 +11,31 @@ function EditComponent() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    try {
+      axios
+        .get(`http://localhost:3001/api/user/${id}`)
+        .then((response) => setEmail(response.data.email));
+    } catch (err) {
+      console.log(err);
+    }
+  }, [id]);
+
   const handleEdit = (e) => {
     e.preventDefault();
-    // if (!username.trim() || !phone.trim()) {
-    //   setError("Username and phone cannot be empty.");
-    //   return;
-    // }
     setLoading(true);
     setError("");
-    const token = localStorage.getItem("token");
     axios
-      .put(
-        `http://localhost:3001/api/admin/userEdit/${id}`,
-        { username, phone },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
+      .put(`http://localhost:3001/api/user/userEdit/${id}`, {
+        username,
+        phone,
+      })
       .then((res) => {
         setLoading(false);
         if (res.status === 200) {
           alert(res.data.message);
-          navigate("/getUsers");
+          navigate("/profile");
         } else {
           setError(res.data.msg || "Could not edit data");
         }
@@ -40,62 +45,67 @@ function EditComponent() {
         setError("Error occurred while editing");
       });
   };
-  useEffect(() => {
-    try {
-      const token = localStorage.getItem("token");
-      axios
-        .get(`http://localhost:3001/api/admin/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((response) => setEmail(response.data.email));
-    } catch (err) {
-      console.log(err);
-    }
-  }, [id]);
+
   return (
-    <>
-    <br/><br/>
-      <h1>Edit User</h1>
-      <Form
-        className="center vh-100"
-        onSubmit={(e)=>handleEdit(e)}
-        style={{ maxWidth: "400px", margin: "auto" }}
-      >
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            disabled
-            // placeholder="Enter username"
-            value={email}
-          />
-        </Form.Group>
-        <Form.Group controlId="formUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group controlId="formPhone">
-          <Form.Label>Phone</Form.Label>
-          <Form.Control
-            type="tel"
-            placeholder="Enter phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </Form.Group>
-        <br/>{error && <Alert variant="danger">{error}</Alert>}
-        <br/>
-        <Button variant="primary" type="submit">
-          {loading ? "Editing..." : "Edit Changes"}
-        </Button>
-      </Form>
-      <br/><br/><br/>
-    </>
+    <div className="vh-100">
+      <br />
+      <br />
+      <div className="container-fluid d-flex align-items-center justify-content-center h-75">
+        <div className="card p-4 shadow" style={{ width: "30rem" }}>
+          <h3 className="card-title text-center">Edit Details</h3>
+          <div className="card-body">
+            <form onSubmit={(e) => handleEdit(e)}>
+              <div className="form-group form-label">
+                <label>Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  className="form-control"
+                  disabled
+                />
+              </div>
+              <div className="form-group form-label">
+                <label>Username</label>
+                <input
+                  type="text"
+                  value={username}
+                  className="form-control"
+                  required
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="form-group form-label">
+                <label>Phone number</label>
+                <input
+                  type="tel"
+                  value={phone}
+                  className="form-control"
+                  required
+                  onChange={(e) => {
+                    setPhone(e.target.value)
+                  }}
+                />
+              </div>
+              {error && <div className="alert alert-danger">{error}</div>}
+              <div className="d-grid">
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-block"
+                  disabled={loading}
+                >
+                  {loading ? "Updating" : "Update"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+    </div>
   );
 }
 export default EditComponent;

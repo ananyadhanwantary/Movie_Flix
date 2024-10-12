@@ -23,16 +23,13 @@ const SaveUser = async (req, res) => {
 const CheckUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (!email || !password) {
-      return res.json({ message: "All fields are required" });
-    }
     const user = await userModel.findOne({ email });
     if (!user) {
-      return res.json({ message: "User does not exist!! " });
+      return res.status(404).json({ message: "User does not exist!! " });
     }
     const auth = await bcrypt.compare(password, user.password);
     if (!auth) {
-      return res.json({ message: "Incorrect password or email" });
+      return res.status(500).json({ message: "Incorrect password or email" });
     }
     const token = createSecretToken(user._id);
     res.status(200).json({
@@ -47,6 +44,7 @@ const CheckUser = async (req, res) => {
     console.error(error);
   }
 };
+
 const changePassword = async (req, res) => {
   try {
     const {  currentPassword, newPassword } = req.body;
@@ -70,6 +68,8 @@ const changePassword = async (req, res) => {
     console.error(err);
   }
 };
+
+
 module.exports = {
   SaveUser,
   CheckUser,

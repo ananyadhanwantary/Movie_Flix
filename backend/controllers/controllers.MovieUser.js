@@ -27,7 +27,7 @@ async function getPosterFile(req,res){
 
 async function getLikedMovies(req,res){
     try{
-        const movies=await movieModel.find({})
+        const movies=await movieModel.find({}).sort({ releaseYear: -1 });
         var userId=req.query.userId
         var user =await userModel.findById(userId)
         var likedMovies=movies.filter((movie) =>{
@@ -47,7 +47,7 @@ async function getMoviesByFilter(req,res){
         const g = req.params.genre
         const l = req.params.language
         if(g === 'All' && l === 'All'){
-            movies=await movieModel.find({})
+            movies=await movieModel.find({}).sort({ releaseYear: -1 });
         }
         else if( l === 'All'){
             movies = await movieModel.find({ genre: { $regex: new RegExp(g, "i") } });
@@ -81,7 +81,7 @@ async function getAllLangs(req,res){
 
 async function getAllMovies(req,res){
     try{
-        const movies=await movieModel.find({})
+        const movies=await movieModel.find({}).sort({ releaseYear: -1 });
         res.status(200).json(movies)
     }
     catch(err){
@@ -314,7 +314,7 @@ async function addToWatchlist(req,res){
         let user = await userModel.findById(userId)
         if(user){
             if (!user.watchlist.includes(movieId)) {
-                user.watchlist.push(movieId);
+                user.watchlist.splice(0,0,movieId);
                 user =await user.save()
             }
             res.status(200).json({user: user})

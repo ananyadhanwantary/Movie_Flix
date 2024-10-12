@@ -4,6 +4,8 @@ import axios from "axios";
 import { useAuth } from "../providers/AuthProvider";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const ChangePassword = () => {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -17,6 +19,7 @@ const ChangePassword = () => {
   const [loading, setLoading] = useState(false);
   const { userId } = useAuth();
   const navigate=useNavigate();
+
   const handleTogglePasswordVisibility = (type) => {
     if (type === "current") setShowCurrentPassword(!showCurrentPassword);
     if (type === "new") setShowNewPassword(!showNewPassword);
@@ -49,7 +52,8 @@ const ChangePassword = () => {
           console.log(res);
           setLoading(false);
           if (res.status === 200) {
-            alert(res.data.message);
+            // alert(res.data.message);
+            toast.success(res.data.message, { position: "top-center" });
           } else {
             console.log(res.data.msg);
             setError(res.data.msg || "ChangePassword failed");
@@ -65,7 +69,7 @@ const ChangePassword = () => {
           console.log(error);
           setError(error.message || "Password change failed.");
         });
-        navigate('/');
+        navigate('/profile');
     } catch (err) {
       console.log(err);
     }
@@ -164,9 +168,6 @@ const ChangePassword = () => {
           </form>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

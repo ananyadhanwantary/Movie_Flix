@@ -54,10 +54,13 @@
   
   /* Movie details content (text) */
   .details-content {
+    width: 100%;
+    height: 100%;
     position: relative;
     z-index: 2;
     padding: 5px;
     border-radius: 10px;
+    overflow: hidden;
   }
   
   .movie-title {
@@ -77,5 +80,6 @@
     font-size: 0.9rem;
     color: #555;
     margin: 0px;
+    overflow: hidden;
   }
   

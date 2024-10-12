@@ -17,11 +17,11 @@ function ProfileComponent() {
       await axios
         .get(`http://localhost:3001/api/user/${userId}`)
         .then((res) => {
-          setUser(res.data)
-          setWatchlist(res.data.watchlist)
-          })
+          setUser(res.data);
+          setWatchlist(res.data.watchlist);
+        })
         .catch((err) => console.log(err));
-      
+
       await axios
         .get(`http://localhost:3001/api/movie/liked`, {
           params: { userId: userId },
@@ -33,15 +33,21 @@ function ProfileComponent() {
   }, []);
 
   function removeFromwatchlist(movieId) {
-    console.log(userId)
-    axios.delete(`http://localhost:3001/api/movie/watchlist/${movieId}`,{
-      params: { userId: userId }
-    })
-      .then((res) =>{ console.log("removed")
-        setWatchlist(watchlist.filter(id => id !== movieId));
-        
+    console.log(userId);
+    axios
+      .delete(`http://localhost:3001/api/movie/watchlist/${movieId}`, {
+        params: { userId: userId },
       })
-      .catch((err) => console.log(err))
+      .then((res) => {
+        console.log("removed");
+        setWatchlist(watchlist.filter((id) => id !== movieId));
+      })
+      .catch((err) => console.log(err));
+  }
+
+  function editUserDetails(e) {
+    e.preventDefault();
+    navigate(`/editUser/${userId}`)
   }
 
   function handleChangePassword(e) {
@@ -50,12 +56,11 @@ function ProfileComponent() {
   }
   return (
     <>
-      <Container className="vh-100 d-flex flex-column align-items-center justify-content-center">
+      <Container className="d-flex flex-column align-items-center justify-content-center my-5">
         <IoPersonSharp size={200} className="mb-3" />
         <Card className="mx-4" style={{ maxWidth: "500px" }}>
-          {/* <Card.Img variant="top" src={imgPath} className="rounded-circle" /> */}
           <Card.Body>
-            <Card.Title>{user.username}</Card.Title>
+            <Card.Title style={{textAlign: "center"}}>{user.username}</Card.Title>
             <Card.Text>
               <strong>Email:</strong> {user.email}
               <br />
@@ -63,49 +68,70 @@ function ProfileComponent() {
             </Card.Text>
           </Card.Body>
         </Card>
-        <button
-          className="btn btn-outline-light me-2 mt-2"
-          onClick={(e) => {
-            handleChangePassword(e);
-          }}
-        >
-          Change Password
-        </button>
+        <div className="d-flex justify-content-around mt-2">
+          <button className="btn btn-outline-light me-2" onClick={(e) => { editUserDetails(e) }}>
+            Edit
+          </button>
+          <button className="btn btn-outline-light me-2" onClick={(e) => { handleChangePassword(e) }}>
+            Change Password
+          </button>
+        </div>
       </Container>
 
-      { watchlist && watchlist.length >0 ?
-      <>
-      <h1 style={{ width: "fit-content" }} className="bold  ms-5 mb-3">
-        My Watchlist
-      </h1>
-        <Container className="">
-        <Row className="justify-content-start">
-          {watchlist.map((movieId) => (
-            <Col key={movieId} xs={12} sm={6} md={4} lg={3}  className="custom-col-lg custom-col mb-4">
-              <CardForWatchlist movieId={movieId} eventHandler={removeFromwatchlist} />
-            </Col>
-          ))}
-        </Row>
-      </Container></> : <></>
-      }
+      {watchlist && watchlist.length > 0 ? (
+        <>
+          <h1 style={{ width: "fit-content" }} className="bold  ms-5 mb-3">
+            My Watchlist
+          </h1>
+          <Container className="">
+            <Row className="justify-content-start">
+              {watchlist.map((movieId) => (
+                <Col
+                  key={movieId}
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                  className="custom-col-lg custom-col mb-4"
+                >
+                  <CardForWatchlist
+                    movieId={movieId}
+                    eventHandler={removeFromwatchlist}
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </>
+      ) : (
+        <></>
+      )}
 
-
-      { likedMovies && likedMovies.length >0 ?
-      <>
-      <h1 style={{ width: "fit-content" }} className="bold  ms-5 mb-3">
-        My Likedlist
-      </h1>
-        <Container className="">
-        <Row className="justify-content-start">
-          {likedMovies.map((movie) => (
-            <Col key={movie._id} xs={12} sm={6} md={4} lg={3}  className="custom-col-lg custom-col mb-4">
-              <CardForWatchlist movie={movie} />
-            </Col>
-          ))}
-        </Row>
-      </Container></> : <></>
-      }
-
+      {likedMovies && likedMovies.length > 0 ? (
+        <>
+          <h1 style={{ width: "fit-content" }} className="bold  ms-5 mb-3">
+            My Likedlist
+          </h1>
+          <Container className="">
+            <Row className="justify-content-start">
+              {likedMovies.map((movie) => (
+                <Col
+                  key={movie._id}
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                  className="custom-col-lg custom-col mb-4"
+                >
+                  <CardForWatchlist movie={movie} />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </>
+      ) : (
+        <div className="min-vh-100"></div>
+      )}
     </>
   );
 }
