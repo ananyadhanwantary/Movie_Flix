@@ -58,7 +58,7 @@ const ReviewComponent = ({ movieId, userId }) => {
                   />
                 ))}
               </div>
-              <p className=''>{userReview.review}</p>
+              <p className=''>{userReview.review}&nbsp;</p>
               <hr />
             </div>
           ))
