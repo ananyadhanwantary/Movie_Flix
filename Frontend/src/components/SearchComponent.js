@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
@@ -35,13 +35,7 @@ const SearchComponent = () => {
   }
 
   return (
-    <div className='mt-5'>
-      {/* <input 
-        type="search" 
-        value={query} 
-        onChange={handleInputChange} 
-        placeholder="Search for a movie..." 
-      /> */}
+    <div className='mt-5 vh-100'>
       <div className='d-flex justify-content-end pe-5 me-5 align-content-center'>
       <input
         type="search"
@@ -81,7 +75,6 @@ const SearchComponent = () => {
           ))}
         </Row>
       </Container>
-      {/* <button onClick={handleSearch}>Search</button> */}
     </div>
   );
 };

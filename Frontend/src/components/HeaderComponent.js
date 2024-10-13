@@ -49,7 +49,6 @@ function HeaderComponent() {
                 <ul className="container-fluid d-inline-flex flex-wrap h5 flex-row-reverse py-2 align-items-center m-0 gap-4" style={{listStyleType: "none", flexGrow:1}}  >
                     <li className="nav-item" onClick={ () => navigate('/aboutUs')}>About us</li>
                     <li className="nav-item" onClick={()=> navigate(`/getMovie`, { state: { movieGenre: "All", movieLanguage: "All" } })}>Movies</li>
-                    <li className='nav-item' onClick={()=> navigate(`/byGenre`, { state: { movieGenre: "All" } })}>Genre</li>
                     <li className="nav-item" onClick={(e) =>{ handleHome(e) } }>Home</li>
                     <li className='nav-item' onClick={(e)=>{handleSearch(e)}}><FaSearch /></li>
                 </ul>

@@ -22,6 +22,10 @@ function AdminMovieComponent(){
 
     }, [movies])
     
+    function handleSingleMovie(movie) {
+        navigate(`/getMovie/${movie._id}`, { state: { movie } }); 
+      }
+
     async function handleMovieDelete(id){
         try{
             const token = localStorage.getItem("token")
@@ -56,19 +60,19 @@ function AdminMovieComponent(){
     }
     return (
         <>        
-        <Container className="container-custom mb-4">
+        <Container className="container-custom mb-4 vh-100">
             <Row className="custom-row">
                 <Button className="mb-4" onClick={handleMovieInsert}>ADD MOVIE</Button>
                 {movies.map((movie) => (
                     <Col xs={12} sm={6} md={4} lg={2} className="custom-col custom-col-lg mb-4" key={movie._id}>
                         <Card className='card-custom'>
-                            <Card.Img  variant="top" src={`${posterURL}${movie.moviePosterName}`} />
+                            <Card.Img  variant="top" src={`${posterURL}${movie.moviePosterName}`} onClick={() => handleSingleMovie(movie)} />
                             <Card.Body className="card-body-custom">
                                 <div className="card-content">
                                     <Card.Title className="card-title-custom fs-6">{movie.movieName}</Card.Title>
                                 </div>
                                 <div className='d-flex flex-column'>
-                                    <Button variant="primary" className='mb-2'>Play Movie</Button>
+                                    {/* <Button variant="primary" className='mb-2'>Play Movie</Button> */}
                                     <div className='d-flex justify-content-center justify-content-around align-items-center'>
                                         <div style={{backgroundColor: "#21eb38"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleMovieUpdate(movie)}><FaPenSquare/></div>
                                         <div style={{backgroundColor: "#f72525"}} className='border border-1 border-dark px-3 py-1 d-flex justify-content-center align-items-center' onClick={() => handleMovieDelete(movie._id)}><MdDelete/></div>

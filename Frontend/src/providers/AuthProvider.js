@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
@@ -18,16 +19,15 @@ const AuthProvider = ({children}) => {
     })
     const navigate = useNavigate()
     const loginAction  = async (data) => {
+        console.log("Login action")
         try{
+            console.log("Login action")
             const response = await axios.post('http://localhost:3001/api/login',data)
             if(response.data){
-                //console.log(response.data)
-                alert(response.data.message)
-                // setUser(response.data.user)
+                console.log(response.data)
                 setToken(response.data.token)
                 setUserId(response.data.userId)
                 setRole(response.data.role)
-                // console.log(user,token,userId,role)
                 localStorage.setItem('token',JSON.stringify(response.data.token))
                 localStorage.setItem('userId',JSON.stringify(response.data.userId))
                 localStorage.setItem('role',JSON.stringify(response.data.role))
@@ -37,14 +37,16 @@ const AuthProvider = ({children}) => {
                 else if(response.data.role==="user"){
                     navigate('/')
                 }
-                return
+                return response.status
             }
             throw new Error(response.data.message)
         }
         catch(err){
-            alert(err)
-            navigate("/signup")
+            // if(err.response.status == 404){
+            //     navigate("/signup")
+            // }
             console.error(err)
+            return err.response.status
         }
     }
     const logout = () =>{

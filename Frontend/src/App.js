@@ -9,18 +9,19 @@ import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
 import MovieAddComponent from './components/MovieAddComponent';
 import MovieComponent from "./components/MovieComponent";
-import MovieEditComponent from './components/MovieEditComponent';
 import RegisterComponent from './components/RegisterComponent';
 import SingleMovieComponent from './components/SingleMovieComponent';
 import UserComponent from './components/UserComponent';
 import AuthProvider from './providers/AuthProvider';
 import AdminProtectedRoute from './routes/AdminProtectedRoute';
 import UserProtectedRoute from './routes/UserProtectedRoute';
-import GenreComponent from './components/GenreComponent';
 import ProfileComponent from './components/ProfileComponent';
 import AboutUs from './components/AboutUs';
 import ChangePasswordComponent from './components/ChangePasswordComponent';
-import SearchComponent from './components/SearchComponet';
+import SearchComponent from './components/SearchComponent';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
 // const styles = {
 //   header: {
@@ -64,7 +65,7 @@ const styles = {
     backgroundPosition: 'center',
     backgroundRepeat: 'repeat',
     backgroundSize: 'cover',
-    filter: 'blur(4px)', // Adjust brightness value as needed
+    filter: 'blur(8px)', // Adjust brightness value as needed
     zIndex: -1,
   },
   content: {
@@ -88,7 +89,9 @@ const styles = {
 }
 
   return (
+    
     <div style={styles.header}>
+    <ToastContainer/>
     <div style={styles.backgroundImageContainer}></div>
       <div style={styles.content} >
       <BrowserRouter>
@@ -102,21 +105,19 @@ const styles = {
             <Route path='/aboutUs' element={<AboutUs/>}></Route>
             
             <Route element={<UserProtectedRoute/>}>
-              <Route path="/byGenre" element={<GenreComponent/>}></Route>
               <Route path="/getMovie" element={<MovieComponent/>}></Route>
               <Route path="/getMovie/:id" element={<SingleMovieComponent/>}></Route>
               <Route path='/profile' element={<ProfileComponent/>}></Route>
               <Route path='/changePassword' element={<ChangePasswordComponent/>}></Route>
               <Route path="/search/"element={<SearchComponent/>}></Route>
+              <Route path='/editUser/:id' element={<EditComponent/>}></Route>
             </Route>
 
             <Route element={<AdminProtectedRoute/>}>
               <Route path="/admin" element={<AdminHomeComponent/>}></Route>
               <Route path="/getUsers" element={<UserComponent/>}></Route>
-              <Route path='/editUser/:id' element={<EditComponent/>}></Route>
               <Route path="/addMovie/:id?" element={<MovieAddComponent/>}></Route>
               <Route path="/admin/movie" element={<AdminMovieComponent/>}></Route>
-              {/* <Route path="/editMovie/:id" element={<MovieEditComponent/>}></Route> */}
             </Route>
           </Routes>
           </div>
