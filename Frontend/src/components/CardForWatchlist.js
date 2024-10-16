@@ -18,7 +18,7 @@ const CardForWatchlist = ({ movieId, movie, eventHandler}) => {
     else{
       setMov(movie);
     }
-  }, []);
+  }, [movie, movieId]);
 
   function handleSingleMovie(movie) {
     navigate(`/getMovie/${movie._id}`, { state: { movie } }); 
