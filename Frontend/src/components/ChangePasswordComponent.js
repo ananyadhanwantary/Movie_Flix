@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../providers/AuthProvider";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 const ChangePassword = () => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { AiOutlineLike, AiOutlineDislike, AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome play icon
 import { useAuth } from "../providers/AuthProvider";
@@ -42,7 +42,7 @@ function SingleMovieComponent() {
         setDislike(res.data.disliked)
       })
       .catch((err) => console.log(err));
-  },[]);
+  },[id, userId]);
 
   useEffect(() => {
     axios.get(`http://localhost:3001/api/movie/likecnt/${id}`)
@@ -50,7 +50,7 @@ function SingleMovieComponent() {
         setLikecnt(res.data.Likes);
       })
       .catch((err) => console.log(err));
-  },[like])
+  },[id, like])
 
   useEffect(() => {
     axios.get(`http://localhost:3001/api/movie/dislikecnt/${id}`)
@@ -58,7 +58,7 @@ function SingleMovieComponent() {
         setDislikecnt(res.data.Dislikes);
       })
       .catch((err) => console.log(err));
-  },[dislike])
+  },[dislike, id])
 
   async function handleDislike(id){
     const token = localStorage.getItem("token");
@@ -144,7 +144,7 @@ function SingleMovieComponent() {
 
   async function handleWatchlist(id) {
    
-    const res = axios.post(`http://localhost:3001/api/movie/watchlist/${id}`,{userId:userId})
+    axios.post(`http://localhost:3001/api/movie/watchlist/${id}`,{userId:userId})
     .then((res) => {
       toast.success("Movie added to watchlist!", {
         position: "top-center"

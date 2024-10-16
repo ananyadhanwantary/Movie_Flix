@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom'; // Import useParams to get the ID from the URL
+import { useParams } from 'react-router-dom'; // Import useParams to get the ID from the URL
 
 const MovieAddComponent = () => {
   const [movieName, setMovieName] = useState('');
@@ -15,7 +15,6 @@ const MovieAddComponent = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const { id } = useParams(); // Get the movie ID from the URL if it exists
-  const navigate = useNavigate();
 
   // Fetch movie details if we are editing an existing movie
   useEffect(() => {

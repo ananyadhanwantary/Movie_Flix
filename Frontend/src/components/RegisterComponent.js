@@ -3,8 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
-import { toast, ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
 
 function RegisterComponent() {
   const [user, setUser] = useState({

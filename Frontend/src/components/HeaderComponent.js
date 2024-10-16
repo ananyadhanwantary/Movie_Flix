@@ -31,10 +31,6 @@ function HeaderComponent() {
         if(role==="admin")      navigate('/admin');
         else    navigate('/');
     }
-    function handleMovie(e){
-        e.preventDefault()
-        navigate('/getMovie')
-    }
     function handleSearch(e){
         e.preventDefault()
         navigate('/search/')

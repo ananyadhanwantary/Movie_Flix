@@ -19,7 +19,7 @@ import ProfileComponent from './components/ProfileComponent';
 import AboutUs from './components/AboutUs';
 import ChangePasswordComponent from './components/ChangePasswordComponent';
 import SearchComponent from './components/SearchComponent';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
