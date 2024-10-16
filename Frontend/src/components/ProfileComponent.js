@@ -30,7 +30,7 @@ function ProfileComponent() {
         .catch((err) => console.log(err));
     }
     getData();
-  }, []);
+  }, [userId]);
 
   function removeFromwatchlist(movieId) {
     console.log(userId);

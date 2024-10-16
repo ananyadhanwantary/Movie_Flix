@@ -1,28 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import { FaPenSquare } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 
 function UserComponent() {
-    const navigate = useNavigate();
     const [users, setUsers] = useState([]);
-
-    const handleEdit = (id) => {
-        navigate(`/editUser/${id}`);
-    };
-
-    const handleDelete = async (id) => {
-        const token = localStorage.getItem("token");
-        const res = await axios.delete(`http://localhost:3001/api/admin/delete/${id}`, { headers: { Authorization: `Bearer ${token}` } });
-        if (res.status === 200) {
-            console.log(res.data);
-            setUsers(users.filter(user => user._id !== id));
-        } else {
-            alert(res.data.message);
-        }
-    };
 
     useEffect(() => {
         const fetchUsers = async () => {

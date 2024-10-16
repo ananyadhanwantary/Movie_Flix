@@ -81,6 +81,7 @@ function SingleMovieComponent() {
       } 
       else {
         try {
+          // eslint-disable-next-line no-redeclare
           var res = await axios.delete(
             `http://localhost:3001/api/movie/dislike/${id}`,
             { userId: userId }
@@ -120,6 +121,7 @@ function SingleMovieComponent() {
       } 
       else {
         try {
+          // eslint-disable-next-line no-redeclare
           var res = await axios.delete(
             `http://localhost:3001/api/movie/like/${id}`,
             { userId: userId }  
