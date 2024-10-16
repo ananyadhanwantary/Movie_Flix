@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+const API_URL = process.env.REACT_APP_API_URL
 
 function RegisterComponent() {
   const [user, setUser] = useState({
@@ -24,7 +25,7 @@ function RegisterComponent() {
     setLoading(true);
     setError("");
     axios
-      .post("http://localhost:3001/api/signup", user)
+      .post(API_URL+"api/signup", user)
       .then((res) => {
         setLoading(false);
         if (res.status === 200) {

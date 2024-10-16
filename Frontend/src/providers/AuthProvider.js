@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+const API_URL = process.env.REACT_APP_API_URL
 
 const AuthContext = createContext()
 
@@ -22,7 +23,7 @@ const AuthProvider = ({children}) => {
         console.log("Login action")
         try{
             console.log("Login action")
-            const response = await axios.post('http://localhost:3001/api/login',data)
+            const response = await axios.post(API_URL+'api/login',data)
             if(response.data){
                 console.log(response.data)
                 setToken(response.data.token)

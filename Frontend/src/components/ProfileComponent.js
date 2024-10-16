@@ -5,6 +5,7 @@ import { useAuth } from "../providers/AuthProvider";
 import { IoPersonSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import CardForWatchlist from "./CardForWatchlist";
+const API_URL = process.env.REACT_APP_API_URL
 
 function ProfileComponent() {
   var navigate = useNavigate();
@@ -15,7 +16,7 @@ function ProfileComponent() {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://localhost:3001/api/user/${userId}`)
+        .get(`${API_URL}api/user/${userId}`)
         .then((res) => {
           setUser(res.data);
           setWatchlist(res.data.watchlist);
@@ -23,7 +24,7 @@ function ProfileComponent() {
         .catch((err) => console.log(err));
 
       await axios
-        .get(`http://localhost:3001/api/movie/liked`, {
+        .get(`${API_URL}api/movie/liked`, {
           params: { userId: userId },
         })
         .then((res) => setLikedMovies(res.data))
@@ -35,7 +36,7 @@ function ProfileComponent() {
   function removeFromwatchlist(movieId) {
     console.log(userId);
     axios
-      .delete(`http://localhost:3001/api/movie/watchlist/${movieId}`, {
+      .delete(`${API_URL}api/movie/watchlist/${movieId}`, {
         params: { userId: userId },
       })
       .then((res) => {

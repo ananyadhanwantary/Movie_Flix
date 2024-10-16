@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Container, Alert, Spinner } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'; // Import useParams to get the ID from the URL
+const API_URL = process.env.REACT_APP_API_URL
 
 const MovieAddComponent = () => {
   const [movieName, setMovieName] = useState('');
@@ -20,7 +21,7 @@ const MovieAddComponent = () => {
   useEffect(() => {
     if (id) {
       // If `id` is present, fetch movie data
-      axios.get(`http://localhost:3001/api/movie/${id}`)
+      axios.get(`${API_URL}api/movie/${id}`)
         .then((response) => {
           const movie = response.data;
           setMovieName(movie.movieName);
@@ -69,7 +70,7 @@ const MovieAddComponent = () => {
       
       if (id) {
         // If there's an `id`, update the existing movie
-        response = await axios.put(`http://localhost:3001/api/admin/movie/${id}`, formData, {
+        response = await axios.put(`${API_URL}api/admin/movie/${id}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

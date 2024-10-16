@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaStar, FaUserCircle } from "react-icons/fa"; // Import FontAwesome user icon  // Import Font Awesome stars
 import axios from 'axios';  // For API requests
 import '../styles/ReviewComponent.css';  // CSS for stars and layout
+const API_URL = process.env.REACT_APP_API_URL
 
 const ReviewComponent = ({ movieId, userId }) => {
   const [rating, setRating] = useState(null);  // Current user's rating (out of 5)
@@ -12,7 +13,7 @@ const ReviewComponent = ({ movieId, userId }) => {
   // Fetch reviews from other users when the component mounts
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/movie/reviews/${movieId}`)
+      .get(`${API_URL}api/movie/reviews/${movieId}`)
       .then((res) => setReviews(res.data)) // Assuming API returns reviews as an array
       .catch((err) => console.log(err));
   }, [review,movieId]);
@@ -25,7 +26,7 @@ const ReviewComponent = ({ movieId, userId }) => {
     }
 
     axios
-      .put(`http://localhost:3001/api/movie/review/${movieId}`, {
+      .put(`${API_URL}api/movie/review/${movieId}`, {
         userId,
         rating,
         review,

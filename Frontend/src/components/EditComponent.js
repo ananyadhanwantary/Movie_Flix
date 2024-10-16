@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL
 
 function EditComponent() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ function EditComponent() {
   useEffect(() => {
     try {
       axios
-        .get(`http://localhost:3001/api/user/${id}`)
+        .get(`${API_URL}api/user/${id}`)
         .then((response) => setEmail(response.data.email));
     } catch (err) {
       console.log(err);
@@ -26,7 +27,7 @@ function EditComponent() {
     setLoading(true);
     setError("");
     axios
-      .put(`http://localhost:3001/api/user/userEdit/${id}`, {
+      .put(`${API_URL}api/user/userEdit/${id}`, {
         username,
         phone,
       })

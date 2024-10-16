@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import CardComponent from "./CardComponent";
+const API_URL = process.env.REACT_APP_API_URL
 
 
 function MovieComponent() {
@@ -16,7 +17,7 @@ function MovieComponent() {
   useEffect(() => {
     async function fetchMoviesByGenre() {
       try {
-        const response = await axios.get(`http://localhost:3001/api/movie/byFilter/${g}/${l}`);
+        const response = await axios.get(`${API_URL}api/movie/byFilter/${g}/${l}`);
         setMovies(response.data);
       } catch (err) {
         console.log(err);

@@ -1,6 +1,5 @@
 const mongoose=require("mongoose")
 const bcrypt=require("bcryptjs")
-const {movieSchema} = require("./models.movies")
 const userSchema=mongoose.Schema({
     email:{
         type:String,

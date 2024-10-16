@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+const API_URL = process.env.REACT_APP_API_URL
 
 function UserComponent() {
     const [users, setUsers] = useState([]);
@@ -9,7 +10,7 @@ function UserComponent() {
         const fetchUsers = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const response = await axios.get("http://localhost:3001/api/admin/", { headers: { Authorization: `Bearer ${token}` } });
+                const response = await axios.get(API_URL+"api/admin/", { headers: { Authorization: `Bearer ${token}` } });
                 setUsers(response.data);
             } catch (err) {
                 console.log(err);
