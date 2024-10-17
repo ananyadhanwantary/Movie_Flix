@@ -78,7 +78,7 @@ const MovieAddComponent = () => {
         setMessage('Movie updated successfully!');
       } else {
         // If no `id`, add a new movie
-        response = await axios.post(`${API_URL}/api/admin/movie`, formData, {
+        response = await axios.post(`${API_URL}api/admin/movie`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
