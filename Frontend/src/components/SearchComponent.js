@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-
+const API_URL = process.env.REACT_APP_API_URL
 const posterURL = process.env.REACT_APP_posterURL;
 
 const SearchComponent = () => {
@@ -15,7 +15,7 @@ const SearchComponent = () => {
   useEffect(() => {
     async function handleSearchBar(query) {
       try {
-        const response = await axios.get(`http://localhost:3001/api/movie/search?search=${query}`)
+        const response = await axios.get(`${API_URL}api/movie/search?search=${query}`)
         console.log(response.data)
         setSearch(response.data)
       }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { AiOutlineLike, AiOutlineDislike, AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome play icon
 import { useAuth } from "../providers/AuthProvider";
@@ -11,7 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import ReviewComponent from "./ReviewComponent";
 
-
+const API_URL = process.env.REACT_APP_API_URL
 const posterURL = process.env.REACT_APP_posterURL;
 
 
@@ -30,35 +30,35 @@ function SingleMovieComponent() {
   const { id } = params;
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/movie/${id}`,)
+      .get(`${API_URL}api/movie/${id}`,)
       .then((res) => {
         setMovie(res.data)
       })
       .catch((err) => console.log(err));
 
-    axios.get(`http://localhost:3001/api/movie/like/${id}`,{params: { userId: userId }})
+    axios.get(`${API_URL}api/movie/like/${id}`,{params: { userId: userId }})
       .then((res) =>{
         setLike(res.data.liked)
         setDislike(res.data.disliked)
       })
       .catch((err) => console.log(err));
-  },[]);
+  },[id, userId]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/movie/likecnt/${id}`)
+    axios.get(`${API_URL}api/movie/likecnt/${id}`)
       .then((res) => {
         setLikecnt(res.data.Likes);
       })
       .catch((err) => console.log(err));
-  },[like])
+  },[id, like])
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/api/movie/dislikecnt/${id}`)
+    axios.get(`${API_URL}api/movie/dislikecnt/${id}`)
       .then((res) => {
         setDislikecnt(res.data.Dislikes);
       })
       .catch((err) => console.log(err));
-  },[dislike])
+  },[dislike, id])
 
   async function handleDislike(id){
     const token = localStorage.getItem("token");
@@ -66,7 +66,7 @@ function SingleMovieComponent() {
       if (!dislike) {
         try {
           var res = await axios.put(
-            `http://localhost:3001/api/movie/dislike/${id}`,
+            `${API_URL}api/movie/dislike/${id}`,
             { userId: userId }
           );
           if (res.status === 200) {
@@ -81,8 +81,9 @@ function SingleMovieComponent() {
       } 
       else {
         try {
+          // eslint-disable-next-line no-redeclare
           var res = await axios.delete(
-            `http://localhost:3001/api/movie/dislike/${id}`,
+            `${API_URL}api/movie/dislike/${id}`,
             { userId: userId }
           );
           if (res.status === 200) {
@@ -104,7 +105,7 @@ function SingleMovieComponent() {
       if (!like) {
         try {
           var res = await axios.put(
-            `http://localhost:3001/api/movie/like/${id}`,
+            `${API_URL}api/movie/like/${id}`,
             { userId: userId }
           );
           if (res.status === 200) {
@@ -120,8 +121,9 @@ function SingleMovieComponent() {
       } 
       else {
         try {
+          // eslint-disable-next-line no-redeclare
           var res = await axios.delete(
-            `http://localhost:3001/api/movie/like/${id}`,
+            `${API_URL}api/movie/like/${id}`,
             { userId: userId }  
           );
           if (res.status === 200) {
@@ -144,7 +146,7 @@ function SingleMovieComponent() {
 
   async function handleWatchlist(id) {
    
-    const res = axios.post(`http://localhost:3001/api/movie/watchlist/${id}`,{userId:userId})
+    axios.post(`${API_URL}api/movie/watchlist/${id}`,{userId:userId})
     .then((res) => {
       toast.success("Movie added to watchlist!", {
         position: "top-center"

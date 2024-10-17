@@ -2,12 +2,12 @@ import DropDown from "./DropDown";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import CardComponent from "./CardComponent";
+const API_URL = process.env.REACT_APP_API_URL
 
 
 function MovieComponent() {
-  const navigate = useNavigate();
   const location = useLocation();
   const { state } = location;
   const [movies, setMovies] = useState([]);
@@ -17,14 +17,14 @@ function MovieComponent() {
   useEffect(() => {
     async function fetchMoviesByGenre() {
       try {
-        const response = await axios.get(`http://localhost:3001/api/movie/byFilter/${g}/${l}`);
+        const response = await axios.get(`${API_URL}api/movie/byFilter/${g}/${l}`);
         setMovies(response.data);
       } catch (err) {
         console.log(err);
       }
     }
     fetchMoviesByGenre();
-  }, [g]);
+  }, [g, l]);
 
   return (
     <div className="movie-component m-3 vh-100">

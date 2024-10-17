@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { useAuth } from "../providers/AuthProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { loginAction } = useAuth();
 
@@ -23,10 +22,10 @@ const Login = () => {
     setLoading(true);
     var status = await loginAction({ email, password });
     console.log(status)
-    if(status == 200){
+    if(status === 200){
       toast.success("Login successful", { position: "top-center" });
     }
-    else if(status == 404){
+    else if(status === 404){
       toast.error("User does not exist! Signup", { position: "top-center" });
       clearForm()
     }

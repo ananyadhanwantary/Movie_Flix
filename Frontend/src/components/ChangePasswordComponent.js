@@ -4,8 +4,10 @@ import axios from "axios";
 import { useAuth } from "../providers/AuthProvider";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+
+const API_URL = process.env.REACT_APP_API_URL
 
 const ChangePassword = () => {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -43,7 +45,7 @@ const ChangePassword = () => {
     setError("");
     try {
       axios
-        .post("http://localhost:3001/api/changePassword", {
+        .post(API_URL+"api/changePassword", {
           userId: userId,
           currentPassword,
           newPassword,

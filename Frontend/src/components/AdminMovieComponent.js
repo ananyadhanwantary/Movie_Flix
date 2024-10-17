@@ -6,14 +6,14 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import "../styles/GenreComponent.css";
 const posterURL = process.env.REACT_APP_posterURL;
-
+const API_URL = process.env.REACT_APP_API_URL
 
 function AdminMovieComponent(){
     const navigate = useNavigate()
     const [movies, setMovies] = useState([])
     useEffect(() => {
         try {
-            axios.get("http://localhost:3001/api/movie/")
+            axios.get(API_URL+"api/movie/")
                 .then(response => setMovies(response.data))
         }
         catch (err) {

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { ListGroup, Row, Col } from 'react-bootstrap';
+const API_URL = process.env.REACT_APP_API_URL
 
 function DropDown() {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ function DropDown() {
     useEffect(() => {
       async function fetchGenres() {
           try {
-              const response = await axios.get("http://localhost:3001/api/movie/getAllGenres");
+              const response = await axios.get(API_URL+"api/movie/getAllGenres");
               var l=response.data
               l.splice(0, 0, "All")
               setGenres(l)
@@ -24,7 +25,7 @@ function DropDown() {
       }
       async function fetchLangs() {
         try {
-            const response = await axios.get("http://localhost:3001/api/movie/getAllLangs");
+            const response = await axios.get(API_URL+"api/movie/getAllLangs");
             var l=response.data
             l.splice(0, 0, "All")
             setLangs(l)

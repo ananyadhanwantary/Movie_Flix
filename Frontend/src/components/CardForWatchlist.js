@@ -1,5 +1,4 @@
 import React from "react";
-import CardComponent from "./CardComponent";
 import { Card,Button } from "react-bootstrap";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -7,19 +6,21 @@ import { useNavigate } from 'react-router-dom';
 const CardForWatchlist = ({ movieId, movie, eventHandler}) => {
   const [mov, setMov] = useState({});
   const posterURL = process.env.REACT_APP_posterURL;
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const navigate = useNavigate();
 
   useEffect(() => {
     if(movieId){
       axios
-        .get(`http://localhost:3001/api/movie/${movieId}`)
+        .get(`${API_URL}api/movie/${movieId}`)
         .then((res) => setMov(res.data))
         .catch((err) => console.log(err));
     }
     else{
       setMov(movie);
     }
-  }, []);
+  }, [API_URL, movie, movieId]);
 
   function handleSingleMovie(movie) {
     navigate(`/getMovie/${movie._id}`, { state: { movie } }); 
