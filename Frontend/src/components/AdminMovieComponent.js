@@ -29,7 +29,7 @@ function AdminMovieComponent(){
     async function handleMovieDelete(id){
         try{
             const token = localStorage.getItem("token")
-            var res = await axios.delete(`http://localhost:3001/api/admin/movie/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
+            var res = await axios.delete(`${API_URL}api/admin/movie/${id}`,{ headers: {"Authorization" : `Bearer ${token}`} })
             if(res.data.status===false){
                 if(res.data.login===false){
                     alert("please Login to proceed")
